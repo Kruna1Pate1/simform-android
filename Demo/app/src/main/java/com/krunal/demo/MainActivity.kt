@@ -1,5 +1,6 @@
 package com.krunal.demo
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.krunal.demo.databinding.ActivityMainBinding
@@ -12,6 +13,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    lateinit var mPlayer: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +29,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stop()
+    }
+
+    private fun play() {
+        mPlayer = MediaPlayer.create(this, R.raw.clock)
+        mPlayer.isLooping = true
+        mPlayer.start()
+    }
+
+    private fun stop() {
+        mPlayer.stop()
+        mPlayer.release()
+    }
+
 
     private val currTime: String
         get() {
