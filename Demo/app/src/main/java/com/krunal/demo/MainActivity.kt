@@ -3,26 +3,26 @@ package com.krunal.demo
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.krunal.demo.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var mPlayer: MediaPlayer
+    private val viewModel: MainActivityViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        CoroutineScope(Dispatchers.Default).launch {
-            while (true) {
-                val time = currTime
+        CoroutineScope(Dispatchers.IO).launch {
+            viewModel.timeFlow.collectLatest { time ->
                 runOnUiThread {
                     binding.lblTime.text = getString(R.string.current_time, time)
                 }
@@ -50,11 +50,4 @@ class MainActivity : AppCompatActivity() {
         mPlayer.stop()
         mPlayer.release()
     }
-
-
-    private val currTime: String
-        get() {
-            val sdf = SimpleDateFormat("HH:mm:ss")
-            return sdf.format(Date())
-        }
 }
