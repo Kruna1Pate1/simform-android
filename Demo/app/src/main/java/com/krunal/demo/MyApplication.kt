@@ -1,4 +1,4 @@
-package com.krunal.lifecycledemo
+package com.krunal.demo
 
 import android.app.Application
 

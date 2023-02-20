@@ -30,14 +30,40 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        show("onStart", TAG, binding.tvLbl)
+    }
+
     override fun onResume() {
         super.onResume()
         play()
+        show("onResume", TAG, binding.tvLbl)
     }
 
     override fun onPause() {
         super.onPause()
         stop()
+        show("onPause", TAG, binding.tvLbl)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        show("onStop", TAG, binding.tvLbl)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        show("onRestart", TAG, binding.tvLbl)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        show("onDestroy", TAG, binding.tvLbl)
+    }
+
+    companion object {
+        private const val TAG = "MainActivity"
     }
 
     private fun play() {
