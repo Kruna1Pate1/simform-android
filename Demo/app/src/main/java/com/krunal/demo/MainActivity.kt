@@ -3,6 +3,7 @@ package com.krunal.demo
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.krunal.demo.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        Log.d(TAG, "onCreate: change 1")
+        Log.d(TAG, "onCreate: change 2")
+        Log.d(TAG, "onCreate: change 3")
     }
 
     override fun onResume() {
@@ -49,5 +54,9 @@ class MainActivity : AppCompatActivity() {
     private fun stop() {
         mPlayer.stop()
         mPlayer.release()
+    }
+
+    companion object {
+        private const val TAG = "MainActivity"
     }
 }
