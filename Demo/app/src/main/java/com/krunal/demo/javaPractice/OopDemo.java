@@ -1,5 +1,7 @@
 package com.krunal.demo.javaPractice;
 
+import com.krunal.demo.notExist.javaPractice.DummyPackage;
+
 public class OopDemo {
     public static void main(String[] args) {
         Animal animal = new Animal() {
@@ -16,6 +18,8 @@ public class OopDemo {
 
         animal = new Lion();
         System.out.println(animal.speak());
+
+        DummyPackage dp = new DummyPackage();
     }
 }
 

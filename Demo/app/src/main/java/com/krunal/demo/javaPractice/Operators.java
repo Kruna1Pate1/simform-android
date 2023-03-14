@@ -1,5 +1,9 @@
 package com.krunal.demo.javaPractice;
 
+import java.util.Map;
+
+import kotlin.Triple;
+
 public class Operators {
     public static void main(String[] args) {
         int n1 = 5;
@@ -52,7 +56,11 @@ public class Operators {
             System.out.println("It's String");
         }
 
-
+        // Round off error
+        double a = 1.2;
+        double b = 1.1;
+        double c = a - b;
+        System.out.println(c);
     }
 
     static boolean echo(boolean flag) {
