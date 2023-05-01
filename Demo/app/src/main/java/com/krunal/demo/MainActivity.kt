@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
-    lateinit var mPlayer: MediaPlayer
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var mPlayer: MediaPlayer
     private val viewModel: MainActivityViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
