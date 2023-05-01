@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.krunal.demo.stackexchange.utils.Formatter" />
+
+        <variable
+            name="exchangeModel"
+            type="com.krunal.demo.stackexchange.models.ExchangeModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="?attr/colorSecondaryContainer">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <include
+                android:id="@+id/exchangeView"
+                layout="@layout/exchange_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:heading="@{ @string/you_exchange }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shareDetails="@{ exchangeModel.exchange }" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/exchangeView" />
+
+            <ImageButton
+                android:id="@+id/imgBtnSwap"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_swap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider1"
+                app:tint="?attr/colorSecondary" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgBtnSwap" />
+
+            <include
+                android:id="@+id/receiverView"
+                layout="@layout/exchange_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                app:heading="@{ @string/you_receive }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
+                app:shareDetails="@{ exchangeModel.receive }" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/receiverView" />
+
+            <TextView
+                android:id="@+id/tvTransactionCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                android:text="@string/transaction_cost"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+            <TextView
+                android:id="@+id/tvTransactionAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                android:text="@{ @string/euro_amount(Formatter.euroFormat(exchangeModel.transactionCost)) }"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintEnd_toStartOf="@id/tvCompanyName"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintStart_toEndOf="@id/tvTransactionCost"
+                app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+            <TextView
+                android:id="@+id/tvCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="@{ exchangeModel.exchange.name + Formatter.euroFormat(17521) }"
+                android:textAppearance="@style/Body2"
+                android:textColor="?attr/colorSecondary"
+                app:drawableResource="@{ exchangeModel.exchange.logo }"
+                app:drawableTint="?attr/colorSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvTransactionCost"
+                tools:drawableStartCompat="@drawable/ic_avax_logo"
+                tools:text="AVAX 175.21" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

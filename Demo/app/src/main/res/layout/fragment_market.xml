@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.krunal.demo.stackexchange.utils.Formatter" />
+
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.stackexchange.market.MarketFragmentViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".stackexchange.market.MarketFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabBar"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_tab_layout"
+                android:clipChildren="true"
+                android:clipToOutline="true"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tabBackground="@drawable/rounded_tab_layout"
+                app:tabIndicatorColor="?attr/colorTertiary"
+                app:tabIndicatorHeight="60dp">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buying"
+                    android:textSize="@dimen/subtitle_text_size" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selling"
+                    android:textSize="@dimen/subtitle_text_size" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/margin"
+                    android:textSize="@dimen/subtitle_text_size" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:checkedChip="@id/chipLimit"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/tabBar"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipLimit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/limit" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMarket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/market" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pool" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <include
+                android:id="@+id/priceLayout1"
+                layout="@layout/price_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:amount="@{ @string/euro_amount(Formatter.euroFormat(viewModel.yourPrice)) }"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/cgTop"
+                app:leftTitle="@{ @string/euro_amount(`0,270010`) }"
+                app:rightTitle="@{ @string/average_price }"
+                app:rightTitleValue="@{ @string/_24_hr }"
+                app:title="@{ @string/your_price }" />
+
+            <include
+                android:id="@+id/priceLayout2"
+                layout="@layout/price_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:amount="@{ Formatter.euroFormat(viewModel.amount) }"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/priceLayout1"
+                app:rightTitle="@{ @string/demands }"
+                app:rightTitleValue="@{ `381` }"
+                app:title="@{ @string/amount }" />
+
+            <include
+                android:id="@+id/totalPriceLayout"
+                layout="@layout/total_price_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:amount="@{ `13.440` }"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/priceLayout2"
+                app:leftTitle="@{ @string/ma_ema_boll }"
+                app:rightTitle="@{ @string/demands }"
+                app:rightTitleValue="@{ @string/euro_amount(`53.760,31`) }"
+                app:title="@{ @string/total_euro }" />
+
+            <include
+                android:id="@+id/titleCard"
+                layout="@layout/title_card"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/card_height"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/totalPriceLayout"
+                app:titleCardModel="@{ viewModel.titleCardModel }" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider"
+                style="@style/DividerStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/titleCard" />
+
+
+            <HorizontalScrollView
+                android:id="@+id/cgBottomContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:clipToPadding="false"
+                android:paddingStart="16dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cgBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:checkedChip="@id/chipOpenOrders"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipOpenOrders"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/open_orders" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipMarketHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/market_history" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipMarginData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/margin_data" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFunctionalData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/functional_data" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tvCurrency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:text="@string/currency"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/cgBottomContainer" />
+
+            <TextView
+                android:id="@+id/tvDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toTopOf="@id/tvCurrency" />
+
+            <TextView
+                android:id="@+id/tvFinalized"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/finalized"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintHorizontal_bias="0.60"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toTopOf="@id/tvCurrency" />
+
+            <TextView
+                android:id="@+id/tvDateAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_action"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintTop_toTopOf="@id/tvCurrency" />
+
+            <include
+                android:id="@+id/shareDetails1"
+                layout="@layout/share_details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrency"
+                app:shareDetails="@{ viewModel.shareDetails[0] }" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider1"
+                style="@style/DividerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/shareDetails1"
+                app:progress="0dp" />
+
+            <include
+                android:id="@+id/shareDetails2"
+                layout="@layout/share_details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/divider1"
+                app:shareDetails="@{ viewModel.shareDetails[1] }" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider2"
+                style="@style/DividerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/shareDetails2"
+                app:progress="0dp" />
+
+            <include
+                android:id="@+id/shareDetails3"
+                layout="@layout/share_details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
+                app:shareDetails="@{ viewModel.shareDetails[2] }" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
