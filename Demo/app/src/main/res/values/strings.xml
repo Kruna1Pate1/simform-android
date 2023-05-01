@@ -1,4 +1,30 @@
 <resources>
     <string name="app_name">Demo</string>
     <string name="current_time">Current time: %1$s</string>
+    <string name="btn_normal">Normal Button</string>
+    <string name="btn_bordered">Bordered Button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rounded_button">Rounded Button</string>
+    <string name="disabled_button">Disabled Button</string>
+    <string name="outlined_button">Outlined Button</string>
+    <string name="text_button">Text Button</string>
+    <string name="image_button">Image Button</string>
+    <string name="info">info</string>
+    <string name="gradient_button">Gradient Button</string>
+    <string name="short_toast">Short Toast</string>
+    <string name="long_toast">Long toast</string>
+    <string name="success_toast">Success Toast</string>
+    <string name="error_toast">Error Toast</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="switch_button">Switch</string>
+    <string name="enabled_switch">Enabled</string>
+    <string name="disabled_switch">Disabled</string>
+    <string name="select_known_languages">Select known languages:</string>
+    <string name="english">English</string>
+    <string name="hindi">Hindi</string>
+    <string name="gujarati">Gujarati</string>
+    <string name="spanish">Spanish</string>
+    <string name="save_changes">Save Changes</string>
 </resources>
