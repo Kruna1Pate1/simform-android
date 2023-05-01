@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.krunal.demo.R" />
+
+        <import type="com.krunal.demo.stackexchange.utils.Formatter" />
+
+        <variable
+            name="heading"
+            type="String" />
+
+        <variable
+            name="shareDetails"
+            type="com.krunal.demo.stackexchange.models.ShareDetails" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ heading }"
+            android:textAppearance="@style/Subtitle2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="YOU EXCHANGE" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sub_divider_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading">
+
+            <TextView
+                android:id="@+id/tvCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/sub_divider_margin"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="@{ shareDetails.name }"
+                android:textAppearance="@style/Body1"
+                app:drawableEndCompat="@drawable/ic_down_arrow_outlined"
+                app:drawableResource="@{ shareDetails.logo }"
+                app:drawableTint="?android:attr/textColorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:drawableStartCompat="@drawable/ic_avax_logo"
+                tools:text="AVAX" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            drawableResource="@{ shareDetails.isPositive ? R.drawable.ic_up_arrow :  R.drawable.ic_down_arrow}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sub_divider_margin"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="@{ @string/euro_amount(Formatter.euroFormat(shareDetails.amountDiff)) }"
+            android:textAppearance="@style/Body1"
+            app:drawableColorResource="@{ shareDetails.isPositive ? R.color.stack_exchange_theme_dark_green : R.color.stack_exchange_theme_dark_red}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardCompany"
+            tools:drawableStartCompat="@drawable/ic_up_arrow"
+            tools:drawableTint="@color/stack_exchange_theme_dark_green"
+            tools:text="€ 0,187200" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/divider_margin"
+            android:alpha="0.3"
+            android:background="?attr/colorOnSurface"
+            app:layout_constraintBottom_toBottomOf="@id/cardCompany"
+            app:layout_constraintEnd_toStartOf="@id/cardAmount"
+            app:layout_constraintTop_toTopOf="@id/cardCompany" />
+
+        <include
+            android:id="@+id/cardAmount"
+            layout="@layout/company_amount_card"
+            android:layout_width="200dp"
+            android:layout_height="@dimen/card_height"
+            app:amount="@{ Formatter.euroFormat(shareDetails.value) }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardCompany"
+            app:price="@{ Formatter.euroFormat(shareDetails.price) }" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
