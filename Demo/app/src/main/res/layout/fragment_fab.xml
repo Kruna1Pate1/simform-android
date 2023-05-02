@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".uicomponents.FabFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/add"
+        android:src="@drawable/ic_pen"
+        android:visibility="invisible"
+        app:backgroundTint="?attr/colorSecondary"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toTopOf="@+id/fabAdd"
+        app:layout_constraintEnd_toEndOf="@+id/fabAdd"
+        app:layout_constraintStart_toStartOf="@+id/fabAdd"
+        app:rippleColor="@android:color/darker_gray"
+        app:shapeAppearanceOverlay="@style/CustomShapeOverlay"
+        app:tint="?attr/colorOnSecondary" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/add"
+        android:src="@drawable/ic_image"
+        android:visibility="invisible"
+        app:backgroundTint="?attr/colorSecondary"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toTopOf="@+id/fabEdit"
+        app:layout_constraintEnd_toEndOf="@+id/fabAdd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fabAdd"
+        app:rippleColor="@android:color/darker_gray"
+        app:shapeAppearanceOverlay="@style/CustomShapeOverlay"
+        app:tint="?attr/colorOnSecondary" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/add"
+        android:focusable="true"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="?attr/colorPrimary"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@android:color/darker_gray"
+        app:tint="?attr/colorOnPrimary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

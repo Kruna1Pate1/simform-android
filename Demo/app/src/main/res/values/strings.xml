@@ -27,4 +27,26 @@
     <string name="gujarati">Gujarati</string>
     <string name="spanish">Spanish</string>
     <string name="save_changes">Save Changes</string>
+    <string name="select_your_house">Select your house:</string>
+    <string name="gryffindor">Gryffindor</string>
+    <string name="ravenclaw">Ravenclaw</string>
+    <string name="hufflepuff">Hufflepuff</string>
+    <string name="slytherin">Slytherin</string>
+    <string name="select_your_gender">Select your gender:</string>
+    <string name="add">Add</string>
+    <string name="email_hint">Email</string>
+    <string name="password_helper_text">min 6 characters, at least one symbol and digit</string>
+    <string name="description">Description</string>
+    <string name="normal_text_input_edit_text">Normal Text Input Edit Text</string>
+    <string name="floating_hint">Floating hint</string>
+    <string name="outlined_text_field">Outlined text field</string>
+    <string name="password">Password</string>
+    <string name="invalid_email">Invalid email address</string>
+    <string name="clear">Clear</string>
+    <string name="short_snack_bar">Short snack bar</string>
+    <string name="long_snack_bar">Long snack bar</string>
+    <string name="multi_line_snack_bar">Multi Line\nsnack bar</string>
+    <string name="action_snack_bar">Action snack bar</string>
+    <string name="anchor_snack_bar">Anchor snack bar</string>
+    <string name="swipeable_snack_bar">Swipeable snack bar</string>
 </resources>
