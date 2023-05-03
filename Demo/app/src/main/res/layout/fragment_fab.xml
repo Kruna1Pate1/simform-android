@@ -57,4 +57,43 @@
         app:rippleColor="@android:color/darker_gray"
         app:tint="?attr/colorOnPrimary" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabExtended1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        app:toggleCheckedStateOnClick="true"
+        android:layout_marginTop="24dp"
+        app:icon="@drawable/ic_email"
+        android:text="@string/compose_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabExtended2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        app:toggleCheckedStateOnClick="true"
+        android:layout_marginTop="24dp"
+        app:icon="@drawable/ic_email"
+        android:text="@string/compose_email"
+        app:iconGravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fabExtended1" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabExtended3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:icon="@drawable/ic_email"
+        android:text="@string/compose_email"
+        app:iconGravity="top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fabExtended2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,4 +49,19 @@
     <string name="action_snack_bar">Action snack bar</string>
     <string name="anchor_snack_bar">Anchor snack bar</string>
     <string name="swipeable_snack_bar">Swipeable snack bar</string>
+    <string name="welcome_to_home_fragment">Welcome to Home Fragment</string>
+    <string name="welcome_to_chat_fragment">Welcome to Chat Fragment</string>
+    <string name="welcome_to_calls_fragment">Welcome to Chat Fragment</string>
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="calls">Calls</string>
+    <string name="compose_email">Compose Email</string>
+    <string name="tb_normal">Tool Bar Normal</string>
+    <string name="profile">Profile</string>
+    <string name="tb_navigation">Tool Bar with navigation</string>
+    <string name="tb_items">Tool Bar with items</string>
+    <string name="search">Search</string>
+    <string name="tb_search">Search Bar</string>
+    <string name="tb_logo">Tool Bar Logo</string>
+    <string name="tb_left_action">Left Action</string>
 </resources>

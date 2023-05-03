@@ -28,6 +28,7 @@ class FabFragment : Fragment(R.layout.fragment_fab) {
             changeVisibility()
             if (visible) snackBar.show()
         }
+        setupExpandableFab()
         setupSnackBar()
     }
 
@@ -39,6 +40,23 @@ class FabFragment : Fragment(R.layout.fragment_fab) {
         )
         binding.fabEdit.visibility = if (visible) View.VISIBLE else View.INVISIBLE
         binding.fabImage.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+    }
+
+    private fun setupExpandableFab() {
+        binding.fabExtended1.isChecked = true
+        binding.fabExtended2.isChecked = true
+
+        binding.fabExtended1.addOnCheckedChangeListener { _, isChecked ->
+            binding.fabExtended1.isExtended = isChecked
+        }
+
+        binding.fabExtended2.addOnCheckedChangeListener { _, isChecked ->
+            binding.fabExtended2.isExtended = isChecked
+        }
+
+        binding.fabExtended3.setOnClickListener {
+            binding.fabExtended3.isExtended = binding.fabExtended3.isExtended.not()
+        }
     }
 
     private fun setupSnackBar() {

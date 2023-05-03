@@ -2,6 +2,7 @@ package com.krunal.demo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.krunal.demo.uicomponents.AppBarFragment
 import com.krunal.demo.uicomponents.ButtonFragment
 import com.krunal.demo.uicomponents.CheckboxFragment
 import com.krunal.demo.uicomponents.CustomViewFragment
@@ -9,6 +10,7 @@ import com.krunal.demo.uicomponents.EditTextFragment
 import com.krunal.demo.uicomponents.FabFragment
 import com.krunal.demo.uicomponents.RadioFragment
 import com.krunal.demo.uicomponents.SnackBarFragment
+import com.krunal.demo.uicomponents.TabLayoutFragment
 import com.krunal.demo.uicomponents.ToastFragment
 
 class UIComponentsActivity : AppCompatActivity() {
@@ -20,7 +22,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, SnackBarFragment())
+            .replace(R.id.uiComponentsFragment, AppBarFragment())
             .commit()
     }
 }
