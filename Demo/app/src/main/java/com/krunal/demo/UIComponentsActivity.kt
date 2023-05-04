@@ -8,6 +8,7 @@ import com.krunal.demo.uicomponents.CheckboxFragment
 import com.krunal.demo.uicomponents.CustomViewFragment
 import com.krunal.demo.uicomponents.EditTextFragment
 import com.krunal.demo.uicomponents.FabFragment
+import com.krunal.demo.uicomponents.LinearLayoutFragment
 import com.krunal.demo.uicomponents.RadioFragment
 import com.krunal.demo.uicomponents.SnackBarFragment
 import com.krunal.demo.uicomponents.TabLayoutFragment
@@ -22,7 +23,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, AppBarFragment())
+            .replace(R.id.uiComponentsFragment, FrameLayoutFragment())
             .commit()
     }
 }

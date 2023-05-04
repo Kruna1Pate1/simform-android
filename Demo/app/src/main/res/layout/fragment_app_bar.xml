@@ -48,7 +48,7 @@
         android:theme="@style/AppSearchView"
         app:titleCentered="true"
         app:title="@string/tb_left_action"
-        app:navigationIcon="@android:drawable/ic_menu">
+        app:navigationIcon="@drawable/ic_menu">
 
     </com.google.android.material.appbar.MaterialToolbar>
 </LinearLayout>

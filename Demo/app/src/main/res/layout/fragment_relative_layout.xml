@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RelativeLayoutFragment">
+
+    <ImageView
+        android:id="@+id/imgViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dark_forest" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/imgViewHeader"
+        android:layout_alignTop="@id/imgViewHeader"
+        android:layout_alignEnd="@id/imgViewHeader"
+        android:layout_alignBottom="@id/imgViewHeader"
+        android:background="#68000000" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Welcome !!"
+        android:textColor="@color/white"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:justificationMode="inter_word"
+        android:maxLines="4"
+        android:text="@string/insets_description"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/imgViewHeader"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="#D2162470"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgViewProfile"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/imgViewProfile"
+                android:layout_marginStart="24dp"
+                android:layout_toEndOf="@+id/imgViewProfile"
+                android:text="Travelling"
+                android:textColor="#FFC107"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvName"
+                android:layout_alignStart="@id/tvName"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@string/travel_description"
+                android:textColor="#4CAF50"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_below="@id/tvDescription"
+                android:layout_alignEnd="@id/tvDescription"
+                android:background="@android:color/transparent"
+                android:text="Read more..."
+                android:textAllCaps="false"
+                android:textColor="#25BBFF"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
