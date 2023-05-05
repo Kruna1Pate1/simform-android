@@ -27,16 +27,19 @@
             android:text="One" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Two" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Three" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Four" />
@@ -47,21 +50,25 @@
             android:text="Five" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Six" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Seven" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Eight" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nine" />
@@ -151,25 +158,29 @@
         android:layout_marginTop="8dp"
         app:checkedChip="@id/chipSSOne"
         app:chipSpacingHorizontal="24dp"
-        app:singleLine="true">
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipSSOne"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="One" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Two" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Three" />
 
         <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Four" />
@@ -183,34 +194,45 @@
         android:labelFor="@id/cgSingleLine"
         android:text="Diffrent Style Chips" />
 
-
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cgIcons"
+        android:id="@+id/cgStyles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:chipSpacingHorizontal="24dp">
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Icon"
             app:chipIcon="@drawable/ic_android" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipAction"
+            style="@style/Widget.MaterialComponents.Chip.Action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action"
+            app:chipIcon="@drawable/ic_android" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipChoice"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chice"
+            android:text="Choice"
             app:closeIcon="@drawable/ic_cross" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipEntry"
             style="@style/Widget.MaterialComponents.Chip.Entry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Entry" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipOutlined"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Outlined"
@@ -219,9 +241,46 @@
             app:chipStrokeWidth="2dp" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipDisabled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="Disabled" />
     </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:labelFor="@id/cgSingleLine"
+        android:text="Diffrent Style Chips" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilChip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeColor="?attr/colorPrimary"
+        app:boxStrokeWidth="2dp"
+        app:endIconDrawable="@drawable/ic_add"
+        app:endIconMode="custom"
+        app:endIconTint="?attr/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etChip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chip name"
+            android:imeActionLabel="Add"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cgProgrammatically"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:chipSpacingHorizontal="24dp" />
 
 </LinearLayout>

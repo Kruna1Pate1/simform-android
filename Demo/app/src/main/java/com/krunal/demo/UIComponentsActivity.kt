@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.krunal.demo.uicomponents.AppBarFragment
 import com.krunal.demo.uicomponents.ButtonFragment
 import com.krunal.demo.uicomponents.CheckboxFragment
+import com.krunal.demo.uicomponents.ChipFragment
 import com.krunal.demo.uicomponents.CustomViewFragment
 import com.krunal.demo.uicomponents.EditTextFragment
 import com.krunal.demo.uicomponents.FabFragment
