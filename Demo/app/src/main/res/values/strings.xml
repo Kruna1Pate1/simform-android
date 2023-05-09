@@ -73,5 +73,15 @@
     <string name="heart_emoji">💖</string>
     <string name="dragon_emoji">🐉</string>
     <string name="fire_emoji">🔥</string>
+    <string name="melting_face_emoji">🫠</string>
+    <string name="moon_emoji">🌚</string>
+    <string name="toggle_emoji">Toggle Emoji</string>
+    <string name="after_barrier">After Barrier</string>
+    <string name="button_1">Button 1</string>
+    <string name="button_2">Button 2</string>
+    <string name="button_3">Button 3</string>
+    <string name="button_4">Button 4</string>
+    <string name="button_5">Button 5</string>
+    <string name="button_6">Button 6</string>
 
 </resources>

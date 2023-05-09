@@ -14,6 +14,7 @@ import com.krunal.demo.uicomponents.RadioFragment
 import com.krunal.demo.uicomponents.SnackBarFragment
 import com.krunal.demo.uicomponents.TabLayoutFragment
 import com.krunal.demo.uicomponents.ToastFragment
+import com.krunal.demo.uicomponents.constraintLayouts.CircularFragment
 
 class UIComponentsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, FrameLayoutFragment())
+            .replace(R.id.uiComponentsFragment, CircularFragment())
             .commit()
     }
 }

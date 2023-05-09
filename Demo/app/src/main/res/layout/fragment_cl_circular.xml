@@ -6,93 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".uicomponents.constraintLayouts.CircularFragment">
 
-    <ImageButton
+    <ToggleButton
         android:id="@+id/imgBtnMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_image"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:background="@drawable/image_toggle"
+        android:textOn=""
+        android:textOff=""
         android:backgroundTint="?attr/colorPrimary"
-        android:src="@drawable/ic_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/toggle_emoji" />
 
     <TextView
+        android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/smile_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="0"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
 
     <TextView
+        android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/smile_emoji"
+        android:text="@string/sad_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="45"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
 
     <TextView
+        android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/smile_emoji"
+        android:text="@string/angry_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="90"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
 
     <TextView
+        android:id="@+id/tv4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/smile_emoji"
+        android:text="@string/heart_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="135"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
+
     <TextView
+        android:id="@+id/tv5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/smile_emoji"
+        android:text="@string/dragon_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="180"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
+
     <TextView
+        android:id="@+id/tv6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/smile_emoji"
+        android:text="@string/fire_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="225"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
+
     <TextView
+        android:id="@+id/tv7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/smile_emoji"
+        android:text="@string/melting_face_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="270"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
+
     <TextView
+        android:id="@+id/tv8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/smile_emoji"
+        android:text="@string/moon_emoji"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="315"
-        app:layout_constraintCircleRadius="64dp" />
+        app:layout_constraintCircleRadius="100dp" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupEmojis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
