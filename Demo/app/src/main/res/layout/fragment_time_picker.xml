@@ -11,9 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:timePickerMode="clock"
+        android:numbersInnerTextColor="?attr/colorOnPrimary"
+        android:numbersSelectorColor="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TimePicker
         android:id="@+id/tpSpinner"
@@ -21,8 +24,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:timePickerMode="spinner"
+        android:numbersInnerTextColor="?attr/colorOnPrimary"
+        android:numbersSelectorColor="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tpClock" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="12:00 PM" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch24hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/format_24_hour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

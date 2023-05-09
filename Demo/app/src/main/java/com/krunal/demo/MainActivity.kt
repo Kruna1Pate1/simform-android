@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+
+        binding.mainViewModel = viewModel
+
+        // Update time without data binding
         CoroutineScope(Dispatchers.IO).launch {
             viewModel.timeFlow.collectLatest { time ->
                 runOnUiThread {

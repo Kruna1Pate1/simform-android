@@ -83,5 +83,12 @@
     <string name="button_4">Button 4</string>
     <string name="button_5">Button 5</string>
     <string name="button_6">Button 6</string>
-
+    <string name="format_24_hour">24 hour</string>
+    <string name="time">%1$d:%2$d %3$s</string>
+    <string name="slider_value">Slider value: %1$f</string>
+    <string name="slider_range_value">Slider value: from %1$f to %2$f</string>
+    <string name="continues_slider_normal">Continues slider normal</string>
+    <string name="discrete_slider">Discrete slider</string>
+    <string name="range_continues_slider">Range continues slider</string>
+    <string name="range_discrete_slider">Range discrete slider</string>
 </resources>
