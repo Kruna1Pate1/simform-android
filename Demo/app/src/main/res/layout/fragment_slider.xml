@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:context=".uicomponents.SeekBarFragment">
+        tools:context=".uicomponents.SliderFragment">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,14 +22,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:labelFor="@id/cgNormal"
-            android:text="@{@string/slider_value(30)}" />
+            android:text="@{@string/slider_value(30f)}" />
 
-        <SeekBar
-            android:id="@+id/seekBarNormal"
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:max="150"
-            android:progress="30" />
+            android:valueTo="150"
+            android:value="30" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:labelFor="@id/cgNormal"
-            android:text="@{@string/slider_value(2)}" />
+            android:text="@{@string/slider_value(2f)}" />
 
         <com.google.android.material.slider.Slider
             android:id="@+id/sliderDiscrete"
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:labelFor="@id/cgNormal"
-            android:text="@{@string/slider_range_value(10, 50)}" />
+            android:text="@{@string/slider_range_value(10f, 50f)}" />
 
         <com.google.android.material.slider.RangeSlider
             android:id="@+id/sliderRange"
@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:labelFor="@id/cgNormal"
-            android:text="@{@string/slider_range_value(10, 50)}" />
+            android:text="@{@string/slider_range_value(10f, 50f)}" />
 
         <com.google.android.material.slider.RangeSlider
             android:id="@+id/sliderRangeDiscrete"

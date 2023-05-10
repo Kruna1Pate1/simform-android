@@ -4,4 +4,55 @@
         <item>10</item>
         <item>50</item>
     </array>
+
+    <string-array name="timezones">
+        <item>(UTC) Casablanca</item>
+        <item>(UTC) Coordinated Universal Time</item>
+        <item>(UTC) Dublin, Edinburgh, Lisbon, London</item>
+        <item>(UTC) Monrovia, Reykjavik</item>
+        <item>(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</item>
+        <item>(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</item>
+        <item>(UTC+01:00) Brussels, Copenhagen, Madrid, Paris</item>
+        <item>(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb</item>
+        <item>(UTC+01:00) West Central Africa</item>
+        <item>(UTC+01:00) Windhoek</item>
+        <item>(UTC+02:00) Amman</item>
+        <item>(UTC+02:00) Athens, Bucharest</item>
+        <item>(UTC+02:00) Beirut</item>
+        <item>(UTC+02:00) Cairo</item>
+        <item>(UTC+02:00) Damascus</item>
+        <item>(UTC+02:00) E. Europe</item>
+        <item>(UTC+02:00) Harare, Pretoria</item>
+        <item>(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</item>
+        <item>(UTC+02:00) Istanbul</item>
+        <item>(UTC+02:00) Jerusalem</item>
+        <item>(UTC+03:00) Baghdad</item>
+        <item>(UTC+03:00) Kuwait, Riyadh</item>
+        <item>(UTC+03:00) Minsk</item>
+        <item>(UTC+03:00) Moscow, St. Petersburg, Volgograd (RTZ 2)</item>
+        <item>(UTC+03:00) Nairobi</item>
+        <item>(UTC+03:30) Tehran</item>
+        <item>(UTC+04:00) Abu Dhabi, Muscat</item>
+        <item>(UTC+04:00) Baku</item>
+        <item>(UTC+04:00) Port Louis</item>
+        <item>(UTC+04:00) Tbilisi</item>
+        <item>(UTC+04:00) Yerevan</item>
+        <item>(UTC+04:30) Kabul</item>
+        <item>(UTC+05:00) Ashgabat, Tashkent</item>
+        <item>(UTC+05:00) Islamabad, Karachi</item>
+        <item>(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi</item>
+        <item>(UTC+05:30) Sri Jayawardenepura</item>
+        <item>(UTC+05:45) Kathmandu</item>
+        <item>(UTC+06:00) Astana</item>
+        <item>(UTC+06:00) Dhaka</item>
+        <item>(UTC+06:30) Yangon (Rangoon)</item>
+        <item>(UTC+07:00) Bangkok, Hanoi, Jakarta</item>
+        <item>(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi</item>
+        <item>(UTC+08:00) Kuala Lumpur, Singapore</item>
+        <item>(UTC+08:00) Taipei</item>
+        <item>(UTC+08:00) Ulaanbaatar</item>
+        <item>(UTC+09:00) Osaka, Sapporo, Tokyo</item>
+        <item>(UTC+09:00) Seoul</item>
+        <item>(UTC+10:00) Canberra, Melbourne, Sydney</item>
+    </string-array>
 </resources>

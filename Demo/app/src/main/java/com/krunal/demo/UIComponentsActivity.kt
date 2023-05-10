@@ -1,11 +1,8 @@
 package com.krunal.demo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.krunal.demo.uicomponents.ProgressBarFragment
-import com.krunal.demo.uicomponents.SeekBarFragment
-import com.krunal.demo.uicomponents.picker.DatePickerFragment
-import com.krunal.demo.uicomponents.picker.TimePickerFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.krunal.demo.uicomponents.SpinnerFragment
 
 class UIComponentsActivity : AppCompatActivity() {
 
@@ -17,7 +14,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, SeekBarFragment())
+            .replace(R.id.uiComponentsFragment, SpinnerFragment())
             .commit()
     }
 }
