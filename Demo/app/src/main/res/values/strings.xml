@@ -92,4 +92,14 @@
     <string name="range_continues_slider">Range continues slider</string>
     <string name="range_discrete_slider">Range discrete slider</string>
     <string name="nothing_selected">Nothing selected</string>
+    <string name="normal_drop_down">Normal drop-down</string>
+    <string name="bordered_drop_down">Bordered drop-down</string>
+    <string name="dialog_drop_down">Dialog drop-down</string>
+    <string name="underlined_drop_down">Underlined drop-down</string>
+    <string name="timezones">Timezones</string>
+    <string name="exposed_drop_down">Exposed drop-down</string>
+    <string name="custom_drop_down">Custom drop-down</string>
+    <string name="disabled_drop_down">Disabled drop-down</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
 </resources>

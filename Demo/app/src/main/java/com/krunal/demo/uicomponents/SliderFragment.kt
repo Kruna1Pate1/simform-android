@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentSliderBinding
 
-class SliderFragment : Fragment() {
+class SliderFragment : Fragment(R.layout.fragment_slider) {
 
     private lateinit var binding: FragmentSliderBinding
 
