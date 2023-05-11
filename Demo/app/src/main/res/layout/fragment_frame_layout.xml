@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#222222"
     android:orientation="vertical"
-    tools:context=".FrameLayoutFragment">
+    tools:context=".uicomponents.FrameLayoutFragment">
 
     <FrameLayout
         android:layout_width="wrap_content"

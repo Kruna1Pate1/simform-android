@@ -102,4 +102,7 @@
     <string name="disabled_drop_down">Disabled drop-down</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
+    <string name="color_span_text">This is Red and Green colored text.</string>
+    <string name="underline_line_through_span_text">This is Underlined and LineThrough text.</string>
+    <string name="link_span_text">This is my Portfolio</string>
 </resources>

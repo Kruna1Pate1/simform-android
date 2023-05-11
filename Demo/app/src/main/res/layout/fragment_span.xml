@@ -8,10 +8,26 @@
     tools:context=".uicomponents.SpanFragment">
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/tvColorSpan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is normal spannable text."
+        android:text="@string/color_span_text"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvUnderlineLineThroughSpan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/underline_line_through_span_text"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/link_span_text"
         android:textSize="18sp" />
 
 </LinearLayout>
