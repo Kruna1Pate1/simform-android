@@ -97,7 +97,7 @@
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         android:progress="35"
-        android:progressDrawable="@drawable/progress_vertical" />
+        android:progressDrawable="@drawable/progress_vertical_graph" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="CustomShapeOverlay">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">0dp</item>
@@ -18,12 +19,41 @@
         <item name="subtitleTextColor">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="AppSearchView" parent="Widget.AppCompat.SearchView" >
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
         <!-- Query Text Color -->
         <item name="android:textColorPrimary">?attr/colorOnPrimary</item>
         <!-- Hint Color -->
         <item name="android:textColorHint">?attr/colorOnPrimary</item>
         <!-- Icon Color -->
         <item name="android:tint">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="CardChip" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="checkedIcon">@drawable/ic_circle</item>
+        <item name="chipIconSize">8dp</item>
+        <item name="iconStartPadding">4dp</item>
+        <item name="checkedIconTint">?attr/colorPrimary</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_card_text</item>
+        <item name="chipStrokeColor">@color/white</item>
+        <item name="chipBackgroundColor">@color/chip_card</item>
+        <item name="closeIconVisible">false</item>
+    </style>
+
+    <style name="TimeChip">
+        <item name="checkedIconVisible">false</item>
+        <item name="android:checkable">true</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="chipStrokeColor">@color/chip_operations_time</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 </resources>

@@ -7,6 +7,7 @@ import com.krunal.demo.uicomponents.SliderFragment
 import com.krunal.demo.uicomponents.SpanFragment
 import com.krunal.demo.uicomponents.SpinnerFragment
 import com.krunal.demo.uicomponents.binding.DataBindingFragment
+import com.krunal.demo.uicomponents.cardscreen.CardFragment
 
 class UIComponentsActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, SpanFragment())
+            .replace(R.id.uiComponentsFragment, CardFragment())
             .commit()
     }
 }
