@@ -11,6 +11,7 @@ import com.google.android.material.navigation.NavigationBarView
 import com.krunal.demo.R
 import com.krunal.demo.UIComponentsActivity
 import com.krunal.demo.databinding.FragmentCardBinding
+import com.krunal.demo.uicomponents.sheets.OperationsBottomSheetFragment
 
 class CardFragment : Fragment() {
 
@@ -25,12 +26,20 @@ class CardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupUI()
+    }
+
+    private fun setupUI() {
         setupBottomBar()
         (activity as? UIComponentsActivity)?.supportActionBar?.apply {
             title = getString(R.string.my_cards)
             setBackgroundDrawable(ColorDrawable(Color.parseColor("#2F7CEF")))
             elevation = 0f
             // TODO: Make title center
+        }
+
+        binding.cardOperations.btnDetails.setOnClickListener {
+            OperationsBottomSheetFragment().show(childFragmentManager, null)
         }
     }
 

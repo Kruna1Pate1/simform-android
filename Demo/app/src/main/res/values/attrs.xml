@@ -5,4 +5,11 @@
         <attr name="strokeSize" format="float" />
         <attr name="circleColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="HistoryLineView">
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="thumbColor" format="color" />
+    </declare-styleable>
 </resources>
