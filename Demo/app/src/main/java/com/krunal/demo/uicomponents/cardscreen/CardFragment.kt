@@ -40,5 +40,4 @@ class CardFragment : Fragment() {
             labelVisibilityMode = NavigationBarView.LABEL_VISIBILITY_SELECTED
         }
     }
-
 }
