@@ -79,6 +79,7 @@
             </com.google.android.material.chip.ChipGroup>
 
             <ImageButton
+                android:id="@+id/btnCalendar"
                 android:layout_width="34dp"
                 android:layout_height="0dp"
                 android:background="@android:color/transparent"

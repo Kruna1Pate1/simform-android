@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:enabled="false"
+        app:enabled="false"
         android:text="@string/disabled_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/btnBordered"

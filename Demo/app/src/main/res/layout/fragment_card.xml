@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.uicomponents.cardscreen.CardFragmentViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +24,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/card_bottom_navigation_items" />
 
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,6 +38,7 @@
                 android:background="#2F7CEF">
 
                 <HorizontalScrollView
+                    android:clipToPadding="false"
                     android:id="@+id/scrollChip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,31 +47,12 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/cgCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         app:chipSpacingHorizontal="16dp"
-                        app:singleLine="true">
-
-                        <com.google.android.material.chip.Chip
-                            style="@style/CardChip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="Debit *1963" />
-
-                        <com.google.android.material.chip.Chip
-                            style="@style/CardChip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Debit *1822" />
-
-                        <com.google.android.material.chip.Chip
-                            style="@style/CardChip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Credit *1963" />
-                    </com.google.android.material.chip.ChipGroup>
+                        app:singleLine="true" />
                 </HorizontalScrollView>
 
                 <include
@@ -73,44 +60,49 @@
                     layout="@layout/operations_card_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="178dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:elevation="-100dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card"
+                    app:layout_constraintTop_toTopOf="@id/card"
                     app:layout_constraintVertical_bias="0.8" />
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardAdd"
-                    android:layout_width="40dp"
+                <HorizontalScrollView
+                    android:clipToPadding="false"
+                    android:id="@+id/card"
+                    android:layout_width="wrap_content"
                     android:layout_height="200dp"
+                    android:paddingStart="20dp"
                     android:layout_marginTop="24dp"
-                    android:background="@color/white"
-                    android:layout_marginStart="16dp"
-                    app:cardElevation="18dp"
-                    app:cardCornerRadius="14dp"
-                    app:layout_constraintEnd_toStartOf="@id/card"
+                    android:scrollbars="none"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/scrollChip">
-
-                    <ImageButton
+                    <LinearLayout
+                        android:id="@+id/llCards"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/ic_add"
-                        app:tint="@android:color/holo_orange_dark" />
-                </com.google.android.material.card.MaterialCardView>
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardAdd"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            app:cardCornerRadius="14dp"
+                            android:layout_marginEnd="18dp"
+                            app:cardElevation="18dp">
 
-                <include
-                    android:id="@+id/card"
-                    layout="@layout/card_layout"
-                    android:layout_width="300dp"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="20dp"
-                    app:layout_constraintTop_toTopOf="@id/cardAdd"
-                    app:layout_constraintStart_toEndOf="@id/cardAdd"
-                    app:layout_constraintTop_toBottomOf="@id/scrollChip" />
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_add"
+                                app:tint="@android:color/holo_orange_dark" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

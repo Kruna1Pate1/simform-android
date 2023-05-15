@@ -1,16 +1,18 @@
 package com.krunal.demo.uicomponents
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.preference.PreferenceManager
-import com.krunal.demo.R
+import androidx.lifecycle.lifecycleScope
 import com.krunal.demo.databinding.FragmentThemeBinding
 import com.krunal.demo.uicomponents.adapters.ThemeAdapter
 import com.krunal.demo.uicomponents.extentions.isDarkMode
 import com.krunal.demo.uicomponents.helpers.ThemeHelper
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ThemeFragment : Fragment() {
 
@@ -36,7 +38,15 @@ class ThemeFragment : Fragment() {
 
         binding.gvTheme.adapter = themeAdapter
         binding.gvTheme.setItemChecked(ThemeHelper.getThemeAccent().ordinal, true)
-        binding.gvTheme.setSelection(ThemeHelper.getThemeAccent().ordinal)
+        lifecycleScope.launch {
+            delay(100)
+
+            binding.gvTheme.setItemChecked(ThemeHelper.getThemeAccent().ordinal, true)
+            binding.gvTheme.setSelection(ThemeHelper.getThemeAccent().ordinal)
+            Log.d("Tag", ThemeHelper.getThemeAccent().ordinal.toString())
+            Log.d("Tag", binding.gvTheme.selectedItemPosition.toString())
+        }
+        // binding.gvTheme.selectedView.performClick() // selectedView is null
 
         binding.gvTheme.setOnItemClickListener { _, _, position, _ ->
             ThemeHelper.setThemeAccent(themes[position].accentColor)

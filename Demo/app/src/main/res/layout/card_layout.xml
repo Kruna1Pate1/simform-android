@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="card"
+            type="com.krunal.demo.uicomponents.models.CardDetail" />
+    </data>
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
         android:layout_marginTop="24dp"
         app:cardBackgroundColor="#E27A73"
         app:cardElevation="18dp"
@@ -28,7 +35,8 @@
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$2,983.78"
+                tools:text="$2,983.78"
+                android:text="@{card.amount}"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@id/tvYear"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -37,7 +45,8 @@
                 android:id="@+id/tvYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*** 1963"
+                tools:text="*** 1963"
+                android:text="@{@string/card_number(card.number)}"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>

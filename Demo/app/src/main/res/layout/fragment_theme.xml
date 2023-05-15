@@ -28,6 +28,7 @@
         android:numColumns="3"
         android:drawSelectorOnTop="true"
         android:listSelector="@drawable/selected_theme"
+        android:choiceMode="singleChoice"
         android:horizontalSpacing="16dp"
         android:verticalSpacing="16dp" />
 
