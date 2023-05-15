@@ -119,4 +119,13 @@
     <string name="mastercard_logo">Mastercard logo</string>
     <string name="recent">Recent</string>
     <string name="history">History</string>
+    <string name="select_theme">Select theme:</string>
+    <string name="color_accent">Accents</string>
+    <string name="color_red">Resting red</string>
+    <string name="color_blue">Blissful blue</string>
+    <string name="color_yellow">Yeeting yellow</string>
+    <string name="color_green">Groovy green</string>
+    <string name="color_purple">Pleasurable purple</string>
+    <string name="material_you">Material You</string>
+    <string name="color_violet">Versatile Violet</string>
 </resources>

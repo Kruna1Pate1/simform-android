@@ -5,7 +5,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="?attr/colorSurface"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay_card_custom_corners">
 
         <androidx.constraintlayout.widget.ConstraintLayout
