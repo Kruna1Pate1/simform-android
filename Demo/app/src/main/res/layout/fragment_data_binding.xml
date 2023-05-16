@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/dp_16"
         tools:context=".uicomponents.binding.DataBindingFragment">
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/sliderNormal"
             android:text="Merge layout"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/dp_24"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
         <include

@@ -8,8 +8,8 @@
 
     <ToggleButton
         android:id="@+id/imgBtnMain"
-        android:layout_width="40dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_0"
         app:layout_constraintDimensionRatio="1:1"
         android:background="@drawable/image_toggle"
         android:textOn=""
@@ -30,7 +30,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="0"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <TextView
         android:id="@+id/tv2"
@@ -41,7 +41,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="45"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <TextView
         android:id="@+id/tv3"
@@ -52,7 +52,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="90"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <TextView
         android:id="@+id/tv4"
@@ -63,7 +63,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="135"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <TextView
         android:id="@+id/tv5"
@@ -74,7 +74,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="180"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <TextView
         android:id="@+id/tv6"
@@ -85,7 +85,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="225"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <TextView
         android:id="@+id/tv7"
@@ -96,7 +96,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="270"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <TextView
         android:id="@+id/tv8"
@@ -107,7 +107,7 @@
         android:textSize="40sp"
         app:layout_constraintCircle="@id/imgBtnMain"
         app:layout_constraintCircleAngle="315"
-        app:layout_constraintCircleRadius="100dp" />
+        app:layout_constraintCircleRadius="@dimen/dp_100" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupEmojis"

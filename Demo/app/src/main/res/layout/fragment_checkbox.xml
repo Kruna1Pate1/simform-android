@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/dp_16"
     tools:context=".uicomponents.CheckboxFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="@dimen/dp_24"
         android:text="@string/select_known_languages"
         android:textSize="18sp" />
 
@@ -48,8 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:text="@string/save_changes"
         android:textAllCaps="false"
-        app:cornerRadius="24dp"/>
+        app:cornerRadius="@dimen/dp_24"/>
 </LinearLayout>

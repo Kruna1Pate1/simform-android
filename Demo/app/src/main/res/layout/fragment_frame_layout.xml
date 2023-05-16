@@ -27,8 +27,8 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
@@ -36,18 +36,18 @@
                 app:tint="#C6DDDDDD" />
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
                 android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="100dp"
+                android:layout_marginHorizontal="@dimen/dp_100"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_pause"
                 app:tint="#C6DDDDDD" />
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="4dp"
-            android:padding="16dp"
+            android:padding="@dimen/dp_16"
             android:text="@string/running_up_that_hill_lyrics"
             android:textColor="#DA8C8C"
             android:textSize="16sp" />

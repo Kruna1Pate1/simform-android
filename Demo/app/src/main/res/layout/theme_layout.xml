@@ -7,9 +7,9 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardThemeColor"
-        android:layout_width="90dp"
-        android:layout_height="0dp"
-        app:cardCornerRadius="18dp"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_0"
+        app:cardCornerRadius="@dimen/dp_18"
         app:cardBackgroundColor="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         android:id="@+id/tvThemeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/dp_16"
         tools:text="Green"
         app:layout_constraintTop_toBottomOf="@id/cardThemeColor"
         app:layout_constraintStart_toStartOf="@id/cardThemeColor"

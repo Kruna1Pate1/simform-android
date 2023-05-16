@@ -2,12 +2,11 @@ package com.krunal.demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.krunal.demo.uicomponents.ButtonFragment
-import com.krunal.demo.uicomponents.CoordinatorLayoutFragment
-import com.krunal.demo.uicomponents.ThemeFragment
-import com.krunal.demo.uicomponents.cardscreen.CardFragment
+import com.krunal.demo.recyclerview.fragments.ContactDetailFragment
 import com.krunal.demo.uicomponents.helpers.ThemeHelper
+import com.krunal.demo.uicomponents.models.enums.AccentColor
 
 class UIComponentsActivity : AppCompatActivity() {
 
@@ -20,12 +19,14 @@ class UIComponentsActivity : AppCompatActivity() {
     }
 
     private fun setupTheme() {
-        setTheme(ThemeHelper.getThemeResource(ThemeHelper.getThemeAccent()))
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//        setTheme(ThemeHelper.getThemeResource(ThemeHelper.getThemeAccent()))
+        setTheme(ThemeHelper.getThemeResource(AccentColor.BLUE))
     }
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, CoordinatorLayoutFragment())
+            .replace(R.id.uiComponentsFragment, ContactDetailFragment())
             .commit()
     }
 }

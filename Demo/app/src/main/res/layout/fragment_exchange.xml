@@ -19,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="16dp" />
+            app:layout_constraintGuide_begin="@dimen/dp_16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="16dp" />
+            app:layout_constraintGuide_end="@dimen/dp_16" />
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/cgTop"
@@ -86,7 +86,7 @@
 
         <com.krunal.demo.stackexchange.views.Divider
             android:id="@+id/divider"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/divider_margin"
             style="@style/DividerStyle"
@@ -97,7 +97,7 @@
         <include
             android:id="@+id/cardExchange"
             layout="@layout/exchange_card"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             app:exchangeModel="@{ viewModel.exchangeModel }"
             android:layout_marginTop="@dimen/divider_margin"
@@ -121,7 +121,7 @@
         <include
             android:id="@+id/titleCard"
             layout="@layout/title_card"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="@dimen/card_height"
             android:layout_marginTop="@dimen/divider_margin"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"

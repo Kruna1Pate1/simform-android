@@ -49,7 +49,7 @@
             android:id="@+id/tvRightTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/dp_8"
             android:text="@{ rightTitle }"
             android:textAppearance="@style/Subtitle2"
             app:layout_constraintEnd_toStartOf="@id/tvRightTitleValue"
@@ -62,7 +62,7 @@
             android:id="@+id/tvRightTitleValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
+            android:drawablePadding="@dimen/dp_8"
             android:gravity="center"
             android:text="@{ rightTitleValue }"
             android:textAppearance="@style/Subtitle1"
@@ -76,13 +76,13 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/dp_8"
             app:layout_constraintTop_toBottomOf="@id/tvRightTitle">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="16dp">
+                android:paddingTop="@dimen/dp_16">
 
                 <TextView
                     android:id="@+id/tvTitle"
@@ -100,7 +100,7 @@
                     android:id="@+id/tvAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/dp_8"
                     android:text="@{ amount }"
                     android:textAppearance="@style/Body1"
                     app:layout_constraintBottom_toBottomOf="@id/tabPercentage"
@@ -112,12 +112,12 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabPercentage"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_marginTop="@dimen/dp_10"
                     app:tabIndicator="@drawable/tab_selected_background"
                     app:tabBackground="?attr/colorSurfaceDim"
                     app:tabIndicatorColor="?attr/colorSurfaceVariant"
-                    app:tabIndicatorHeight="24dp"
+                    app:tabIndicatorHeight="@dimen/dp_24"
                     app:tabSelectedTextColor="?attr/colorSecondary"
                     app:layout_constraintTop_toBottomOf="@id/tvAmount"
                     app:layout_constraintStart_toStartOf="parent"

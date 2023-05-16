@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/sub_divider_margin"
-                android:drawablePadding="6dp"
+                android:drawablePadding="@dimen/dp_6"
                 android:gravity="center"
                 android:text="@{ shareDetails.name }"
                 android:textAppearance="@style/Body1"
@@ -75,8 +75,8 @@
             tools:text="€ 0,187200" />
 
         <View
-            android:layout_width="20dp"
-            android:layout_height="1dp"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_1"
             android:layout_marginHorizontal="@dimen/divider_margin"
             android:alpha="0.3"
             android:background="?attr/colorOnSurface"
@@ -87,7 +87,7 @@
         <include
             android:id="@+id/cardAmount"
             layout="@layout/company_amount_card"
-            android:layout_width="200dp"
+            android:layout_width="@dimen/dp_200"
             android:layout_height="@dimen/card_height"
             app:amount="@{ Formatter.euroFormat(shareDetails.value) }"
             app:layout_constraintEnd_toEndOf="parent"
