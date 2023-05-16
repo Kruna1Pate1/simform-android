@@ -18,7 +18,7 @@ class ThemeAdapter(
 
     override fun getItem(position: Int): Any? = null
 
-    override fun getItemId(position: Int): Long = 0
+    override fun getItemId(position: Int): Long = position.toLong()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = LayoutInflater.from(context)

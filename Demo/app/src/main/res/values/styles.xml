@@ -67,6 +67,11 @@
         <item name="cornerSize">25%</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.Profile" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="BottomBarFab" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="cornerSize">36%</item>
         <item name="cornerFamily">cut</item>

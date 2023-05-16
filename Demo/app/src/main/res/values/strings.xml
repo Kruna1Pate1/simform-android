@@ -178,5 +178,9 @@
     <string name="ma_ema">MA / EMA</string>
     <string name="max_24h">Max 24H</string>
 
-
+    <string name="video_info">%1$s • %2$s • %3$s</string>
+    <string name="toggle_list_or_grid">Toggle list or grid</string>
+    <string name="community_post_description">🎪 Coming to you live from Shoreline, it\'s #GoogleIO! \nJoin developers around the world for thoughtful discussions, interactive learning, and a first look at our latest product updates. </string>
+    <string name="library">Library</string>
+    <string name="type_something">Type something...</string>
 </resources>

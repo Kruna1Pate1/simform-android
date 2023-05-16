@@ -11,4 +11,8 @@
     <dimen name="corner_radius">10dp</dimen>
     <dimen name="card_height">60dp</dimen>
     <dimen name="divider_height">1dp</dimen>
+
+    <dimen name="indicator_size">4dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
 </resources>
