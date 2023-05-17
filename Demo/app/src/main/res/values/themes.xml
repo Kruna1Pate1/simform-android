@@ -268,4 +268,36 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
+
+    <style name="Theme.StackExchange" parent="BaseTheme">
+        <item name="colorPrimary">@color/stack_exchange_theme_dark_primary</item>
+        <item name="colorOnPrimary">@color/stack_exchange_theme_dark_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/stack_exchange_theme_dark_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/stack_exchange_theme_dark_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/stack_exchange_theme_dark_secondary</item>
+        <item name="colorOnSecondary">@color/stack_exchange_theme_dark_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/stack_exchange_theme_dark_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/stack_exchange_theme_dark_onSecondaryContainer
+        </item>
+        <item name="colorTertiary">@color/stack_exchange_theme_dark_tertiary</item>
+        <item name="colorOnTertiary">@color/stack_exchange_theme_dark_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/stack_exchange_theme_dark_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/stack_exchange_theme_dark_onTertiaryContainer
+        </item>
+        <item name="colorError">@color/stack_exchange_theme_dark_error</item>
+        <item name="colorErrorContainer">@color/stack_exchange_theme_dark_errorContainer</item>
+        <item name="colorOnError">@color/stack_exchange_theme_dark_onError</item>
+        <item name="colorOnErrorContainer">@color/stack_exchange_theme_dark_onErrorContainer</item>
+        <item name="android:colorBackground">@color/stack_exchange_theme_dark_background</item>
+        <item name="colorOnBackground">@color/stack_exchange_theme_dark_onBackground</item>
+        <item name="colorSurface">@color/stack_exchange_theme_dark_surface</item>
+        <item name="colorOnSurface">@color/stack_exchange_theme_dark_onSurface</item>
+        <item name="colorSurfaceVariant">@color/stack_exchange_theme_dark_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/stack_exchange_theme_dark_onSurfaceVariant</item>
+        <item name="colorOutline">@color/stack_exchange_theme_dark_outline</item>
+        <item name="colorOnSurfaceInverse">@color/stack_exchange_theme_dark_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/stack_exchange_theme_dark_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/stack_exchange_theme_dark_inversePrimary</item>
+        <item name="android:textColorPrimary"></item>
+    </style>
 </resources>

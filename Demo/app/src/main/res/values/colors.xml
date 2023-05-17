@@ -411,4 +411,34 @@
     <color name="violet_theme_dark_inverseOnSurface">#2B0052</color>
     <color name="violet_theme_dark_inverseSurface">#EFDBFF</color>
     <color name="violet_theme_dark_inversePrimary">#714AAA</color>
+
+    // StackExchange
+    <color name="stack_exchange_theme_dark_primary">#FDFEFE</color>
+    <color name="stack_exchange_theme_dark_onPrimary">#373D41</color>
+    <color name="stack_exchange_theme_dark_primaryContainer">#22282C</color>
+    <color name="stack_exchange_theme_dark_onPrimaryContainer">#FAFAFC</color>
+    <color name="stack_exchange_theme_dark_secondary">#E4AE8C</color>
+    <color name="stack_exchange_theme_dark_onSecondary">#FDFEFE</color>
+    <color name="stack_exchange_theme_dark_secondaryContainer">#32383C</color>
+    <color name="stack_exchange_theme_dark_onSecondaryContainer">#FCFCFC</color>
+    <color name="stack_exchange_theme_dark_tertiary">#8AB98A</color>
+    <color name="stack_exchange_theme_dark_onTertiary">#DADFE0</color>
+    <color name="stack_exchange_theme_dark_tertiaryContainer">#373D41</color>
+    <color name="stack_exchange_theme_dark_onTertiaryContainer">#DCDCDC</color>
+    <color name="stack_exchange_theme_dark_error">#FFB4AB</color>
+    <color name="stack_exchange_theme_dark_errorContainer">#93000A</color>
+    <color name="stack_exchange_theme_dark_onError">#690005</color>
+    <color name="stack_exchange_theme_dark_onErrorContainer">#FFDAD6</color>
+    <color name="stack_exchange_theme_dark_background">#22282C</color>
+    <color name="stack_exchange_theme_dark_onBackground">#F5F9F9</color>
+    <color name="stack_exchange_theme_dark_surface">#32383D</color>
+    <color name="stack_exchange_theme_dark_onSurface">#F3F3F4</color>
+    <color name="stack_exchange_theme_dark_surfaceVariant">#414548</color>
+    <color name="stack_exchange_theme_dark_onSurfaceVariant">#FEFEFE</color>
+    <color name="stack_exchange_theme_dark_outline">#958E99</color>
+    <color name="stack_exchange_theme_dark_inverseOnSurface">#2B0052</color>
+    <color name="stack_exchange_theme_dark_inverseSurface">#EFDBFF</color>
+    <color name="stack_exchange_theme_dark_inversePrimary">#714AAA</color>
+    <color name="stack_exchange_theme_dark_textColorPrimary">#FCFDFE</color>
+    <color name="stack_exchange_theme_dark_textColorSecondary">#7E8084</color>
 </resources>

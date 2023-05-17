@@ -6,7 +6,6 @@
         android:title="@string/market" />
     <item
         android:id="@+id/actionExchange"
-        android:icon="@drawable/ic_card"
         android:title="@string/exchange"/>
     <item
         android:id="@+id/actionWallet"
