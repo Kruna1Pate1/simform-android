@@ -76,6 +76,17 @@
         <item name="android:textSize">@dimen/heading_text_size</item>
     </style>
 
+    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">@dimen/body2_text_size</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">@dimen/body2_text_size</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
     <style name="Body1" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">@dimen/body1_text_size</item>
         <item name="textAllCaps">true</item>
@@ -89,5 +100,24 @@
 
     <style name="ChipTextStyle" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:textSize">@dimen/subtitle_text_size</item>
+    </style>
+
+    <style name="StackExchangeChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="checkedIconVisible">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:checkable">true</item>
+        <item name="chipCornerRadius">@dimen/corner_radius</item>
+        <item name="chipBackgroundColor">@color/stack_exchange_chip_background</item>
+    </style>
+
+    <style name="StackExchangeCompanyChip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipIconEnabled">true</item>
+        <item name="chipIconVisible">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="chipCornerRadius">@dimen/corner_radius</item>
+    </style>
+
+    <style name="CardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/corner_radius</item>
     </style>
 </resources>

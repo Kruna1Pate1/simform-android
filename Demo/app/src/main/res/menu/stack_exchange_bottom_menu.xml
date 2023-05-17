@@ -9,6 +9,6 @@
         android:title="@string/exchange"/>
     <item
         android:id="@+id/actionWallet"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/ic_wallet"
         android:title="@string/wallet" />
 </menu>

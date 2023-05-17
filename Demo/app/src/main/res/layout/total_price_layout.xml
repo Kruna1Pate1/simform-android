@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="leftTitle"
+            type="String" />
+
+        <variable
+            name="rightTitle"
+            type="String" />
+
+        <variable
+            name="rightTitleValue"
+            type="String" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="amount"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{ leftTitle }"
+            android:textAppearance="@style/Subtitle2"
+            android:visibility="@{ leftTitle == null ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/card"
+            tools:text="MA / EMA / BOLL" />
+
+
+        <TextView
+            android:id="@+id/tvRightTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@{ rightTitle }"
+            android:textAppearance="@style/Subtitle2"
+            app:layout_constraintEnd_toStartOf="@id/tvRightTitleValue"
+            app:layout_constraintTop_toTopOf="@id/tvRightTitleValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvRightTitleValue"
+            tools:text="AVAILABLE" />
+
+
+        <TextView
+            android:id="@+id/tvRightTitleValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="@{ rightTitleValue }"
+            android:textAppearance="@style/Subtitle1"
+            app:drawableEndCompat="@drawable/ic_add_filled"
+            app:drawableTint="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="€ 53.760,31" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvRightTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{ title }"
+                    android:textAppearance="@style/Subtitle2"
+                    app:layout_constraintBottom_toTopOf="@id/tvAmount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="TOTAL (€)" />
+
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{ amount }"
+                    android:textAppearance="@style/Body1"
+                    app:layout_constraintBottom_toBottomOf="@id/tabPercentage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                    tools:text="13.440" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabPercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="10dp"
+                    app:tabIndicator="@drawable/percentage_tab_selected_background"
+                    app:tabIndicatorColor="?attr/colorSurfaceVariant"
+                    app:tabIndicatorHeight="24dp"
+                    app:tabSelectedTextColor="?attr/colorSecondary"
+                    app:layout_constraintTop_toBottomOf="@id/tvAmount"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/percentage_25"
+                        android:textSize="@dimen/subtitle_text_size" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/percentage_50"
+                        android:textSize="@dimen/subtitle_text_size" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/percentage_75"
+                        android:textSize="@dimen/subtitle_text_size" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/percentage_100"
+                        android:textSize="@dimen/subtitle_text_size" />
+                </com.google.android.material.tabs.TabLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

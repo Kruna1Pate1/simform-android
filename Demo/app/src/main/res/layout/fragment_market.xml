@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -19,45 +19,189 @@
             android:id="@+id/guidelineStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_begin="16dp"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabBar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_tab_layout"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd" >
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/rounded_tab_layout"
+            app:tabBackground="@drawable/rounded_tab_layout"
+            app:tabIndicatorColor="?attr/colorTertiary"
+            app:tabIndicatorHeight="60dp">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/subtitle_text_size"
-                android:text="@string/buying" />
+                android:text="@string/buying"
+                android:textSize="@dimen/subtitle_text_size" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/subtitle_text_size"
-                android:text="@string/buying" />
+                android:text="@string/selling"
+                android:textSize="@dimen/subtitle_text_size" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/subtitle_text_size"
-                android:text="@string/buying" />
+                android:text="@string/margin"
+                android:textSize="@dimen/subtitle_text_size" />
+
         </com.google.android.material.tabs.TabLayout>
 
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:checkedChip="@id/chipLimit"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tabBar"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipLimit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/limit" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMarket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/market" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pool" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <include
+            android:id="@+id/priceLayout1"
+            layout="@layout/price_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:amount="@{ @string/euro_amount(`0,268800`) }"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/cgTop"
+            app:leftTitle="@{ @string/euro_amount(`0,270010`) }"
+            app:rightTitle="@{ @string/average_price }"
+            app:rightTitleValue="@{ @string/_24_hr }"
+            app:title="@{ @string/your_price }" />
+
+        <include
+            android:id="@+id/priceLayout2"
+            layout="@layout/price_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:amount="@{ `50.000` }"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/priceLayout1"
+            app:rightTitle="@{ @string/demands }"
+            app:rightTitleValue="@{ `381` }"
+            app:title="@{ @string/amount }" />
+
+        <include
+            android:id="@+id/totalPriceLayout"
+            layout="@layout/total_price_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:amount="@{ `13.440` }"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/priceLayout2"
+            app:leftTitle="@{ @string/ma_ema_boll }"
+            app:rightTitle="@{ @string/demands }"
+            app:rightTitleValue="@{ @string/euro_amount(`53.760,31`) }"
+            app:title="@{ @string/total_euro }" />
+
+        <include
+            android:id="@+id/titleCard"
+            layout="@layout/title_card"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/totalPriceLayout"
+            app:titleCardModel="@{ viewModel.titleCardModel }" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:alpha="0.3"
+            android:layout_marginTop="@dimen/sub_divider_margin"
+            android:background="?attr/colorOnSurface"
+            app:layout_constraintTop_toBottomOf="@id/titleCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:checkedChip="@id/chipOpenOrders"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipOpenOrders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Open orders" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMarketHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/market_history" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMarginData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/margin_data" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFunctionalData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/functional_data" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_end="16dp"
-            android:orientation="vertical" />
-
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

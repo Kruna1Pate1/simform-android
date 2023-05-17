@@ -20,7 +20,16 @@ class StackExchangeActivity : AppCompatActivity() {
         binding = ActivityStackExchangeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.viewModel = viewModel
+        setupUI()
         setupBottomNavigation()
+    }
+
+    private fun setupUI() {
+        binding.apply {
+            fabExchange.setOnClickListener {
+                bottomNavigation.selectedItemId = R.id.actionExchange
+            }
+        }
     }
 
     private fun setupBottomNavigation() {

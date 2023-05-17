@@ -270,6 +270,7 @@
     </style>
 
     <style name="Theme.StackExchange" parent="BaseTheme">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
         <item name="colorPrimary">@color/stack_exchange_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/stack_exchange_theme_dark_onPrimary</item>
         <item name="colorPrimaryContainer">@color/stack_exchange_theme_dark_primaryContainer</item>
@@ -294,10 +295,18 @@
         <item name="colorOnSurface">@color/stack_exchange_theme_dark_onSurface</item>
         <item name="colorSurfaceVariant">@color/stack_exchange_theme_dark_surfaceVariant</item>
         <item name="colorOnSurfaceVariant">@color/stack_exchange_theme_dark_onSurfaceVariant</item>
+        <item name="colorSurfaceDim">@color/stack_exchange_theme_dark_surfaceDim</item>
         <item name="colorOutline">@color/stack_exchange_theme_dark_outline</item>
         <item name="colorOnSurfaceInverse">@color/stack_exchange_theme_dark_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/stack_exchange_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/stack_exchange_theme_dark_inversePrimary</item>
-        <item name="android:textColorPrimary"></item>
+        <item name="android:textColorPrimary">@color/stack_exchange_theme_dark_textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/stack_exchange_theme_dark_textColorSecondary</item>
+
+<!--        Chip style-->
+        <item name="chipStyle">@style/StackExchangeChip</item>
+
+<!--        Card style-->
+        <item name="materialCardViewStyle">@style/CardStyle</item>
     </style>
 </resources>

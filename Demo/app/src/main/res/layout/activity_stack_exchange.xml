@@ -23,7 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
@@ -35,11 +34,12 @@
             app:menu="@menu/stack_exchange_bottom_menu" />
 
         <com.krunal.demo.stackexchange.views.HexagonFloatingActionButton
+            android:id="@+id/fabExchange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="26dp"
             app:backgroundTint="?attr/colorSurface"
-            android:src="@drawable/ic_mastercard"
+            android:src="@drawable/ic_exchange"
             app:elevation="10dp"
             app:layout_constraintBottom_toBottomOf="@id/bottomNavigation"
             app:layout_constraintEnd_toEndOf="@id/bottomNavigation"

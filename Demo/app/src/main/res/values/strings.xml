@@ -134,4 +134,33 @@
     <string name="exchange">Exchange</string>
     <string name="wallet">Wallet</string>
     <string name="buying">Buying</string>
+    <string name="selling">Selling</string>
+    <string name="margin">Margin</string>
+    <string name="limit">Limit</string>
+    <string name="pool">Pool</string>
+    <string name="euro_amount">€ %1$s</string>
+    <string name="demands">Demands</string>
+    <string name="amount">Amount</string>
+    <string name="average_price">Avg. price</string>
+    <string name="your_price">Your price</string>
+    <string name="_24_hr">24 HR</string>
+    <string name="ma_ema_boll">MA / EMA / BOLL</string>
+    <string name="percentage_25">25%</string>
+    <string name="percentage_50">50%</string>
+    <string name="percentage_75">75%</string>
+    <string name="percentage_100">100%</string>
+    <string name="available">Available</string>
+    <string name="total_euro">Total (€)</string>
+    <string name="market_history">Market history</string>
+    <string name="margin_data">Margin data</string>
+    <string name="functional_data">Functional data</string>
+    <string name="price">Price</string>
+    <string name="you_exchange">You exchange</string>
+    <string name="you_receive">You receive</string>
+    <string name="transaction_cost">Transaction cost</string>
+    <string name="rose">Rose</string>
+    <string name="avax">Avax</string>
+    <string name="link">Link</string>
+
+
 </resources>
