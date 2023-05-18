@@ -12,8 +12,9 @@ import com.krunal.demo.uicomponents.extentions.getThemeColor
 class Divider @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyle: Int = 0
-) : View(context, attrs, defStyle) {
+    defStyle: Int = 0,
+    defStyleRes: Int = 0,
+) : View(context, attrs, defStyle, defStyleRes) {
 
     private val progressPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val backgroundPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -23,16 +24,16 @@ class Divider @JvmOverloads constructor(
     private var backgroundColor =
         context.getThemeColor(com.google.android.material.R.attr.colorSurfaceDim)
     private var progress = 6F
-    private var centerPositionY: Float = height / 2f
+    private var centerPositionY: Float = 5F
 
 
     init {
-        setupAttributes(attrs)
+        setupAttributes(attrs, defStyle, defStyleRes)
         setupPaint()
     }
 
-    private fun setupAttributes(attrs: AttributeSet?) {
-        context.theme.obtainStyledAttributes(attrs, R.styleable.Divider, 0, 0).apply {
+    private fun setupAttributes(attrs: AttributeSet?, defStyle: Int, defStyleRes: Int) {
+        context.theme.obtainStyledAttributes(attrs, R.styleable.Divider, defStyle, defStyleRes).apply {
             backgroundColor = getColor(R.styleable.Divider_backgroundColor, backgroundColor)
             progressColor = getColor(R.styleable.Divider_progressColor, progressColor)
             progress = getDimension(R.styleable.Divider_progress, progress)
@@ -51,17 +52,22 @@ class Divider @JvmOverloads constructor(
 
         backgroundPaint.apply {
             color = backgroundColor
-            strokeWidth = 0f
+            strokeWidth = lineHeight
             style = Paint.Style.STROKE
             strokeCap = Paint.Cap.ROUND
         }
     }
 
     override fun onDraw(canvas: Canvas) {
+        centerPositionY = height / 2F
         drawBackground(canvas)
         drawProgress(canvas)
 
         super.onDraw(canvas)
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        setMeasuredDimension(widthMeasureSpec, lineHeight.toInt())
     }
 
     private fun drawBackground(canvas: Canvas) {

@@ -84,13 +84,12 @@
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             tools:text="OCTOBER 18, TUESDAY 3:19:23 PM" />
 
-        <View
+        <com.krunal.demo.stackexchange.views.Divider
             android:id="@+id/divider"
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:alpha="0.3"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            android:background="?attr/colorOnSurface"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            style="@style/DividerStyle"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"/>

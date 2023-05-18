@@ -18,5 +18,6 @@
         <attr name="progressColor" format="color" />
         <attr name="progress" format="dimension" />
         <attr name="backgroundColor" format="color" />
+        <attr name="dividerStyle" format="reference" />
     </declare-styleable>
 </resources>

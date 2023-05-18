@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="title_text_size">14sp</dimen>
     <dimen name="heading_text_size">14sp</dimen>
     <dimen name="subtitle_text_size">12sp</dimen>
     <dimen name="body1_text_size">12sp</dimen>
@@ -8,4 +9,5 @@
     <dimen name="sub_divider_margin">12dp</dimen>
     <dimen name="corner_radius">10dp</dimen>
     <dimen name="card_height">60dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
 </resources>

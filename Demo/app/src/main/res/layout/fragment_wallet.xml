@@ -65,6 +65,13 @@
                 app:chipIconTint="?attr/colorTertiary" />
         </com.google.android.material.chip.ChipGroup>
 
+        <com.krunal.demo.stackexchange.views.DonutChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintTop_toBottomOf="@id/cgTop"
+            />
+
         <TextView
             android:id="@+id/tvPortfolio"
             android:layout_width="wrap_content"
@@ -72,19 +79,86 @@
             android:layout_marginTop="@dimen/divider_margin"
             android:text="@string/portfolio"
             android:textAppearance="@style/Heading"
-            app:layout_constraintTop_toBottomOf="@id/cgTop"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/chart" />
+
+        <TextView
+            android:id="@+id/tvRightTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:text="@string/vol_macd_kdj_rsi"
+            android:textAppearance="@style/Subtitle2"
+            app:layout_constraintBottom_toBottomOf="@id/tvPortfolio"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd" />
+
+        <com.krunal.demo.stackexchange.views.Divider
+            android:id="@+id/dividerMain"
+            style="@style/DividerStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvPortfolio" />
+
+
+        <include
+            android:id="@+id/portfolio1"
+            layout="@layout/portfolio_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:shareDetails="@{ viewModel.portfolios[0] }"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintTop_toBottomOf="@id/dividerMain"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart" />
 
         <com.krunal.demo.stackexchange.views.Divider
+            android:id="@+id/divider1"
+            style="@style/DividerStyle"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            app:progress="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/divider_margin"
-            app:lineHeight="10dp"
-            app:progressColor="@color/blue"
-            app:progress="40dp"
-            app:backgroundColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintTop_toBottomOf="@id/tvPortfolio"/>
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/portfolio1" />
+
+
+        <include
+            android:id="@+id/portfolio2"
+            layout="@layout/portfolio_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            app:shareDetails="@{ viewModel.portfolios[1] }" />
+
+        <com.krunal.demo.stackexchange.views.Divider
+            android:id="@+id/divider2"
+            style="@style/DividerStyle"
+            android:layout_width="0dp"
+            app:progress="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/portfolio2" />
+
+        <include
+            android:id="@+id/portfolio3"
+            layout="@layout/portfolio_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:shareDetails="@{ viewModel.portfolios[2] }"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

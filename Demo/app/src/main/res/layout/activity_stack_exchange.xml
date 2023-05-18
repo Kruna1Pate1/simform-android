@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.krunal.demo.stackexchange.StackExchangeActivityViewModel" />
@@ -14,6 +15,42 @@
         android:layout_height="match_parent"
         tools:context=".stackexchange.StackExchangeActivity">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Gemini"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/AppTitle">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/notificationView"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/stack_exchange_theme_dark_background"
+                app:cardCornerRadius="@dimen/corner_radius"
+                app:cardElevation="6dp"
+                app:strokeColor="?attr/colorSurfaceDim"
+                app:strokeWidth="0.4dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="12dp"
+                    android:scaleType="fitXY"
+                    android:background="@color/stack_exchange_theme_dark_background"
+                    android:src="@drawable/ic_notification"
+                    app:tint="?attr/colorSecondary" />
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.appbar.MaterialToolbar>
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
@@ -21,7 +58,7 @@
             app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
@@ -38,8 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="26dp"
-            app:backgroundTint="?attr/colorSurface"
             android:src="@drawable/ic_exchange"
+            app:backgroundTint="?attr/colorSurface"
             app:elevation="10dp"
             app:layout_constraintBottom_toBottomOf="@id/bottomNavigation"
             app:layout_constraintEnd_toEndOf="@id/bottomNavigation"

@@ -415,7 +415,7 @@
     // StackExchange
     <color name="stack_exchange_theme_dark_primary">#FDFEFE</color>
     <color name="stack_exchange_theme_dark_onPrimary">#373D41</color>
-    <color name="stack_exchange_theme_dark_primaryContainer">#22282C</color>
+    <color name="stack_exchange_theme_dark_primaryContainer">#292d30</color>
     <color name="stack_exchange_theme_dark_onPrimaryContainer">#FAFAFC</color>
     <color name="stack_exchange_theme_dark_secondary">#E4AE8C</color>
     <color name="stack_exchange_theme_dark_onSecondary">#FDFEFE</color>

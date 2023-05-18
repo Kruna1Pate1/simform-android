@@ -1,23 +1,19 @@
 package com.krunal.demo.uicomponents.adapters
 
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
-import android.util.Log
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.graphics.ColorUtils
 import androidx.databinding.BindingAdapter
-import com.krunal.demo.uicomponents.models.DrawableResource
 
 @BindingAdapter("drawableResource")
-fun ImageView.setDrawableResource(drawableResource: DrawableResource) {
-    when (drawableResource) {
-        is DrawableResource.Bitmap -> setImageBitmap(drawableResource.bitmap)
-        is DrawableResource.Drawable -> setImageResource(drawableResource.id)
-    }
+fun ImageView.setDrawableResource(@DrawableRes drawableResource: Int) {
+    setImageResource(drawableResource)
 }
 
 @BindingAdapter("drawableResource")
@@ -34,7 +30,32 @@ fun TextView.setStartColorResource(@ColorRes colorResource: Int) {
     }
 }
 
+@BindingAdapter("textColorResource")
+fun TextView.setTextColorResource(@ColorRes colorResource: Int) {
+    setTextColor(resources.getColor(colorResource, context.theme))
+}
+
+@BindingAdapter("textColor")
+fun TextView.setTextColor(color: Int) {
+    setTextColor(color)
+}
+
 @BindingAdapter("backgroundColor")
 fun View.setViewBackgroundColor(color: Int) {
     setBackgroundColor(color)
+}
+
+@BindingAdapter("gradientStartColor", "gradientEndColor", "angle", requireAll = false)
+fun View.setGradientBackground(gradientStartColor: Int?, gradientEndColor: Int?, angle: Int?) {
+    gradientStartColor?.let { it ->
+        ColorUtils.setAlphaComponent(it, 0x4f).let { color ->
+            GradientDrawable(
+                GradientDrawable.Orientation.TR_BL,
+                intArrayOf(color, gradientEndColor ?: Color.TRANSPARENT)
+            ).also {
+                it.cornerRadius = 0f
+                background = it
+            }
+        }
+    }
 }

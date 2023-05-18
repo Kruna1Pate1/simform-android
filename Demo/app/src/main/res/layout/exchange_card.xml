@@ -2,129 +2,130 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="exchangeModel"
             type="com.krunal.demo.stackexchange.models.ExchangeModel" />
     </data>
-<com.google.android.material.card.MaterialCardView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:cardBackgroundColor="?attr/colorSecondaryContainer">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
-    <include
-        android:id="@+id/exchangeView"
-        layout="@layout/exchange_layout"
-        android:layout_width="0dp"
-        app:heading="@{ @string/you_exchange }"
-        app:shareDetails="@{ exchangeModel.exchange }"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:cardBackgroundColor="?attr/colorSecondaryContainer">
 
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:alpha="0.3"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            android:background="?attr/colorOnSurface"
-            app:layout_constraintTop_toBottomOf="@id/exchangeView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
 
-        <ImageButton
-            android:id="@+id/imgBtnSwap"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            android:src="@drawable/ic_swap"
-            android:background="@android:color/transparent"
-            app:tint="?attr/colorSecondary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider1"
-            android:scaleType="fitXY"/>
+            <include
+                android:id="@+id/exchangeView"
+                layout="@layout/exchange_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:heading="@{ @string/you_exchange }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shareDetails="@{ exchangeModel.exchange }" />
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:alpha="0.3"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            android:background="?attr/colorOnSurface"
-            app:layout_constraintTop_toBottomOf="@id/imgBtnSwap"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider1"
+                style="@style/DividerStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/exchangeView" />
 
-        <include
-            android:id="@+id/receiverView"
-            layout="@layout/exchange_layout"
-            android:layout_width="0dp"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            app:heading="@{ @string/you_receive }"
-            app:shareDetails="@{ exchangeModel.receive }"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider2"/>
+            <ImageButton
+                android:id="@+id/imgBtnSwap"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_swap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider1"
+                app:tint="?attr/colorSecondary" />
 
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:alpha="0.3"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            android:background="?attr/colorOnSurface"
-            app:layout_constraintTop_toBottomOf="@id/receiverView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider2"
+                style="@style/DividerStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgBtnSwap" />
 
-        <TextView
-            android:id="@+id/tvTransactionCost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/transaction_cost"
-            android:textAppearance="@style/Subtitle2"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider3" />
+            <include
+                android:id="@+id/receiverView"
+                layout="@layout/exchange_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                app:heading="@{ @string/you_receive }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
+                app:shareDetails="@{ exchangeModel.receive }" />
 
-        <TextView
-            android:id="@+id/tvTransactionAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{ @string/euro_amount(exchangeModel.transactionCost) }"
-            android:textAppearance="@style/Subtitle2"
-            android:layout_marginTop="@dimen/sub_divider_margin"
-            app:layout_constraintStart_toEndOf="@id/tvTransactionCost"
-            app:layout_constraintEnd_toStartOf="@id/tvCompanyName"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintTop_toBottomOf="@id/divider3" />
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider3"
+                style="@style/DividerStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/receiverView" />
 
-        <TextView
-            android:id="@+id/tvCompanyName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawablePadding="6dp"
-            android:gravity="center"
-            android:text="@{ exchangeModel.exchange.name + `175.21` }"
-            android:textAppearance="@style/Body2"
-            app:drawableResource="@{ exchangeModel.exchange.logo }"
-            app:drawableTint="?attr/colorSecondary"
-            android:textColor="?attr/colorSecondary"
-            tools:drawableStartCompat="@drawable/ic_avax_logo"
-            tools:text="AVAX 175.21"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tvTransactionCost"/>
+            <TextView
+                android:id="@+id/tvTransactionCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                android:text="@string/transaction_cost"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+            <TextView
+                android:id="@+id/tvTransactionAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                android:text="@{ @string/euro_amount(exchangeModel.transactionCost) }"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintEnd_toStartOf="@id/tvCompanyName"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintStart_toEndOf="@id/tvTransactionCost"
+                app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+            <TextView
+                android:id="@+id/tvCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="@{ exchangeModel.exchange.name + `175.21` }"
+                android:textAppearance="@style/Body2"
+                android:textColor="?attr/colorSecondary"
+                app:drawableResource="@{ exchangeModel.exchange.logo }"
+                app:drawableTint="?attr/colorSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvTransactionCost"
+                tools:drawableStartCompat="@drawable/ic_avax_logo"
+                tools:text="AVAX 175.21" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

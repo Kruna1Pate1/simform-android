@@ -1,10 +1,7 @@
 package com.krunal.demo.stackexchange.exchange
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.krunal.demo.DemoApplication
-import com.krunal.demo.R
 import com.krunal.demo.stackexchange.models.ExchangeModel
 import com.krunal.demo.stackexchange.models.ShareDetails
 import com.krunal.demo.stackexchange.models.TitleCardModel
@@ -33,22 +30,7 @@ class ExchangeFragmentViewModel : ViewModel() {
 
             _exchangeModel.emit(
                 ExchangeModel(
-                    ShareDetails(
-                        "Avax",
-                        R.drawable.ic_avax_logo,
-                        "0,187200",
-                        true,
-                        "47,38662",
-                        "6.022,84"
-                    ), ShareDetails(
-                        "Link",
-                        R.drawable.ic_link_logo,
-                        "127,100880",
-                        false,
-                        "1.497,68",
-                        "6.022,84"
-                    ),
-                    "32,80"
+                    ShareDetails.dummyData[0], ShareDetails.dummyData[1], "32,80"
                 )
             )
 

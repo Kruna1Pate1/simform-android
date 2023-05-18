@@ -270,6 +270,8 @@
     </style>
 
     <style name="Theme.StackExchange" parent="BaseTheme">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
         <item name="colorPrimary">@color/stack_exchange_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/stack_exchange_theme_dark_onPrimary</item>
@@ -308,5 +310,8 @@
 
 <!--        Card style-->
         <item name="materialCardViewStyle">@style/CardStyle</item>
+        
+<!--        Divider style-->
+        <item name="dividerStyle">@style/DividerStyle</item>
     </style>
 </resources>

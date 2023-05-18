@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/actionMarket"
-        android:icon="@drawable/ic_feed"
+        android:icon="@drawable/ic_market"
         android:title="@string/market" />
     <item
         android:id="@+id/actionExchange"
