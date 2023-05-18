@@ -14,8 +14,6 @@ import kotlinx.coroutines.launch
 
 class ExchangeFragmentViewModel : ViewModel() {
 
-    private val context: Context
-
     private val _dateTime: MutableStateFlow<String> = MutableStateFlow("")
     val dateTime: StateFlow<String> = _dateTime
 
@@ -26,17 +24,12 @@ class ExchangeFragmentViewModel : ViewModel() {
     val exchangeModel: StateFlow<ExchangeModel?> = _exchangeModel
 
     init {
-        context = DemoApplication.instance.applicationContext
         setupInitialValues()
     }
 
     private fun setupInitialValues() {
         viewModelScope.launch {
             _dateTime.emit("OCTOBER 18, TUESDAY 3:19:23 PM")
-
-            _titleCardModel.emit(
-                TitleCardModel("EXCHANGE FOR", "1.497,68", "LINK")
-            )
 
             _exchangeModel.emit(
                 ExchangeModel(
@@ -58,6 +51,12 @@ class ExchangeFragmentViewModel : ViewModel() {
                     "32,80"
                 )
             )
+
+            exchangeModel.value?.receive?.let { share ->
+                _titleCardModel.emit(
+                    TitleCardModel("EXCHANGE FOR", share.value, share.name)
+                )
+            }
         }
     }
 }

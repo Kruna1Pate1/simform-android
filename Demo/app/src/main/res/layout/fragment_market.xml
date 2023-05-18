@@ -31,6 +31,8 @@
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/rounded_tab_layout"
+            android:clipToOutline="true"
+            android:clipChildren="true"
             app:tabBackground="@drawable/rounded_tab_layout"
             app:tabIndicatorColor="?attr/colorTertiary"
             app:tabIndicatorHeight="60dp">
@@ -175,7 +177,7 @@
                     android:id="@+id/chipOpenOrders"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Open orders" />
+                    android:text="@string/open_orders" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipMarketHistory"

@@ -431,11 +431,11 @@
     <color name="stack_exchange_theme_dark_onErrorContainer">#FFDAD6</color>
     <color name="stack_exchange_theme_dark_background">#22282C</color>
     <color name="stack_exchange_theme_dark_onBackground">#F5F9F9</color>
-    <color name="stack_exchange_theme_dark_surface">#404448</color>
+    <color name="stack_exchange_theme_dark_surface">#383C3F</color>
     <color name="stack_exchange_theme_dark_onSurface">#F3F3F4</color>
     <color name="stack_exchange_theme_dark_surfaceVariant">#79695e</color>
     <color name="stack_exchange_theme_dark_onSurfaceVariant">#FEFEFE</color>
-    <color name="stack_exchange_theme_dark_surfaceDim">#4c5053</color>
+    <color name="stack_exchange_theme_dark_surfaceDim">#4C5053</color>
     <color name="stack_exchange_theme_dark_outline">#958E99</color>
     <color name="stack_exchange_theme_dark_inverseOnSurface">#2B0052</color>
     <color name="stack_exchange_theme_dark_inverseSurface">#EFDBFF</color>

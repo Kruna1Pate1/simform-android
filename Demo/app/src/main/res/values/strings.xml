@@ -161,6 +161,8 @@
     <string name="rose">Rose</string>
     <string name="avax">Avax</string>
     <string name="link">Link</string>
+    <string name="open_orders">Open orders</string>
+    <string name="portfolio">Portfolio</string>
 
 
 </resources>

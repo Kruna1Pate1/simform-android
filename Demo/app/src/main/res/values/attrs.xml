@@ -12,4 +12,11 @@
         <attr name="thumbRadius" format="dimension" />
         <attr name="thumbColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="Divider">
+        <attr name="lineHeight" format="dimension" />
+        <attr name="progressColor" format="color" />
+        <attr name="progress" format="dimension" />
+        <attr name="backgroundColor" format="color" />
+    </declare-styleable>
 </resources>
