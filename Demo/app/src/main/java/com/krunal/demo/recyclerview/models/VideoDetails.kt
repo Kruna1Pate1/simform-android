@@ -1,6 +1,7 @@
 package com.krunal.demo.recyclerview.models
 
 import androidx.annotation.DrawableRes
+import com.krunal.demo.R
 
 data class VideoDetails(
     val title: String,
@@ -10,4 +11,20 @@ data class VideoDetails(
     val views: String,
     val uploadDate: String,
     @DrawableRes val profileImage: Int,
-)
+) {
+
+    companion object {
+        val dummyData: List<VideoDetails>
+            get() = listOf(
+                VideoDetails(
+                    "Running Up That Hill (Kate Bush)",
+                    4000,
+                    R.drawable.running_up_that_hill,
+                    "Netflix",
+                    "2.5M views",
+                    "11 months ago",
+                    R.drawable.netflix_logo
+                )
+            )
+    }
+}
