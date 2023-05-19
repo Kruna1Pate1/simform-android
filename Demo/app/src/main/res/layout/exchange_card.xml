@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="com.krunal.demo.stackexchange.utils.Formatter" />
+
         <variable
             name="exchangeModel"
             type="com.krunal.demo.stackexchange.models.ExchangeModel" />
@@ -98,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/sub_divider_margin"
-                android:text="@{ @string/euro_amount(exchangeModel.transactionCost) }"
+                android:text="@{ @string/euro_amount(Formatter.euroFormat(exchangeModel.transactionCost)) }"
                 android:textAppearance="@style/Subtitle2"
                 app:layout_constraintEnd_toStartOf="@id/tvCompanyName"
                 app:layout_constraintHorizontal_bias="0.85"
@@ -111,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="6dp"
                 android:gravity="center"
-                android:text="@{ exchangeModel.exchange.name + `175.21` }"
+                android:text="@{ exchangeModel.exchange.name + Formatter.euroFormat(17521) }"
                 android:textAppearance="@style/Body2"
                 android:textColor="?attr/colorSecondary"
                 app:drawableResource="@{ exchangeModel.exchange.logo }"

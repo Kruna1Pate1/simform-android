@@ -139,6 +139,7 @@
     <string name="limit">Limit</string>
     <string name="pool">Pool</string>
     <string name="euro_amount">€ %1$s</string>
+    <string name="euro_amount_percentage">€ %1$s (%2$s%%)</string>
     <string name="demands">Demands</string>
     <string name="amount">Amount</string>
     <string name="average_price">Avg. price</string>
@@ -159,9 +160,9 @@
     <string name="you_exchange">You exchange</string>
     <string name="you_receive">You receive</string>
     <string name="transaction_cost">Transaction cost</string>
-    <string name="rose">Rose</string>
-    <string name="avax">Avax</string>
-    <string name="link">Link</string>
+    <string name="rose_percentage">Rose %1$d%%</string>
+    <string name="avax_percentage">Avax %1$d%%</string>
+    <string name="link_percentage">Link %1$d%%</string>
     <string name="open_orders">Open orders</string>
     <string name="portfolio">Portfolio</string>
     <string name="currency">CURRENCY</string>
@@ -173,6 +174,9 @@
     <string name="buy">Buy</string>
     <string name="notification">Notificaiton</string>
     <string name="percentage">%1$d%%</string>
+    <string name="wallet_value">Wallet value</string>
+    <string name="ma_ema">MA / EMA</string>
+    <string name="max_24h">Max 24H</string>
 
 
 </resources>

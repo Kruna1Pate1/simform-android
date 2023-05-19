@@ -24,6 +24,7 @@
             android:padding="@dimen/sub_divider_margin">
 
             <ImageButton
+                android:id="@+id/imgBtnMinus"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@android:color/transparent"
@@ -36,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{ amount }"
-                android:textAppearance="@style/Heading"
+                android:textAppearance="@style/Heading2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -44,6 +45,7 @@
 
 
             <ImageButton
+                android:id="@+id/imgBtnAdd"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@android:color/transparent"

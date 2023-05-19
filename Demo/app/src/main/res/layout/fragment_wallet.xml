@@ -1,166 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="com.krunal.demo.R" />
 
         <variable
             name="viewModel"
             type="com.krunal.demo.stackexchange.wallet.WalletFragmentViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="16dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="16dp" />
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/cgTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin"
-            app:checkedChip="@id/chipLimit"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toTopOf="parent"
-            app:selectionRequired="true"
-            app:singleSelection="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipRose"
-                style="@style/StackExchangeCompanyChip"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rose"
-                app:chipIcon="@drawable/ic_rose_logo" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipMarket"
-                style="@style/StackExchangeCompanyChip"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/avax"
-                app:chipIcon="@drawable/ic_avax_logo"
-                app:chipIconTint="?attr/colorSecondary" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipPool"
-                style="@style/StackExchangeCompanyChip"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgTop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/link"
-                app:chipIcon="@drawable/ic_link_logo"
-                app:chipIconTint="?attr/colorTertiary" />
-        </com.google.android.material.chip.ChipGroup>
+                android:layout_marginTop="@dimen/divider_margin"
+                app:checkedChip="@id/chipLimit"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toTopOf="parent"
+                app:selectionRequired="true"
+                app:singleSelection="true">
 
-        <com.krunal.demo.stackexchange.views.DonutChart
-            android:id="@+id/chart"
-            android:layout_width="0dp"
-            android:layout_height="400dp"
-            app:layout_constraintTop_toBottomOf="@id/cgTop"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipRose"
+                    style="@style/StackExchangeCompanyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{ @string/rose_percentage(36) }"
+                    app:chipIcon="@drawable/ic_rose_logo"
+                    tools:text="Rose 36%" />
 
-        <TextView
-            android:id="@+id/tvPortfolio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin"
-            android:text="@string/portfolio"
-            android:textAppearance="@style/Heading"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/chart" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMarket"
+                    style="@style/StackExchangeCompanyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{ @string/avax_percentage(24) }"
+                    app:chipIcon="@drawable/ic_avax_logo"
+                    app:chipIconTint="?attr/colorSecondary"
+                    tools:text="Avax 24%" />
 
-        <TextView
-            android:id="@+id/tvRightTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin"
-            android:text="@string/vol_macd_kdj_rsi"
-            android:textAppearance="@style/Subtitle2"
-            app:layout_constraintBottom_toBottomOf="@id/tvPortfolio"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPool"
+                    style="@style/StackExchangeCompanyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{ @string/link_percentage(18) }"
+                    app:chipIcon="@drawable/ic_link_logo"
+                    app:chipIconTint="?attr/colorTertiary"
+                    tools:text="Link 18%" />
+            </com.google.android.material.chip.ChipGroup>
 
-        <com.krunal.demo.stackexchange.views.Divider
-            android:id="@+id/dividerMain"
-            style="@style/DividerStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/tvPortfolio" />
+            <com.krunal.demo.stackexchange.views.DonutChart
+                android:id="@+id/chart"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:colors="@array/chartColors"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/cgTop"
+                app:values="@array/chartValues" />
+
+            <TextView
+                android:id="@+id/tvMaEma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:text="@string/ma_ema"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintStart_toStartOf="@id/chart"
+                app:layout_constraintTop_toTopOf="@id/chart" />
+
+            <TextView
+                android:id="@+id/tvWalletMaxValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:text="@{ @string/euro_amount(viewModel.wallet.maxValue) }"
+                android:textAppearance="@style/Heading2"
+                app:layout_constraintEnd_toEndOf="@id/chart"
+                app:layout_constraintTop_toTopOf="@id/chart"
+                tools:text="€ 182.057,83" />
+
+            <TextView
+                android:id="@+id/tvMax24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max_24h"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintEnd_toEndOf="@id/chart"
+                app:layout_constraintTop_toBottomOf="@id/tvWalletMaxValue" />
 
 
-        <include
-            android:id="@+id/portfolio1"
-            layout="@layout/portfolio_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:shareDetails="@{ viewModel.portfolios[0] }"
-            android:layout_marginTop="@dimen/divider_margin"
-            app:layout_constraintTop_toBottomOf="@id/dividerMain"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart" />
+            <TextView
+                android:id="@+id/tvWalletValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:text="@string/wallet_value"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintBottom_toTopOf="@id/tvWalletAmount"
+                app:layout_constraintEnd_toEndOf="@id/chart"
+                app:layout_constraintStart_toStartOf="@id/chart"
+                app:layout_constraintTop_toTopOf="@id/chart"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-        <com.krunal.demo.stackexchange.views.Divider
-            android:id="@+id/divider1"
-            style="@style/DividerStyle"
-            android:layout_width="0dp"
-            app:progress="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/portfolio1" />
+            <TextView
+                android:id="@+id/tvWalletAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:text="@{ @string/euro_amount(viewModel.wallet.amount) }"
+                android:textAppearance="@style/Heading2"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/tvWalletAmountDiff"
+                app:layout_constraintEnd_toEndOf="@id/chart"
+                app:layout_constraintStart_toStartOf="@id/chart"
+                app:layout_constraintTop_toBottomOf="@id/tvWalletValue"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="€ 182.057,83" />
 
 
-        <include
-            android:id="@+id/portfolio2"
-            layout="@layout/portfolio_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/divider1"
-            app:shareDetails="@{ viewModel.portfolios[1] }" />
+            <TextView
+                android:id="@+id/tvWalletAmountDiff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sub_divider_margin"
+                android:text="@{ @string/euro_amount_percentage(viewModel.wallet.amountDiff, viewModel.wallet.diffPercentage) }"
+                android:textAppearance="@style/Body2"
+                app:layout_constraintBottom_toBottomOf="@id/chart"
+                app:layout_constraintEnd_toEndOf="@id/chart"
+                app:layout_constraintStart_toStartOf="@id/chart"
+                app:layout_constraintTop_toBottomOf="@id/tvWalletAmount"
+                app:textColorResource="@{  viewModel.wallet.isPositive ? R.color.stack_exchange_theme_dark_green : R.color.stack_exchange_theme_dark_red}"
+                tools:text="€ 31.800, 53 (21,1%)"
+                tools:textColor="@color/stack_exchange_theme_dark_green" />
 
-        <com.krunal.demo.stackexchange.views.Divider
-            android:id="@+id/divider2"
-            style="@style/DividerStyle"
-            android:layout_width="0dp"
-            app:progress="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/portfolio2" />
 
-        <include
-            android:id="@+id/portfolio3"
-            layout="@layout/portfolio_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:shareDetails="@{ viewModel.portfolios[2] }"
-            android:layout_marginTop="@dimen/divider_margin"
-            app:layout_constraintTop_toBottomOf="@id/divider2"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintStart_toEndOf="@id/guidelineStart" />
+            <TextView
+                android:id="@+id/tvPortfolio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:text="@string/portfolio"
+                android:textAppearance="@style/Heading1"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/chart" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvRightTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:text="@string/vol_macd_kdj_rsi"
+                android:textAppearance="@style/Subtitle2"
+                app:layout_constraintBottom_toBottomOf="@id/tvPortfolio"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/dividerMain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/tvPortfolio" />
+
+
+            <include
+                android:id="@+id/portfolio1"
+                layout="@layout/portfolio_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/dividerMain"
+                app:shareDetails="@{ viewModel.portfolios[0] }" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/portfolio1"
+                app:progress="0dp" />
+
+
+            <include
+                android:id="@+id/portfolio2"
+                layout="@layout/portfolio_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/divider1"
+                app:shareDetails="@{ viewModel.portfolios[1] }" />
+
+            <com.krunal.demo.stackexchange.views.Divider
+                android:id="@+id/divider2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/portfolio2"
+                app:progress="0dp" />
+
+            <include
+                android:id="@+id/portfolio3"
+                layout="@layout/portfolio_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/divider_margin"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
+                app:shareDetails="@{ viewModel.portfolios[2] }" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

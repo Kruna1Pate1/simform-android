@@ -7,6 +7,7 @@ import com.krunal.demo.stackexchange.models.ShareDetails
 import com.krunal.demo.stackexchange.models.TitleCardModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class ExchangeFragmentViewModel : ViewModel() {
@@ -30,13 +31,43 @@ class ExchangeFragmentViewModel : ViewModel() {
 
             _exchangeModel.emit(
                 ExchangeModel(
-                    ShareDetails.dummyData[0], ShareDetails.dummyData[1], "32,80"
+                    ShareDetails.dummyData[0], ShareDetails.dummyData[2], 32.80F
                 )
             )
 
-            exchangeModel.value?.receive?.let { share ->
-                _titleCardModel.emit(
-                    TitleCardModel("EXCHANGE FOR", share.value, share.name)
+            exchangeModel.collectLatest {
+                it?.receive?.let { share ->
+                    _titleCardModel.emit(
+                        TitleCardModel("EXCHANGE FOR", share.value, share.name)
+                    )
+                }
+            }
+        }
+    }
+
+    fun changeExchangeAmount(number: Float) {
+        viewModelScope.launch {
+            exchangeModel.value?.exchange?.let { exchange ->
+                _exchangeModel.emit(
+                    exchangeModel.value?.copy(
+                        exchange = exchange.copy(
+                            value = exchange.value + number
+                        )
+                    )
+                )
+            }
+        }
+    }
+
+    fun changeReceiveAmount(number: Float) {
+        viewModelScope.launch {
+            exchangeModel.value?.receive?.let { receive ->
+                _exchangeModel.emit(
+                    exchangeModel.value?.copy(
+                        receive = receive.copy(
+                            value = receive.value + number
+                        )
+                    )
                 )
             }
         }

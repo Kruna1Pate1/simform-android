@@ -73,4 +73,18 @@
         <item>PURPLE</item>
         <item>VIOLET</item>
     </string-array>
+
+    <array name="chartValues">
+        <item>32</item>
+        <item>28</item>
+        <item>26</item>
+        <item>14</item>
+    </array>
+
+    <array name="chartColors">
+        <item>#FFC107</item>
+        <item>#DF9B68</item>
+        <item>#8BC34A</item>
+        <item>#03A9F4</item>
+    </array>
 </resources>

@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="com.krunal.demo.stackexchange.utils.Formatter" />
+
         <variable
             name="shareDetails"
             type="com.krunal.demo.stackexchange.models.ShareDetails" />
@@ -67,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/sub_divider_margin"
             android:text="@{ shareDetails.name }"
-            android:textAppearance="@style/Heading"
+            android:textAppearance="@style/Heading2"
             app:layout_constraintStart_toEndOf="@id/viewStart"
             app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
             tools:text="Avax" />
@@ -107,8 +109,8 @@
             android:id="@+id/tvPriceValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{ @string/euro_amount(shareDetails.price) }"
-            android:textAppearance="@style/Heading"
+            android:text="@{ @string/euro_amount(Formatter.euroFormat(shareDetails.price)) }"
+            android:textAppearance="@style/Heading2"
             app:layout_constraintStart_toStartOf="@id/tvPrice"
             app:layout_constraintTop_toBottomOf="@id/tvPrice"
             tools:text="€97.864,91" />
@@ -128,8 +130,8 @@
             android:id="@+id/tvQuantityValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{ shareDetails.value }"
-            android:textAppearance="@style/Heading"
+            android:text="@{ Formatter.euroFormat(shareDetails.value) }"
+            android:textAppearance="@style/Heading2"
             app:layout_constraintStart_toStartOf="@id/tvPrice"
             app:layout_constraintTop_toBottomOf="@id/tvQuantity"
             tools:text="15.765" />
@@ -154,7 +156,7 @@
             android:id="@+id/tvPercentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Heading"
+            android:textAppearance="@style/Heading2"
             android:text="@{ @string/percentage(shareDetails.percentage) }"
             app:layout_constraintBottom_toBottomOf="@id/progressBar"
             app:layout_constraintEnd_toEndOf="@id/progressBar"

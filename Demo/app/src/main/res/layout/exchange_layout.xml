@@ -7,6 +7,8 @@
 
         <import type="com.krunal.demo.R" />
 
+        <import type="com.krunal.demo.stackexchange.utils.Formatter" />
+
         <variable
             name="heading"
             type="String" />
@@ -63,7 +65,7 @@
             android:layout_marginTop="@dimen/sub_divider_margin"
             android:drawablePadding="2dp"
             android:gravity="center"
-            android:text="@{ @string/euro_amount(shareDetails.amountDiff) }"
+            android:text="@{ @string/euro_amount(Formatter.euroFormat(shareDetails.amountDiff)) }"
             android:textAppearance="@style/Body1"
             app:drawableColorResource="@{ shareDetails.isPositive ? R.color.stack_exchange_theme_dark_green : R.color.stack_exchange_theme_dark_red}"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,10 +89,10 @@
             layout="@layout/company_amount_card"
             android:layout_width="200dp"
             android:layout_height="@dimen/card_height"
-            app:amount="@{ shareDetails.value }"
+            app:amount="@{ Formatter.euroFormat(shareDetails.value) }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/cardCompany"
-            app:price="@{ shareDetails.price }" />
+            app:price="@{ Formatter.euroFormat(shareDetails.price) }" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
