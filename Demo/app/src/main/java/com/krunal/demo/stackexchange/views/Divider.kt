@@ -12,9 +12,8 @@ import com.krunal.demo.uicomponents.extentions.getThemeColor
 class Divider @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyle: Int = 0,
-    defStyleRes: Int = 0,
-) : View(context, attrs, defStyle, defStyleRes) {
+    defStyleAttr: Int = R.attr.dividerStyle,
+) : View(context, attrs, defStyleAttr) {
 
     private val progressPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val backgroundPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -28,12 +27,12 @@ class Divider @JvmOverloads constructor(
 
 
     init {
-        setupAttributes(attrs, defStyle, defStyleRes)
+        setupAttributes(attrs, defStyleAttr)
         setupPaint()
     }
 
-    private fun setupAttributes(attrs: AttributeSet?, defStyle: Int, defStyleRes: Int) {
-        context.theme.obtainStyledAttributes(attrs, R.styleable.Divider, defStyle, defStyleRes).apply {
+    private fun setupAttributes(attrs: AttributeSet?, defStyle: Int) {
+        context.theme.obtainStyledAttributes(attrs, R.styleable.Divider, defStyle, 0).apply {
             backgroundColor = getColor(R.styleable.Divider_backgroundColor, backgroundColor)
             progressColor = getColor(R.styleable.Divider_progressColor, progressColor)
             progress = getDimension(R.styleable.Divider_progress, progress)

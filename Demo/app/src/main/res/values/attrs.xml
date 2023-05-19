@@ -20,4 +20,13 @@
         <attr name="backgroundColor" format="color" />
         <attr name="dividerStyle" format="reference" />
     </declare-styleable>
+    
+    <declare-styleable name="DonutChart">
+        <attr name="strokeWidth"/>
+        <attr name="radius" format="dimension" />
+        <attr name="donutSpacing" format="dimension" />
+        <attr name="values"/>
+        <attr name="totalValue" format="integer" />
+        <attr name="colors" format="reference" />
+    </declare-styleable>
 </resources>
