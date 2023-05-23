@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="communityPost"
+            type="com.krunal.demo.recyclerview.models.CommunityPost" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgViewProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@{ communityPost.name }"
+            android:scaleType="centerCrop"
+            app:drawableResource="@{ communityPost.profileImage }"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.Profile"
+            tools:src="@drawable/android_dev" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{ communityPost.name }"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            app:layout_constraintEnd_toStartOf="@id/imgButtonMenu"
+            app:layout_constraintStart_toEndOf="@id/imgViewProfile"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Android Developers" />
+
+
+        <TextView
+            android:id="@+id/tvUploadDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{ communityPost.uploadDate }"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/imgButtonMenu"
+            app:layout_constraintStart_toEndOf="@id/imgViewProfile"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="13 days ago" />
+
+        <ImageButton
+            android:id="@+id/imgButtonMenu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_action_more"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnBackground" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{ communityPost.description }"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            app:layout_constraintTop_toBottomOf="@id/imgViewProfile"
+            tools:text="@string/community_post_description" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/imgBtnLike"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_like_outlined"
+            android:tint="?attr/colorOnBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvImage" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/imgBtnDislike"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_dislike_outlined"
+            android:tint="?attr/colorOnBackground"
+            app:layout_constraintStart_toEndOf="@id/imgBtnLike"
+            app:layout_constraintTop_toBottomOf="@id/rvImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -20,7 +20,8 @@
             android:layout_height="0dp"
             android:contentDescription="@{ videoDetail.title }"
             app:drawableResource="@{ videoDetail.thumbnail }"
-            app:layout_constraintDimensionRatio="180:101"
+            app:layout_constraintDimensionRatio="16:9"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,6 +31,7 @@
             layout="@layout/video_details_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:videoDetail="@{ videoDetail }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgViewThumbnail" />

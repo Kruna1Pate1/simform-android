@@ -15,13 +15,27 @@
         android:layout_height="match_parent"
         tools:context=".recyclerview.YoutubeHomeFragment">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:titleTextColor="?attr/colorOnPrimary"
+            android:theme="@style/AppSearchView"
+            app:titleCentered="true"
+            app:title="@string/tb_logo"
+            app:menu="@menu/youtube_home_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHome"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolBar" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
