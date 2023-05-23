@@ -11,6 +11,7 @@ data class VideoDetails(
     val views: String,
     val uploadDate: String,
     @DrawableRes val profileImage: Int,
+    val type: FeedType
 ) {
 
     companion object {
@@ -23,7 +24,18 @@ data class VideoDetails(
                     "Netflix",
                     "2.5M views",
                     "11 months ago",
-                    R.drawable.netflix_logo
+                    R.drawable.netflix_logo,
+                    FeedType.VIDEO
+                ),
+                VideoDetails(
+                    "Running Up That Hill (Kate Bush)",
+                    4000,
+                    R.drawable.running_up_that_hill,
+                    "Netflix",
+                    "2.5M views",
+                    "11 months ago",
+                    R.drawable.netflix_logo,
+                    FeedType.SHORT_VIDEO
                 )
             )
     }

@@ -10,7 +10,7 @@ import com.krunal.demo.recyclerview.models.VideoDetails
 
 class FeedAdapter : RecyclerView.Adapter<FeedAdapter.VideoViewHolder>() {
 
-    private val videoDetails: MutableList<VideoDetails> = VideoDetails.dummyData.toMutableList()
+    private val videoDetails: MutableList<VideoDetails> = mutableListOf()
 
     class VideoViewHolder(val context: Context, val binding: FeedVideoLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -28,6 +28,7 @@ class FeedAdapter : RecyclerView.Adapter<FeedAdapter.VideoViewHolder>() {
 
     override fun getItemCount(): Int = 2
 
+
     override fun onBindViewHolder(holder: VideoViewHolder, position: Int) {
         holder.bind(videoDetails[position])
     }
@@ -35,8 +36,6 @@ class FeedAdapter : RecyclerView.Adapter<FeedAdapter.VideoViewHolder>() {
     fun submitVideoDetails(details: List<VideoDetails>) {
         videoDetails.clear()
         videoDetails.addAll(details)
-
-        Log.d("You", "setupUI: $videoDetails")
         notifyDataSetChanged()
     }
 }
