@@ -2,30 +2,30 @@ package com.krunal.demo.recyclerview.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayoutMediator
 import com.krunal.demo.databinding.CommunityPostLayoutBinding
 import com.krunal.demo.databinding.FeedVideoLayoutBinding
+import com.krunal.demo.databinding.ItemRecommendationBinding
 import com.krunal.demo.databinding.ShortVideoLayoutBinding
 import com.krunal.demo.recyclerview.models.CommunityPost
 import com.krunal.demo.recyclerview.models.Feed
 import com.krunal.demo.recyclerview.models.FeedType
+import com.krunal.demo.recyclerview.models.Recommendation
 import com.krunal.demo.recyclerview.models.VideoDetails
+import com.krunal.demo.recyclerview.viewholders.VideoViewHolder
 
 class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val feeds: MutableList<Feed> = mutableListOf()
-
-    class VideoViewHolder(val binding: FeedVideoLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(videoDetails: VideoDetails) {
-            binding.videoDetail = videoDetails
-        }
-    }
 
     class ShortVideoViewHolder(val binding: ShortVideoLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -35,21 +35,46 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-//    class RecommendationViewHolder(val binding: ): RecyclerView.ViewHolder(binding.root) {
-//
-//        fun bind()
-//    }
+    class RecommendationViewHolder(val context: Context, val binding: ItemRecommendationBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(recommendation: Recommendation) {
+            binding.recommendation = recommendation
+            binding.rvRecommendation.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            binding.rvRecommendation.adapter =
+                RecommendationAdapter().apply { submitList(recommendation.videos) }
+
+            LinearSnapHelper().also { snapHelper ->
+                snapHelper.attachToRecyclerView(binding.rvRecommendation)
+            }
+            binding.rvRecommendation.addItemDecoration(object : RecyclerView.ItemDecoration() {
+                override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
+                    c.drawCircle(10f, 10f, 10F, Paint().apply { color = Color.RED })
+                }
+
+                override fun onDrawOver(
+                    c: Canvas,
+                    parent: RecyclerView,
+                    state: RecyclerView.State
+                ) {
+                    super.onDrawOver(c, parent, state)
+                }
+            })
+        }
+    }
 
     class CommunityPostViewHolder(val binding: CommunityPostLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(communityPost: CommunityPost) {
             binding.communityPost = communityPost
-            binding.rvImage.adapter = ImagesAdapter().apply {
+            (binding.vpImage.getChildAt(0) as? RecyclerView)?.clearOnChildAttachStateChangeListeners()
+            binding.vpImage.adapter = ImagesAdapter().apply {
                 submitList(communityPost.images)
             }
-            val snapHelper = PagerSnapHelper()
-            snapHelper.attachToRecyclerView(binding.rvImage)
+
+            TabLayoutMediator(binding.tlIndicator, binding.vpImage) { _, _ -> }.attach()
         }
     }
 
@@ -67,7 +92,10 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 ShortVideoViewHolder(binding)
             }
 
-            FeedType.RECOMMENDATION -> TODO()
+            FeedType.RECOMMENDATION -> {
+                val binding = ItemRecommendationBinding.inflate(layoutInflater, parent, false)
+                RecommendationViewHolder(parent.context, binding)
+            }
 
             FeedType.COMMUNITY_POST -> {
                 val binding = CommunityPostLayoutBinding.inflate(layoutInflater, parent, false)
@@ -91,6 +119,10 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             is ShortVideoViewHolder -> {
                 holder.bind(details as VideoDetails)
+            }
+
+            is RecommendationViewHolder -> {
+                holder.bind(details as Recommendation)
             }
 
             is CommunityPostViewHolder -> {

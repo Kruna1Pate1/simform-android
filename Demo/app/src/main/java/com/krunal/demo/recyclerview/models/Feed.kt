@@ -60,6 +60,8 @@ sealed interface Feed {
                             -1,
                             listOf(
                                 R.drawable.google_io,
+                                R.drawable.google_io,
+                                R.drawable.google_io,
                                 R.drawable.google_io
                             )
                         )
@@ -76,6 +78,30 @@ sealed interface Feed {
                             FeedType.SHORT_VIDEO
                         )
                     )
+                    add(
+                        VideoDetails(
+                            "Kaise Ab Kahein | Gutar Gu",
+                            134,
+                            R.drawable.thumbnail1,
+                            "Amazon miniTV",
+                            "430K views",
+                            "1 months ago",
+                            R.drawable.netflix_logo,
+                            FeedType.VIDEO
+                        )
+                    )
+                    add(Recommendation("Suggtion for you", List(4) {
+                        VideoDetails(
+                            "Kaise Ab Kahein | Gutar Gu",
+                            134,
+                            R.drawable.thumbnail1,
+                            "Amazon miniTV",
+                            "430K views",
+                            "1 months ago",
+                            R.drawable.netflix_logo,
+                            FeedType.VIDEO
+                        )
+                    }))
                 }
             }
     }
@@ -90,7 +116,38 @@ data class VideoDetails(
     val uploadDate: String,
     @DrawableRes val profileImage: Int,
     override val type: FeedType
-) : Feed
+) : Feed {
+
+    companion object {
+        val dummyData: List<VideoDetails> = buildList {
+            repeat(10) {
+                add(
+                    VideoDetails(
+                        "Running Up That Hill (Kate Bush)",
+                        4000,
+                        R.drawable.running_up_that_hill,
+                        "Netflix",
+                        "2.5M views",
+                        "11 months ago",
+                        R.drawable.netflix_logo,
+                        FeedType.SHORT_VIDEO
+                    )
+                )
+                add(
+                    VideoDetails(
+                        "Kaise Ab Kahein | Gutar Gu",
+                        134,
+                        R.drawable.thumbnail1,
+                        "Amazon miniTV",
+                        "430K views",
+                        "1 months ago",
+                        R.drawable.netflix_logo,
+                        FeedType.VIDEO
+                    ))
+            }
+        }
+    }
+}
 
 data class CommunityPost(
     val name: String,
@@ -106,5 +163,6 @@ data class CommunityPost(
 
 data class Recommendation(
     val name: String,
-    val videos: List<VideoDetails>
-)
+    val videos: List<VideoDetails>,
+    override val type: FeedType = FeedType.RECOMMENDATION
+) : Feed

@@ -11,6 +11,6 @@
         android:title="@string/home"
         tools:targetApi="o" />
     <item android:id="@+id/actionLibrary"
-        android:icon="@drawable/ic_play_outlined"
-        android:title="@string/home"/>
+        android:icon="@drawable/ic_video_library"
+        android:title="@string/library"/>
 </menu>

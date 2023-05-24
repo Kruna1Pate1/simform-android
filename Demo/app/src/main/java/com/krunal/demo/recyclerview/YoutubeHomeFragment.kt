@@ -9,9 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.databinding.FragmentYoutubeHomeBinding
 import com.krunal.demo.recyclerview.adapters.FeedAdapter
+import com.krunal.demo.recyclerview.viewmodels.YoutubeHomeFragmentViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -36,21 +37,19 @@ class YoutubeHomeFragment : Fragment() {
     }
 
     private fun setupUI() {
-        setupToolBar()
         setupRecyclerView()
-    }
-
-    private fun setupToolBar() {
-        binding.toolBar.setOnMenuItemClickListener {
-            binding.rvHome.layoutManager = GridLayoutManager(context, 2)
-            true
-        }
     }
 
     private fun setupRecyclerView() {
         feedAdapter = FeedAdapter()
         feedAdapter.submitFeeds(viewModel.videoDetails.value)
         binding.rvHome.adapter = feedAdapter
+        binding.rvHome.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {

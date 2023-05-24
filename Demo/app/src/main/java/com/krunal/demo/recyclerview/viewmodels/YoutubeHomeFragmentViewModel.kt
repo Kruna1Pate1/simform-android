@@ -1,4 +1,4 @@
-package com.krunal.demo.recyclerview
+package com.krunal.demo.recyclerview.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
