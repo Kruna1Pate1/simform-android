@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.CommunityPostLayoutBinding
 import com.krunal.demo.databinding.FeedVideoLayoutBinding
@@ -17,7 +19,7 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val feeds: MutableList<Feed> = mutableListOf()
 
-    class VideoViewHolder(val context: Context, val binding: FeedVideoLayoutBinding) :
+    class VideoViewHolder(val binding: FeedVideoLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(videoDetails: VideoDetails) {
@@ -25,7 +27,7 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    class ShortVideoViewHolder(val context: Context, val binding: ShortVideoLayoutBinding) :
+    class ShortVideoViewHolder(val binding: ShortVideoLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(videoDetails: VideoDetails) {
@@ -33,7 +35,12 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    class CommunityPostViewHolder(val context: Context, val binding: CommunityPostLayoutBinding) :
+//    class RecommendationViewHolder(val binding: ): RecyclerView.ViewHolder(binding.root) {
+//
+//        fun bind()
+//    }
+
+    class CommunityPostViewHolder(val binding: CommunityPostLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(communityPost: CommunityPost) {
@@ -41,6 +48,8 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.rvImage.adapter = ImagesAdapter().apply {
                 submitList(communityPost.images)
             }
+            val snapHelper = PagerSnapHelper()
+            snapHelper.attachToRecyclerView(binding.rvImage)
         }
     }
 
@@ -50,18 +59,19 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return when (FeedType.values()[viewType]) {
             FeedType.VIDEO -> {
                 val binding = FeedVideoLayoutBinding.inflate(layoutInflater, parent, false)
-                VideoViewHolder(parent.context, binding)
+                VideoViewHolder(binding)
             }
 
             FeedType.SHORT_VIDEO -> {
                 val binding = ShortVideoLayoutBinding.inflate(layoutInflater, parent, false)
-                ShortVideoViewHolder(parent.context, binding)
+                ShortVideoViewHolder(binding)
             }
 
-            FeedType.PLAYLIST -> TODO()
+            FeedType.RECOMMENDATION -> TODO()
+
             FeedType.COMMUNITY_POST -> {
                 val binding = CommunityPostLayoutBinding.inflate(layoutInflater, parent, false)
-                CommunityPostViewHolder(parent.context, binding)
+                CommunityPostViewHolder(binding)
             }
         }
     }

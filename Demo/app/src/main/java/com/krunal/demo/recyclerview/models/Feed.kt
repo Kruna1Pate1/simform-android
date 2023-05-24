@@ -6,7 +6,6 @@ import com.krunal.demo.R
 sealed interface Feed {
     val type: FeedType
 
-
     companion object {
         val dummyData: List<Feed>
             get() = buildList {
@@ -104,3 +103,8 @@ data class CommunityPost(
     val comments: List<String> = emptyList(),
     override val type: FeedType = FeedType.COMMUNITY_POST
 ) : Feed
+
+data class Recommendation(
+    val name: String,
+    val videos: List<VideoDetails>
+)
