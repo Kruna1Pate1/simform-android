@@ -121,5 +121,34 @@
             app:layout_constraintStart_toEndOf="@id/imgBtnLike"
             app:layout_constraintTop_toBottomOf="@id/tlIndicator" />
 
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/imgBtnComment"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_comment"
+            android:drawablePadding="4dp"
+            android:drawableTint="?attr/colorPrimary"
+            android:minWidth="0dp"
+            android:textOff="@{ String.valueOf(communityPost.comments.size) }"
+            android:textOn="@{ String.valueOf(communityPost.comments.size)  }"
+            android:tint="?attr/colorOnBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tlIndicator"
+            tools:textOff="2"
+            tools:textOn="2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBtnLike" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

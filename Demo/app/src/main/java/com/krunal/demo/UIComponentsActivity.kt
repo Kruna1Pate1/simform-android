@@ -3,6 +3,7 @@ package com.krunal.demo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.krunal.demo.recyclerview.ChattingFragment
 import com.krunal.demo.recyclerview.YoutubeFragment
 import com.krunal.demo.recyclerview.YoutubeHomeFragment
 import com.krunal.demo.uicomponents.ButtonFragment
@@ -28,7 +29,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, YoutubeFragment())
+            .replace(R.id.uiComponentsFragment, ChattingFragment())
             .commit()
     }
 }

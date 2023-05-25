@@ -2,6 +2,7 @@ package com.krunal.demo.recyclerview.models
 
 import androidx.annotation.DrawableRes
 import com.krunal.demo.R
+import com.krunal.demo.recyclerview.listeners.PaginationListener
 
 sealed interface Feed {
     val type: FeedType
@@ -63,7 +64,8 @@ sealed interface Feed {
                                 R.drawable.google_io,
                                 R.drawable.google_io,
                                 R.drawable.google_io
-                            )
+                            ),
+                            Comment.dummyComments
                         )
                     )
                     add(
@@ -120,10 +122,10 @@ data class VideoDetails(
 
     companion object {
         val dummyData: List<VideoDetails> = buildList {
-            repeat(10) {
+            repeat(PaginationListener.PAGE_SIZE / 2) {
                 add(
                     VideoDetails(
-                        "Running Up That Hill (Kate Bush)",
+                        "[$it]: Running Up That Hill (Kate Bush)",
                         4000,
                         R.drawable.running_up_that_hill,
                         "Netflix",
@@ -135,7 +137,7 @@ data class VideoDetails(
                 )
                 add(
                     VideoDetails(
-                        "Kaise Ab Kahein | Gutar Gu",
+                        "[$it]: Kaise Ab Kahein | Gutar Gu",
                         134,
                         R.drawable.thumbnail1,
                         "Amazon miniTV",
@@ -143,7 +145,8 @@ data class VideoDetails(
                         "1 months ago",
                         R.drawable.netflix_logo,
                         FeedType.VIDEO
-                    ))
+                    )
+                )
             }
         }
     }
@@ -157,7 +160,7 @@ data class CommunityPost(
     val likes: Int,
     val dislikes: Int,
     val images: List<Int> = emptyList(),
-    val comments: List<String> = emptyList(),
+    val comments: List<Comment> = emptyList(),
     override val type: FeedType = FeedType.COMMUNITY_POST
 ) : Feed
 

@@ -6,13 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentYoutubeLibraryBinding
 import com.krunal.demo.recyclerview.adapters.LibraryAdapter
-import com.krunal.demo.recyclerview.models.VideoDetails
+import com.krunal.demo.recyclerview.listeners.PaginationListener
 import com.krunal.demo.recyclerview.viewmodels.YoutubeLibraryFragmentViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class YoutubeLibraryFragment : Fragment() {
 
@@ -54,8 +59,38 @@ class YoutubeLibraryFragment : Fragment() {
     private fun setupRecyclerView() {
         val libraryAdapter = LibraryAdapter()
         binding.rvLibrary.adapter = libraryAdapter
-        binding.rvLibrary.layoutManager = LinearLayoutManager(requireContext())
-        libraryAdapter.submitList(VideoDetails.dummyData)
+        val layoutManager = LinearLayoutManager(requireContext())
+
+        binding.rvLibrary.layoutManager = layoutManager
+        binding.rvLibrary.addOnScrollListener(object : PaginationListener(layoutManager) {
+
+            override val isLastPage: Boolean
+                get() = viewModel.isLastPage
+            override val isLoading: Boolean
+                get() = viewModel.isLoading.value
+
+            override fun loadMoreItems() {
+                viewModel.loadMoreData()
+            }
+        })
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.videoDetails.collectLatest { details ->
+                        libraryAdapter.addList(details)
+                    }
+                }
+
+                launch {
+                    viewModel.isLoading.collectLatest { isLoading ->
+                        if (isLoading) libraryAdapter.showLoading() else libraryAdapter.hideLoading()
+                    }
+                }
+            }
+        }
+
+        viewModel.loadMoreData()
     }
 
     companion object {

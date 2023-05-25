@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.krunal.demo.databinding.CommunityPostLayoutBinding
@@ -52,14 +51,6 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
                     c.drawCircle(10f, 10f, 10F, Paint().apply { color = Color.RED })
                 }
-
-                override fun onDrawOver(
-                    c: Canvas,
-                    parent: RecyclerView,
-                    state: RecyclerView.State
-                ) {
-                    super.onDrawOver(c, parent, state)
-                }
             })
         }
     }
@@ -75,6 +66,14 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
 
             TabLayoutMediator(binding.tlIndicator, binding.vpImage) { _, _ -> }.attach()
+            val commentAdapter = CommentAdapter().apply {
+                submitComments(communityPost.comments)
+            }
+            binding.rvComments.adapter = commentAdapter
+
+            binding.imgBtnComment.setOnCheckedChangeListener { _, isExpanded ->
+                commentAdapter.toggleExpanded(isExpanded)
+            }
         }
     }
 
