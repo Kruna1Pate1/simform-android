@@ -29,7 +29,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, ChattingFragment())
+            .replace(R.id.uiComponentsFragment, YoutubeFragment())
             .commit()
     }
 }

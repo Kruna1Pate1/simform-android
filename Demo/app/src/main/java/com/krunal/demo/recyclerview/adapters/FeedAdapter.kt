@@ -6,15 +6,20 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.krunal.demo.databinding.CommunityPostLayoutBinding
 import com.krunal.demo.databinding.FeedVideoLayoutBinding
 import com.krunal.demo.databinding.ItemRecommendationBinding
 import com.krunal.demo.databinding.ShortVideoLayoutBinding
+import com.krunal.demo.recyclerview.extentions.canScrollLeft
+import com.krunal.demo.recyclerview.extentions.canScrollRight
+import com.krunal.demo.recyclerview.listeners.NestedScrollListener
 import com.krunal.demo.recyclerview.models.CommunityPost
 import com.krunal.demo.recyclerview.models.Feed
 import com.krunal.demo.recyclerview.models.FeedType
@@ -39,19 +44,23 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(recommendation: Recommendation) {
             binding.recommendation = recommendation
-            binding.rvRecommendation.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            binding.rvRecommendation.adapter =
-                RecommendationAdapter().apply { submitList(recommendation.videos) }
+            binding.rvRecommendation.apply {
+                layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                adapter = RecommendationAdapter().apply { submitList(recommendation.videos) }
+                onFlingListener = null
 
-            LinearSnapHelper().also { snapHelper ->
-                snapHelper.attachToRecyclerView(binding.rvRecommendation)
-            }
-            binding.rvRecommendation.addItemDecoration(object : RecyclerView.ItemDecoration() {
-                override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-                    c.drawCircle(10f, 10f, 10F, Paint().apply { color = Color.RED })
+                addItemDecoration(object : RecyclerView.ItemDecoration() {
+                    override fun onDraw(
+                        c: Canvas, parent: RecyclerView, state: RecyclerView.State
+                    ) {
+                        c.drawCircle(10f, 10f, 10F, Paint().apply { color = Color.RED })
+                    }
+                })
+
+                LinearSnapHelper().also { snapHelper ->
+                    snapHelper.attachToRecyclerView(this)
                 }
-            })
+            }
         }
     }
 

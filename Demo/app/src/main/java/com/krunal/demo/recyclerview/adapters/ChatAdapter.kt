@@ -17,16 +17,24 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class SendMessageViewHolder(private val binding: ItemMessageSendBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(message: Message) {
+        fun bind(message: Message, onRemove: (Message) -> Unit) {
             binding.message = message
+            binding.root.setOnLongClickListener {
+                onRemove(message)
+                true
+            }
         }
     }
 
     class ReceiveMessageViewHolder(private val binding: ItemMessageReceiveBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(message: Message) {
+        fun bind(message: Message, onRemove: (Message) -> Unit) {
             binding.message = message
+            binding.root.setOnLongClickListener {
+                onRemove(message)
+                true
+            }
         }
     }
 
@@ -51,39 +59,29 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemViewType(position: Int): Int = messages[position].messageType.ordinal
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val onRemove: (Message) -> Unit = { message ->
+            submitList(messages.filterNot { it == message })
+        }
+
         when (holder) {
             is SendMessageViewHolder -> {
-                holder.bind(messages[position])
+                holder.bind(messages[position], onRemove)
             }
 
             is ReceiveMessageViewHolder -> {
-                holder.bind(messages[position])
+                holder.bind(messages[position], onRemove)
             }
         }
     }
 
-    fun addMessage(message: Message) {
-        messages.add(message)
-//        notifyItemInserted(messages.count())
-    }
-
-    fun removeMessage(message: Message) {
-        val position = messages.indexOf(message)
-        val oldMessages: List<Message> = this.messages
-        messages.remove(message)
-        updateChatListItems(oldMessages)
-//        notifyItemRemoved(position)
-    }
-
     fun submitList(list: List<Message>) {
+        val diffUtil = ChatDiffCallback(this.messages, list)
+        val diffResult = DiffUtil.calculateDiff(diffUtil)
+
         messages.clear()
         messages.addAll(list)
-//        notifyDataSetChanged()
-    }
 
-    fun updateChatListItems(oldMessages: List<Message>) {
-        val diffUtil = ChatDiffCallback(messages, oldMessages)
-        val diffResult = DiffUtil.calculateDiff(diffUtil)
         diffResult.dispatchUpdatesTo(this)
     }
 }
+

@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.databinding.FragmentYoutubeHomeBinding
 import com.krunal.demo.recyclerview.adapters.FeedAdapter
+import com.krunal.demo.recyclerview.listeners.NestedScrollListener
 import com.krunal.demo.recyclerview.viewmodels.YoutubeHomeFragmentViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -50,6 +51,9 @@ class YoutubeHomeFragment : Fragment() {
                 DividerItemDecoration.VERTICAL
             )
         )
+        binding.rvHome.smoothScrollToPosition(4)
+
+        binding.rvHome.addOnItemTouchListener(NestedScrollListener())
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {

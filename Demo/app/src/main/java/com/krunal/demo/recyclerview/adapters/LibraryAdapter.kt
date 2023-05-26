@@ -1,6 +1,9 @@
 package com.krunal.demo.recyclerview.adapters
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.ItemHistoryVideoBinding
@@ -12,6 +15,7 @@ class LibraryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val videoDetails: MutableList<VideoDetails> = mutableListOf()
     var isLoading: Boolean = false
+    var onAttach = true
 
     class HistoryViewHolder(val binding: ItemHistoryVideoBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -62,6 +66,18 @@ class LibraryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                onAttach = false
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+        })
+
+        super.onAttachedToRecyclerView(recyclerView)
+    }
+
     fun showLoading() {
         isLoading = true
         notifyItemInserted(videoDetails.count())
@@ -82,5 +98,30 @@ class LibraryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         videoDetails.addAll(list)
 //        notifyItemRangeInserted(videoDetails.count() - list.count(), list.count())
         notifyDataSetChanged()
+    }
+
+
+    private fun setAnimation(itemView: View, position: Int) {
+        var i = position
+        if (!onAttach) {
+            i = -1
+        }
+        val isNotFirstItem = i == -1
+        i++
+        itemView.translationX = itemView.x + 400
+        itemView.alpha = 0f
+        val animatorSet = AnimatorSet()
+        val animatorTranslateY =
+            ObjectAnimator.ofFloat(itemView, "translationX", itemView.x + 400, 0f)
+        val animatorAlpha = ObjectAnimator.ofFloat(itemView, "alpha", 1f)
+        ObjectAnimator.ofFloat(itemView, "alpha", 0f).start()
+        animatorTranslateY.startDelay = if (isNotFirstItem) ANIMATION_DURATION else i * ANIMATION_DURATION
+        animatorTranslateY.duration = (if (isNotFirstItem) 2 else 1) * ANIMATION_DURATION
+        animatorSet.playTogether(animatorTranslateY, animatorAlpha)
+        animatorSet.start()
+    }
+
+    companion object {
+        private const val ANIMATION_DURATION = 500L
     }
 }

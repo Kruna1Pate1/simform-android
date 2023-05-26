@@ -3,23 +3,17 @@ package com.krunal.demo.recyclerview.viewmodels
 import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.DiffUtil.DiffResult
 import com.krunal.demo.R
-import com.krunal.demo.recyclerview.listeners.ChatDiffCallback
 import com.krunal.demo.recyclerview.models.Message
 import com.krunal.demo.recyclerview.models.MessageType
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
 class ChattingFragmentViewModel : ViewModel() {
 
-    val messages: MutableList<Message> = mutableListOf()
-
-    private val _messageFlow: MutableSharedFlow<Message> = MutableSharedFlow()
-    val messageFlow: SharedFlow<Message> = _messageFlow
+    private val _messages: MutableStateFlow<List<Message>> = MutableStateFlow(emptyList())
+    val messages: SharedFlow<List<Message>> = _messages
 
     val message: MutableStateFlow<String> = MutableStateFlow("")
 
@@ -32,16 +26,14 @@ class ChattingFragmentViewModel : ViewModel() {
 
     private fun setupMessages() {
         viewModelScope.launch {
-            messageFlow.collect { message ->
-                messages.add(message)
-            }
+            _messages.emit(Message.dummyData)
         }
     }
 
     fun sendMessage(view: View) {
         viewModelScope.launch {
-            _messageFlow.emit(
-                Message(
+            _messages.emit(
+                _messages.value + Message(
                     sender, R.drawable.profile, message.value, MessageType.SEND
                 )
             )
@@ -51,12 +43,18 @@ class ChattingFragmentViewModel : ViewModel() {
 
     fun receiveMessage(view: View) {
         viewModelScope.launch {
-            _messageFlow.emit(
-                Message(
+            _messages.emit(
+                _messages.value + Message(
                     receiver, R.drawable.android_dev, message.value, MessageType.RECEIVE
                 )
             )
             message.value = ""
+        }
+    }
+
+    fun removeMessage(position: Int) {
+        viewModelScope.launch {
+            _messages.emit(_messages.value - _messages.value[position])
         }
     }
 }

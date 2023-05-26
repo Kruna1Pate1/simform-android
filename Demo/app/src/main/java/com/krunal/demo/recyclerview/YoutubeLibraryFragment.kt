@@ -1,7 +1,10 @@
 package com.krunal.demo.recyclerview
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -11,13 +14,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentYoutubeLibraryBinding
 import com.krunal.demo.recyclerview.adapters.LibraryAdapter
+import com.krunal.demo.recyclerview.listeners.NestedScrollListener
 import com.krunal.demo.recyclerview.listeners.PaginationListener
 import com.krunal.demo.recyclerview.viewmodels.YoutubeLibraryFragmentViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+
 
 class YoutubeLibraryFragment : Fragment() {
 
