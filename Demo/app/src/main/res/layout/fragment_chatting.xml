@@ -26,14 +26,14 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/imgBtnReceive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@android:color/transparent"
             android:rotationY="180"
             android:src="@drawable/ic_send"
             android:tint="?attr/colorTertiary"
             app:icon="@drawable/ic_call"
-            android:onClick="@{() -> viewModel.sendMessage(etMessage.text.toString())}"
+            android:onClick="@{ viewModel::receiveMessage }"
             app:layout_constraintBottom_toBottomOf="@id/etMessage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvChat" />
@@ -45,6 +45,7 @@
             android:layout_marginHorizontal="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_16"
             android:hint="@string/type_something"
+            android:text="@={ viewModel.message }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imgBtnSend"
             app:layout_constraintStart_toEndOf="@id/imgBtnReceive"
@@ -53,13 +54,13 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/imgBtnSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_send"
             android:tint="?attr/colorPrimary"
             app:icon="@drawable/ic_call"
-            android:onClick="@{() -> viewModel.receiveMessage(etMessage.text.toString())}"
+            android:onClick="@{viewModel::sendMessage}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/etMessage"

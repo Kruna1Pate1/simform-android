@@ -26,15 +26,6 @@
             app:shapeAppearance="@style/ShapeAppearanceOverlay.Profile"
             tools:src="@drawable/android_dev" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
@@ -46,6 +37,15 @@
             app:layout_constraintEnd_toStartOf="@id/imgViewProfile"
             app:layout_constraintTop_toTopOf="@id/imgViewProfile"
             tools:text="Hello" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

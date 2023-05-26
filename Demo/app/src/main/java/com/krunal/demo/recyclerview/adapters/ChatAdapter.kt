@@ -2,9 +2,11 @@ package com.krunal.demo.recyclerview.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.ItemMessageReceiveBinding
 import com.krunal.demo.databinding.ItemMessageSendBinding
+import com.krunal.demo.recyclerview.listeners.ChatDiffCallback
 import com.krunal.demo.recyclerview.models.Message
 import com.krunal.demo.recyclerview.models.MessageType
 
@@ -62,18 +64,26 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun addMessage(message: Message) {
         messages.add(message)
-        notifyItemInserted(messages.count())
+//        notifyItemInserted(messages.count())
     }
 
     fun removeMessage(message: Message) {
         val position = messages.indexOf(message)
+        val oldMessages: List<Message> = this.messages
         messages.remove(message)
-        notifyItemRemoved(position)
+        updateChatListItems(oldMessages)
+//        notifyItemRemoved(position)
     }
 
     fun submitList(list: List<Message>) {
         messages.clear()
         messages.addAll(list)
-        notifyDataSetChanged()
+//        notifyDataSetChanged()
+    }
+
+    fun updateChatListItems(oldMessages: List<Message>) {
+        val diffUtil = ChatDiffCallback(messages, oldMessages)
+        val diffResult = DiffUtil.calculateDiff(diffUtil)
+        diffResult.dispatchUpdatesTo(this)
     }
 }
