@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.uicomponents.binding.DataBingingViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_16"
+        tools:context=".uicomponents.binding.DataBindingFragment">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/sliderNormal"
+            android:text="Include layout"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <include
+            layout="@layout/name_layout"
+            app:name="@{viewModel.nameFlow}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/sliderNormal"
+            android:text="Merge layout"
+            android:layout_marginTop="@dimen/dp_24"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <include
+            layout="@layout/name_merge_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:name="@{viewModel.nameFlow}"/>
+    </LinearLayout>
+</layout>

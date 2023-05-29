@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dp_16"
+    android:orientation="vertical"
+    tools:context=".uicomponents.AppBarFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbNormal"
+        style="@style/BaseToolBar"
+        android:minHeight="?attr/actionBarSize"
+        app:subtitle="Subtitle"
+        app:title="@string/tb_normal" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbNavigation"
+        style="@style/BaseToolBar"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/tb_navigation" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbItems"
+        style="@style/BaseToolBar"
+        android:navigationIcon="@drawable/ic_back"
+        app:title="@string/tb_items" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbSearch"
+        style="@style/BaseToolBar"
+        android:theme="@style/AppSearchView"
+        app:menu="@menu/toolbar_search_menu"
+        app:title="@string/tb_search" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbLogo"
+        style="@style/BaseToolBar"
+        android:theme="@style/AppSearchView"
+        app:logo="@drawable/ic_android"
+        app:titleCentered="true"
+        app:title="@string/tb_logo" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbLeftAction"
+        style="@style/BaseToolBar"
+        android:theme="@style/AppSearchView"
+        app:titleCentered="true"
+        app:title="@string/tb_left_action"
+        app:navigationIcon="@drawable/ic_menu">
+
+    </com.google.android.material.appbar.MaterialToolbar>
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="com.krunal.demo.stackexchange.utils.Formatter"/>
+
+        <variable
+            name="titleCardModel"
+            type="com.krunal.demo.stackexchange.models.TitleCardModel" />
+    </data>
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/tvBeforeAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Heading2"
+            tools:text="BUY"
+            android:text="@{ titleCardModel.textBeforeAmount }"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvAmount"/>
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Heading2"
+            tools:text="50.000"
+            android:textColor="?attr/colorSurface"
+            android:paddingVertical="3dp"
+            android:paddingHorizontal="@dimen/dp_6"
+            android:layout_marginStart="@dimen/dp_6"
+            android:background="@drawable/highlighted_background"
+            android:text="@{ Formatter.euroFormat(titleCardModel.amount) }"
+            app:layout_constraintStart_toEndOf="@id/tvBeforeAmount"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvAfterAmount"/>
+
+        <TextView
+            android:id="@+id/tvAfterAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Heading2"
+            tools:text="SHIP"
+            android:layout_marginStart="@dimen/dp_6"
+            android:text="@{ titleCardModel.textAfterAmount }"
+            app:layout_constraintStart_toEndOf="@id/tvAmount"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+</layout>

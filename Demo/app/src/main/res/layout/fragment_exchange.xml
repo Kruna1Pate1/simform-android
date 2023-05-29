@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.stackexchange.exchange.ExchangeFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dp_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dp_16" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:checkedChip="@id/chipLimit"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipLimit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/limit" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMarket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/market" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pool" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:text="@string/exchange"
+            android:textAppearance="@style/Heading1"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/cgTop" />
+
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ viewModel.dateTime }"
+            android:textAppearance="@style/Subtitle2"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            tools:text="OCTOBER 18, TUESDAY 3:19:23 PM" />
+
+        <com.krunal.demo.stackexchange.views.Divider
+            android:id="@+id/divider"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_margin"
+            style="@style/DividerStyle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"/>
+
+        <include
+            android:id="@+id/cardExchange"
+            layout="@layout/exchange_card"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            app:exchangeModel="@{ viewModel.exchangeModel }"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+
+        <TextView
+            android:id="@+id/tvMaEmaBoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ @string/ma_ema_boll }"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:textAppearance="@style/Subtitle2"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/cardExchange"
+            tools:text="MA / EMA / BOLL" />
+
+        <include
+            android:id="@+id/titleCard"
+            layout="@layout/title_card"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/divider_margin"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvMaEmaBoll"
+            app:titleCardModel="@{ viewModel.titleCardModel }" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

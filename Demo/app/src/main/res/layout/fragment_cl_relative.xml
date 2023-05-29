@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".uicomponents.constraintLayouts.RelativeFragment">
+
+    <ImageView
+        android:id="@+id/imgViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_270"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dark_forest" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_0"
+        android:background="#68000000"
+        app:layout_constraintBottom_toBottomOf="@+id/imgViewHeader"
+        app:layout_constraintEnd_toEndOf="@id/imgViewHeader"
+        app:layout_constraintStart_toStartOf="@id/imgViewHeader"
+        app:layout_constraintTop_toTopOf="@id/imgViewHeader" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+app:layout_constraintTop_toTopOf="@id/imgViewHeader"
+        app:layout_constraintStart_toStartOf="@id/imgViewHeader"
+        app:layout_constraintEnd_toEndOf="@id/imgViewHeader"
+        android:layout_marginTop="@dimen/dp_24"
+        android:text="Welcome !!"
+        android:textColor="@color/white"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_24"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:ellipsize="end"
+        android:justificationMode="inter_word"
+        android:maxLines="4"
+        android:text="@string/insets_description"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_150"
+        app:layout_constraintTop_toBottomOf="@id/imgViewHeader"
+        android:layout_marginTop="@dimen/dp_24"
+        app:cardBackgroundColor="#D2162470"
+        app:cardCornerRadius="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgViewProfile"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_100"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/dp_16"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/imgViewProfile"
+                android:layout_marginStart="@dimen/dp_24"
+                app:layout_constraintStart_toEndOf="@id/imgViewProfile"
+                android:text="Travelling"
+                android:textColor="#FFC107"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                android:layout_marginEnd="@dimen/dp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@string/travel_description"
+                android:textColor="#4CAF50"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_36"
+                app:layout_constraintTop_toBottomOf="@id/tvDescription"
+                app:layout_constraintEnd_toEndOf="@id/tvDescription"
+                android:background="@android:color/transparent"
+                android:text="Read more..."
+                android:textAllCaps="false"
+                android:textColor="#25BBFF"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

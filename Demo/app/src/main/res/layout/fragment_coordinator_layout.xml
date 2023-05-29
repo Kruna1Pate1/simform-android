@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".uicomponents.CoordinatorLayoutFragment">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Widget.MaterialComponents.AppBarLayout.Primary">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbSearch"
+        style="@style/BaseToolBar"
+        android:theme="@style/AppSearchView"
+        app:titleCentered="true"
+        app:title="Coordinator Layout" >
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"/>
+    </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnSwipeableSnackBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:text="@string/swipeable_snack_bar"
+            android:layout_marginTop="@dimen/dp_80"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/cardFragment"
+            layout="@layout/fragment_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/dp_10"
+            app:layout_constraintTop_toBottomOf="@id/btnSwipeableSnackBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:layout_marginBottom="@dimen/dp_24"
+        app:layout_anchor="@id/bottomNavigation"
+        app:layout_anchorGravity="top|end"
+        android:src="@drawable/ic_add"
+        android:layout_gravity="bottom|end"
+        android:importantForAccessibility="no" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_insetEdge="bottom"
+        android:layout_gravity="bottom"
+        app:menu="@menu/card_bottom_navigation_items" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

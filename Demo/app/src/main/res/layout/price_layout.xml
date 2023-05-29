@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="leftTitle"
+            type="String" />
+
+        <variable
+            name="rightTitle"
+            type="String" />
+
+        <variable
+            name="rightTitleValue"
+            type="String" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="amount"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{ leftTitle }"
+            android:textAppearance="@style/Subtitle1"
+            android:visibility="@{ leftTitle == null ? View.GONE : View.VISIBLE}"
+            app:drawableRightCompat="@drawable/ic_up_arrow"
+            app:drawableTint="?attr/colorTertiary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="€ 0,270010" />
+
+
+        <TextView
+            android:id="@+id/tvRightTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:text="@{ rightTitle }"
+            android:textAppearance="@style/Subtitle2"
+            app:layout_constraintEnd_toStartOf="@id/tvRightTitleValue"
+            app:layout_constraintTop_toTopOf="@id/tvRightTitleValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvRightTitleValue"
+            tools:text="AVG. PRICE" />
+
+
+        <TextView
+            android:id="@+id/tvRightTitleValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dp_8"
+            android:gravity="center"
+            android:text="@{ rightTitleValue }"
+            android:textAppearance="@style/Subtitle1"
+            app:drawableEndCompat="@drawable/ic_down_arrow_outlined"
+            app:drawableTint="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="24 HR" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/tvRightTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="@dimen/dp_16">
+
+                <ImageButton
+                    android:id="@+id/imgBtnMinus"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:background="@drawable/circle_image"
+                    android:elevation="@dimen/dp_6"
+                    android:src="@drawable/ic_remove"
+                    app:contentPadding="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{ title }"
+                    android:textAppearance="@style/Subtitle2"
+                    app:layout_constraintBottom_toTopOf="@id/tvAmount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="YOUR PRICE" />
+
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@{ amount }"
+                    android:textAppearance="@style/Body1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                    tools:text="€ 0,268800" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnAdd"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:background="@drawable/circle_image"
+                    android:elevation="@dimen/dp_6"
+                    android:src="@drawable/ic_add"
+                    app:contentPadding="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

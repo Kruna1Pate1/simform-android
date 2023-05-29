@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dp_16"
+    tools:context=".uicomponents.ButtonFragment">
+
+    <Button
+        android:id="@+id/btnNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_normal"
+        app:layout_constraintEnd_toStartOf="@id/btnBordered"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBordered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_bordered"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnNormal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/appCompatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:paddingHorizontal="@dimen/dp_6"
+        android:text="@string/rounded_button"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/dp_40"
+        app:layout_constraintEnd_toEndOf="@+id/btnNormal"
+        app:layout_constraintStart_toStartOf="@id/btnNormal"
+        app:layout_constraintTop_toBottomOf="@id/btnNormal" />
+
+    <Button
+        android:id="@+id/btnDisabled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:enabled="false"
+        app:enabled="false"
+        android:text="@string/disabled_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnBordered"
+        app:layout_constraintTop_toBottomOf="@+id/btnBordered" />
+
+    <Button
+        android:id="@+id/btnOutlined"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:text="@string/outlined_button"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnNormal"
+        app:layout_constraintStart_toStartOf="@+id/btnNormal"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButton"
+        app:strokeColor="?attr/colorPrimary"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/btnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:background="@android:color/transparent"
+        android:text="@string/text_button"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/btnBordered"
+        app:layout_constraintStart_toStartOf="@+id/btnBordered"
+        app:layout_constraintTop_toBottomOf="@+id/btnDisabled" />
+
+    <ImageButton
+        android:id="@+id/imgBtnImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/dp_24"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/image_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_android"
+        app:layout_constraintEnd_toEndOf="@+id/btnNormal"
+        app:layout_constraintStart_toStartOf="@+id/btnNormal"
+        app:layout_constraintTop_toBottomOf="@+id/btnOutlined"
+        app:tint="?attr/colorPrimary" />
+
+    <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:drawableEnd="@drawable/ic_info"
+        android:drawableTint="@color/white"
+        android:text="@string/info"
+        app:layout_constraintEnd_toEndOf="@+id/btnBordered"
+        app:layout_constraintStart_toStartOf="@+id/btnBordered"
+        app:layout_constraintTop_toBottomOf="@+id/btnText"
+        app:tint="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/gradient_button"
+        android:text="@string/gradient_button"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/btnBordered"
+        app:layout_constraintStart_toStartOf="@+id/btnNormal"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtnImage" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:background="?attr/colorPrimary"
+        android:checked="true"
+        android:drawableTop="@drawable/ic_android"
+        android:drawableTint="@color/white"
+        android:textColor="@color/white"
+        android:textOff="@string/stop"
+        android:textOn="@string/start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnGradient" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchEnable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:checked="true"
+        android:text="@string/enabled_switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton"
+        app:thumbTint="@android:color/holo_green_dark" />
+</androidx.constraintlayout.widget.ConstraintLayout>
