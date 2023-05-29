@@ -1,11 +1,11 @@
-package com.krunal.demo.uicomponents.helpers
+package com.krunal.demo.helpers
 
 import android.content.Context
 import com.krunal.demo.R
 import com.krunal.demo.uicomponents.models.Theme
 import com.krunal.demo.uicomponents.models.enums.AccentColor
 import com.krunal.demo.uicomponents.models.enums.ThemeMode
-import com.krunal.demo.uicomponents.utils.PreferenceKeys
+import com.krunal.demo.utils.PreferenceKeys
 
 object ThemeHelper {
     fun getThemes(context: Context, isDark: Boolean = false): List<Theme> {

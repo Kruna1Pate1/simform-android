@@ -1,7 +1,8 @@
 package com.krunal.demo
 
 import android.app.Application
-import com.krunal.demo.uicomponents.helpers.PreferenceHelper
+import com.krunal.demo.helpers.PreferenceHelper
+import com.krunal.demo.searchwebview.helpers.PackageHelper
 
 class DemoApplication: Application() {
 
@@ -14,6 +15,11 @@ class DemoApplication: Application() {
          * Initialize [PreferenceHelper]
          */
         PreferenceHelper.initialize(applicationContext)
+
+        /**
+         * Initialize [PackageHelper]
+         */
+        PackageHelper.initialize(applicationContext)
     }
 
     companion object {

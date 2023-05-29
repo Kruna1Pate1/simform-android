@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.navigation.ui.viewmodels.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".navigation.ui.fragments.RegisterFragment">
+
+        <EditText
+            android:id="@+id/txtUsername"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_34"
+            android:layout_marginTop="@dimen/dp_8"
+            android:ems="10"
+            android:hint="@string/name"
+            android:inputType="textPersonName"
+            android:text="@={ viewModel.registerDetail.username }"
+            app:layout_constraintBottom_toTopOf="@+id/txtEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:autofillHints="username" />
+
+        <EditText
+            android:id="@+id/txtEmail"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_34"
+            android:layout_marginTop="@dimen/dp_8"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="@={ viewModel.registerDetail.email }"
+            app:layout_constraintBottom_toTopOf="@+id/txtPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsername"
+            android:autofillHints="emailAddress" />
+
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_34"
+            android:layout_marginTop="@dimen/dp_8"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:text="@={ viewModel.registerDetail.password }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+            android:autofillHints="password" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:text="@string/save_details"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/dp_20"
+            app:layout_constraintBottom_toTopOf="@id/btnStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="?attr/colorPrimary" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:text="@string/start"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/dp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="?attr/colorPrimary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

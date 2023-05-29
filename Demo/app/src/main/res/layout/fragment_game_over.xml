@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_pink"
+        tools:context=".navigation.ui.fragments.GameOverFragment">
+
+        <TextView
+            android:id="@+id/txtGameOver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_over"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/light_pink_text"
+            android:textSize="62sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btnPlayAgain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlayAgain"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/try_again"
+            android:textColor="@color/light_pink_text"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/dp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtGameOver"
+            app:strokeColor="@color/light_pink_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

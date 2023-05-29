@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.appcomponents.ui.viewmodels.FirstActivityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_16"
+        tools:context=".appcomponents.ui.activities.FirstActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_message_to_forward"
+            app:layout_constraintBottom_toTopOf="@id/btnSecondActivity"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={ viewModel.message }"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSecondActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/second_activity"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@id/btnFragment"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutMessage" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/send_to_fragment"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSecondActivity" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
