@@ -1,4 +1,4 @@
-package com.krunal.demo.recyclerview
+package com.krunal.demo.recyclerview.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -17,7 +17,7 @@
         android:id="@+id/btnLongSnackBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:backgroundTint="?attr/colorSecondary"
         android:text="@string/long_snack_bar"
         android:textColor="?attr/colorOnSecondary" />
@@ -26,7 +26,7 @@
         android:id="@+id/btnMultiLineSnackBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="@string/multi_line_snack_bar" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/btnActionSnackBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:backgroundTint="@android:color/holo_red_dark"
         android:text="@string/action_snack_bar" />
 
@@ -42,7 +42,7 @@
         android:id="@+id/btnAnchorSnackBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="@string/anchor_snack_bar" />
 
@@ -50,7 +50,7 @@
         android:id="@+id/btnSwipeableSnackBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:backgroundTint="@android:color/holo_orange_dark"
         android:text="@string/swipeable_snack_bar" />
 

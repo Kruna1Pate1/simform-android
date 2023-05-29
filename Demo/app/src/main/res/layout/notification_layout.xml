@@ -13,11 +13,11 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         app:cardCornerRadius="@dimen/corner_radius"
-        app:cardElevation="6dp">
+        app:cardElevation="@dimen/dp_6">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
             android:layout_gravity="center"
             android:src="@drawable/ic_notification"
             app:tint="?attr/colorSecondary" />

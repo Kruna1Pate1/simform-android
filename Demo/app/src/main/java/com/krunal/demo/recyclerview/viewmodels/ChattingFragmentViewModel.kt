@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.krunal.demo.R
 import com.krunal.demo.recyclerview.models.Message
-import com.krunal.demo.recyclerview.models.MessageType
+import com.krunal.demo.recyclerview.models.enums.MessageType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch

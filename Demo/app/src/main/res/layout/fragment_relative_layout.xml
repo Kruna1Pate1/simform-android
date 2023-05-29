@@ -14,11 +14,11 @@
         android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        app:layout_constraintGuide_begin="60dp" />
+        app:layout_constraintGuide_begin="@dimen/dp_60" />
     <ImageView
         android:id="@+id/imgViewHeader"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="@dimen/dp_270"
         android:layout_alignStart="@id/guideVertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:text="Welcome !!"
         android:textColor="@color/white"
         android:textSize="28sp" />
@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvTitle"
         android:layout_centerInParent="true"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_24"
         android:ellipsize="end"
         android:justificationMode="inter_word"
         android:maxLines="4"
@@ -60,9 +60,9 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/dp_150"
         android:layout_below="@+id/imgViewHeader"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         app:cardBackgroundColor="#D2162470"
         app:cardCornerRadius="15dp">
 
@@ -72,11 +72,11 @@
 
             <ImageView
                 android:id="@+id/imgViewProfile"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_100"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/dp_16"
                 android:background="@drawable/rounded_image"
                 android:clipToOutline="true"
                 android:src="@drawable/profile" />
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/imgViewProfile"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="@dimen/dp_24"
                 android:layout_toEndOf="@+id/imgViewProfile"
                 android:text="Travelling"
                 android:textColor="#FFC107"
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvName"
                 android:layout_alignStart="@id/tvName"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="@dimen/dp_16"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@string/travel_description"
@@ -107,7 +107,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_height="@dimen/dp_36"
                 android:layout_below="@id/tvDescription"
                 android:layout_alignEnd="@id/tvDescription"
                 android:background="@android:color/transparent"

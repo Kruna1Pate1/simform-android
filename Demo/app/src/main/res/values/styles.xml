@@ -3,10 +3,10 @@
 
     <style name="CustomShapeOverlay">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopLeft">0dp</item>
-        <item name="cornerSizeTopRight">30dp</item>
-        <item name="cornerSizeBottomRight">0dp</item>
-        <item name="cornerSizeBottomLeft">30dp</item>
+        <item name="cornerSizeTopLeft">@dimen/dp_0</item>
+        <item name="cornerSizeTopRight">@dimen/dp_30</item>
+        <item name="cornerSizeBottomRight">@dimen/dp_0</item>
+        <item name="cornerSizeBottomLeft">@dimen/dp_30</item>
     </style>
 
     <style name="BaseToolBar">
@@ -31,7 +31,7 @@
 
     <style name="CardChip" parent="Widget.MaterialComponents.Chip.Entry">
         <item name="checkedIcon">@drawable/ic_circle</item>
-        <item name="chipIconSize">8dp</item>
+        <item name="chipIconSize">@dimen/dp_8</item>
         <item name="iconStartPadding">4dp</item>
         <item name="checkedIconTint">?attr/colorPrimary</item>
         <item name="chipStrokeWidth">1dp</item>
@@ -52,10 +52,10 @@
 
     <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopRight">20dp</item>
-        <item name="cornerSizeTopLeft">20dp</item>
-        <item name="cornerSizeBottomRight">0dp</item>
-        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeTopRight">@dimen/dp_20</item>
+        <item name="cornerSizeTopLeft">@dimen/dp_20</item>
+        <item name="cornerSizeBottomRight">@dimen/dp_0</item>
+        <item name="cornerSizeBottomLeft">@dimen/dp_0</item>
     </style>
 
     <style name="Widget.MaterialComponents.BottomSheet.DragHandle" parent="Widget.Material3.BottomSheet.DragHandle">
@@ -143,5 +143,12 @@
 
     <style name="CardStyle" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">@dimen/corner_radius</item>
+    </style>
+
+    <style name="NumberInputStyle" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textAlignment">center</item>
     </style>
 </resources>

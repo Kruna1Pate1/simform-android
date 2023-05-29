@@ -7,15 +7,15 @@
     android:padding="12dp">
 
     <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
         android:src="@drawable/ic_timezone" />
 
     <TextView
         android:id="@+id/tvTimezone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/dp_10"
         android:maxLines="1"
         android:ellipsize="end"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.DropDownItem"

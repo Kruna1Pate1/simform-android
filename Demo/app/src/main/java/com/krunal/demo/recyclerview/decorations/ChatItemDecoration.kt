@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.google.android.material.textview.MaterialTextView
 import com.krunal.demo.R
-import com.krunal.demo.recyclerview.models.MessageType
+import com.krunal.demo.recyclerview.models.enums.MessageType
 
 class ChatItemDecoration : ItemDecoration() {
 

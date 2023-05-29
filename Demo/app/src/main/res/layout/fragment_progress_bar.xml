@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/dp_16"
     tools:context=".uicomponents.ProgressBarFragment">
 
     <TextView
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginHorizontal="@dimen/dp_16"
             android:indeterminateBehavior="cycle"
             android:indeterminateDuration="3000"
             android:indeterminateTint="?attr/colorPrimary" />
@@ -55,12 +55,12 @@
         android:indeterminate="false"
         android:progress="40"
         app:indicatorColor="?attr/colorSecondary"
-        app:trackCornerRadius="5dp" />
+        app:trackCornerRadius="@dimen/dp_5" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/cgNormal"
         android:text="Horizontal Linear" />
 
@@ -69,9 +69,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="16dp"
+        android:layout_marginVertical="@dimen/dp_16"
         android:indeterminate="true"
-        app:trackThickness="6dp" />
+        app:trackThickness="@dimen/dp_6" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/pbHorizontalDeterminate"
@@ -81,12 +81,12 @@
         android:progress="90"
         android:progressTint="?attr/colorSecondary"
         app:indicatorDirectionLinear="endToStart"
-        app:trackThickness="6dp" />
+        app:trackThickness="@dimen/dp_6" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/cgNormal"
         android:text="Vertical Linear" />
 
@@ -94,7 +94,7 @@
         android:id="@+id/pbVertical"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="4dp"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/dp_150"
         android:layout_gravity="center_horizontal"
         android:progress="35"
         android:progressDrawable="@drawable/progress_vertical_graph" />
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/cgNormal"
         android:text="Secondary" />
 
@@ -115,7 +115,7 @@
         android:secondaryProgress="25"
 
         android:secondaryProgressTint="?attr/colorSecondary"
-        app:trackCornerRadius="10dp" />
+        app:trackCornerRadius="@dimen/dp_10" />
 
     <ProgressBar
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"

@@ -8,7 +8,7 @@ import com.krunal.demo.databinding.ItemMessageReceiveBinding
 import com.krunal.demo.databinding.ItemMessageSendBinding
 import com.krunal.demo.recyclerview.listeners.ChatDiffCallback
 import com.krunal.demo.recyclerview.models.Message
-import com.krunal.demo.recyclerview.models.MessageType
+import com.krunal.demo.recyclerview.models.enums.MessageType
 
 class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

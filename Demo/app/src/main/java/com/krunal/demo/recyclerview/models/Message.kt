@@ -2,6 +2,7 @@ package com.krunal.demo.recyclerview.models
 
 import androidx.annotation.DrawableRes
 import com.krunal.demo.R
+import com.krunal.demo.recyclerview.models.enums.MessageType
 
 data class Message(
     val name: String,

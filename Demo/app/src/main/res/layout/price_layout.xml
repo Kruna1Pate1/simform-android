@@ -50,7 +50,7 @@
             android:id="@+id/tvRightTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/dp_8"
             android:text="@{ rightTitle }"
             android:textAppearance="@style/Subtitle2"
             app:layout_constraintEnd_toStartOf="@id/tvRightTitleValue"
@@ -63,7 +63,7 @@
             android:id="@+id/tvRightTitleValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
+            android:drawablePadding="@dimen/dp_8"
             android:gravity="center"
             android:text="@{ rightTitleValue }"
             android:textAppearance="@style/Subtitle1"
@@ -76,21 +76,21 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/dp_8"
             app:layout_constraintTop_toBottomOf="@id/tvRightTitle">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingHorizontal="12dp"
-                android:paddingVertical="16dp">
+                android:paddingVertical="@dimen/dp_16">
 
                 <ImageButton
                     android:id="@+id/imgBtnMinus"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
                     android:background="@drawable/circle_image"
-                    android:elevation="6dp"
+                    android:elevation="@dimen/dp_6"
                     android:src="@drawable/ic_remove"
                     app:contentPadding="4dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +113,7 @@
                     android:id="@+id/tvAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/dp_8"
                     android:text="@{ amount }"
                     android:textAppearance="@style/Body1"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -124,10 +124,10 @@
 
                 <ImageButton
                     android:id="@+id/imgBtnAdd"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
                     android:background="@drawable/circle_image"
-                    android:elevation="6dp"
+                    android:elevation="@dimen/dp_6"
                     android:src="@drawable/ic_add"
                     app:contentPadding="4dp"
                     app:layout_constraintBottom_toBottomOf="parent"

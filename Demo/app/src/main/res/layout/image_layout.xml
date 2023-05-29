@@ -16,12 +16,12 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgView"
             android:adjustViewBounds="true"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="@dimen/dp_150"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:scaleType="centerInside"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/google_io" />
     </androidx.constraintlayout.widget.ConstraintLayout>

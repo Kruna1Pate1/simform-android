@@ -21,7 +21,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp_0"
         app:backgroundColor="@{imgBackground}"
         android:src="@{imgSrc}"
         app:layout_constraintDimensionRatio="h,1:1"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.Recent"
         app:tint="@color/white"
-        app:contentPadding="14dp" />
+        app:contentPadding="@dimen/dp_14" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -39,7 +39,7 @@
         android:text="@{title}"
         tools:text="Food"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/dp_16"
         app:layout_constraintStart_toStartOf="@id/imgView"
         app:layout_constraintEnd_toEndOf="@id/imgView"
         app:layout_constraintTop_toBottomOf="@id/imgView"

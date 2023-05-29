@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="kotlin.text.StringsKt" />
+
+        <variable
+            name="contactDetail"
+            type="com.krunal.demo.recyclerview.models.ContactDetail" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/dp_16">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgViewProfile"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:contentDescription="@{ contactDetail.name }"
+            android:scaleType="centerCrop"
+            app:drawableResource="@{ contactDetail.profileImage }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/profile" />
+
+        <View
+            android:id="@+id/viewOverlay"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_0"
+            android:alpha="0.3"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/imgViewProfile"
+            app:layout_constraintEnd_toEndOf="@id/imgViewProfile"
+            app:layout_constraintStart_toStartOf="@id/imgViewProfile"
+            app:layout_constraintTop_toTopOf="@id/imgViewProfile" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="@{ contactDetail.name }"
+            android:textAppearance="@style/Subtitle2"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtGender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:textAllCaps="false"
+            tools:text="Krunal Patel" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="@{ contactDetail.gender.titleName }"
+            android:textAppearance="@style/Body1"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:textAllCaps="false"
+            tools:text="Male" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="@{ String.valueOf(contactDetail.age) }"
+            android:textAppearance="@style/Body1"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/txtEmail"
+            app:layout_constraintStart_toEndOf="@id/txtGender"
+            app:layout_constraintTop_toTopOf="@id/txtGender"
+            app:textAllCaps="false"
+            tools:text="20" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="@{ contactDetail.email }"
+            android:textAppearance="@style/Body1"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtAge"
+            app:layout_constraintTop_toTopOf="@id/txtGender"
+            app:textAllCaps="false"
+            tools:text="krunal@gmail.com" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

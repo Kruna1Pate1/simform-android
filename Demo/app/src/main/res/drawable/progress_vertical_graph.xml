@@ -3,7 +3,7 @@
     <item android:id="@android:id/background">
         <shape>
             <solid  android:color="?attr/colorOnSurface" />
-            <corners android:topLeftRadius="20dp" android:topRightRadius="20dp"  />
+            <corners android:topLeftRadius="@dimen/dp_20" android:topRightRadius="@dimen/dp_20"  />
         </shape>
     </item>
     <item android:id="@android:id/progress">
@@ -13,7 +13,7 @@
             android:scaleGravity="bottom">
             <shape>
                 <solid android:color="?attr/colorPrimary" />
-                <corners android:topLeftRadius="20dp" android:topRightRadius="20dp" />
+                <corners android:topLeftRadius="@dimen/dp_20" android:topRightRadius="@dimen/dp_20" />
             </shape>
         </scale>
     </item>
