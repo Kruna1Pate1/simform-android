@@ -15,4 +15,6 @@
     <dimen name="indicator_size">4dp</dimen>
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
 </resources>

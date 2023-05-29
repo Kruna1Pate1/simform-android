@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.appcomponents.ui.viewmodels.FirstFragmentViewModel" />
+        <variable
+            name="activityViewModel"
+            type="com.krunal.demo.appcomponents.ui.viewmodels.FragmentDemoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".appcomponents.ui.fragments.FirstFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutMessage1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/message_with_bundle"
+            app:layout_constraintBottom_toTopOf="@id/etLayoutMessage2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMessage1"
+                android:text="@={ viewModel.message }"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutMessage2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:hint="@string/message_with_shared_viewmodel"
+            app:layout_constraintBottom_toTopOf="@id/btnSecondFragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutMessage1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMessage2"
+                android:text="@={ activityViewModel.message }"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSecondFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/second_fragment"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@id/btnSecondActivity"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutMessage2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSecondActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/second_activity"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSecondFragment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

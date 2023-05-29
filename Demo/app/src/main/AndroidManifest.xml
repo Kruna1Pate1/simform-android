@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".DemoApplication"
         android:allowBackup="true"
@@ -31,15 +36,66 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".appcomponents.ui.activities.ImagePickerActivity"
+            android:label="DemoImagePicker"
+            android:taskAffinity="com.krunal.demo.imagePicker"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" />
+
+        <activity
+            android:name=".appcomponents.ui.activities.FirstActivity"
+            android:exported="true"
+            android:label="FirstActivity"
+            android:taskAffinity="com.krunal.demo.firstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".appcomponents.ui.activities.SecondActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"/>
+                <data android:host="youtube.com"/>
+                <data android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".appcomponents.ui.activities.FragmentDemoActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.krunal.demo.action.MESSAGE" />
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

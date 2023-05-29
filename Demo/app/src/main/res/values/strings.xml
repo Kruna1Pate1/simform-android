@@ -183,4 +183,14 @@
     <string name="community_post_description">🎪 Coming to you live from Shoreline, it\'s #GoogleIO! \nJoin developers around the world for thoughtful discussions, interactive learning, and a first look at our latest product updates. </string>
     <string name="library">Library</string>
     <string name="type_something">Type something...</string>
+    <string name="enter_message_to_forward">Enter message to forward</string>
+    <string name="second_activity">Second activity</string>
+    <string name="send_back_to_first">Send back to first</string>
+    <string name="send_to_fragment">Send to Fragment</string>
+    <string name="second_fragment">Second Fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="message_with_bundle">Message with bundle</string>
+    <string name="message_with_shared_viewmodel">Message with shared viewModel</string>
+    <string name="send_to_implicit_fragment">Send to implicit Fragment</string>
 </resources>
