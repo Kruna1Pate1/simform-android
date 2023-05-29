@@ -11,7 +11,7 @@
         android:gravity="center"
         android:background="#3F51B5"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/sp_20"
         android:text="@string/welcome_to_chat_fragment" />
 
 </FrameLayout>

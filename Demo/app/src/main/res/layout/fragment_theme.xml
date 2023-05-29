@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/dp_16"
     tools:context=".uicomponents.ThemeFragment">
 
     <TextView
@@ -24,12 +24,12 @@
         app:layout_constraintTop_toBottomOf="@id/tvTheme"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:numColumns="3"
         android:drawSelectorOnTop="true"
         android:listSelector="@drawable/selected_theme"
         android:choiceMode="singleChoice"
-        android:horizontalSpacing="16dp"
-        android:verticalSpacing="16dp" />
+        android:horizontalSpacing="@dimen/dp_16"
+        android:verticalSpacing="@dimen/dp_16" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

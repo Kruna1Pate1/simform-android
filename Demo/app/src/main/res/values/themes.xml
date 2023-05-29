@@ -313,5 +313,6 @@
         
 <!--        Divider style-->
         <item name="dividerStyle">@style/DividerStyle</item>
+        <item name="android:listDivider">?attr/colorSurfaceDim</item>
     </style>
 </resources>

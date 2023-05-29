@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/dp_16"
         tools:context=".uicomponents.SliderFragment">
 
         <TextView
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/dp_24"
             android:labelFor="@id/sliderDiscrete"
             android:text="@string/discrete_slider"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/dp_24"
             android:labelFor="@id/sliderRange"
             android:text="@string/range_continues_slider"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
@@ -87,7 +87,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/dp_24"
             android:labelFor="@id/sliderRangeDiscrete"
             android:text="@string/range_discrete_slider"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />

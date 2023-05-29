@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/dp_16"
     tools:context=".uicomponents.ChipFragment">
 
     <TextView
@@ -18,8 +18,8 @@
         android:id="@+id/cgNormal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:chipSpacingHorizontal="14dp">
+        android:layout_marginTop="@dimen/dp_8"
+        app:chipSpacingHorizontal="@dimen/dp_14">
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/dp_40"
         android:labelFor="@id/cgSingleLine"
         android:text="Scrollable Chips" />
 
@@ -90,8 +90,8 @@
             android:id="@+id/cgSingleLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:chipSpacingHorizontal="14dp"
+            android:layout_marginTop="@dimen/dp_8"
+            app:chipSpacingHorizontal="@dimen/dp_14"
             app:singleLine="true">
 
             <com.google.android.material.chip.Chip
@@ -146,7 +146,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/dp_40"
         android:labelFor="@id/cgSingleLine"
         android:text="Single Selection Chips" />
 
@@ -155,9 +155,9 @@
         android:id="@+id/cgSingleSelection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dp_8"
         app:checkedChip="@id/chipSSOne"
-        app:chipSpacingHorizontal="24dp"
+        app:chipSpacingHorizontal="@dimen/dp_24"
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
@@ -190,7 +190,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/dp_40"
         android:labelFor="@id/cgSingleLine"
         android:text="Diffrent Style Chips" />
 
@@ -198,8 +198,8 @@
         android:id="@+id/cgStyles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:chipSpacingHorizontal="24dp">
+        android:layout_marginTop="@dimen/dp_8"
+        app:chipSpacingHorizontal="@dimen/dp_24">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipIcon"
@@ -251,7 +251,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/dp_40"
         android:labelFor="@id/cgSingleLine"
         android:text="Diffrent Style Chips" />
 
@@ -261,7 +261,7 @@
         android:layout_height="wrap_content"
         app:boxBackgroundColor="@android:color/transparent"
         app:boxStrokeColor="?attr/colorPrimary"
-        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidth="@dimen/dp_2"
         app:endIconDrawable="@drawable/ic_add"
         app:endIconMode="custom"
         app:endIconTint="?attr/colorPrimary">
@@ -280,7 +280,7 @@
         android:id="@+id/cgProgrammatically"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:chipSpacingHorizontal="24dp" />
+        android:layout_marginTop="@dimen/dp_8"
+        app:chipSpacingHorizontal="@dimen/dp_24" />
 
 </LinearLayout>

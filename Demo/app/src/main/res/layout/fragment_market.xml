@@ -27,13 +27,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="16dp" />
+                app:layout_constraintGuide_begin="@dimen/dp_16" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabBar"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_60"
+                android:layout_marginTop="@dimen/dp_16"
                 android:background="@drawable/rounded_tab_layout"
                 android:clipChildren="true"
                 android:clipToOutline="true"
@@ -42,7 +42,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:tabBackground="@drawable/rounded_tab_layout"
                 app:tabIndicatorColor="?attr/colorTertiary"
-                app:tabIndicatorHeight="60dp">
+                app:tabIndicatorHeight="@dimen/dp_60">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
             <include
                 android:id="@+id/priceLayout1"
                 layout="@layout/price_layout"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
                 app:amount="@{ @string/euro_amount(Formatter.euroFormat(viewModel.yourPrice)) }"
@@ -112,7 +112,7 @@
             <include
                 android:id="@+id/priceLayout2"
                 layout="@layout/price_layout"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
                 app:amount="@{ Formatter.euroFormat(viewModel.amount) }"
@@ -126,7 +126,7 @@
             <include
                 android:id="@+id/totalPriceLayout"
                 layout="@layout/total_price_layout"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
                 app:amount="@{ `13.440` }"
@@ -141,7 +141,7 @@
             <include
                 android:id="@+id/titleCard"
                 layout="@layout/title_card"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="@dimen/card_height"
                 android:layout_marginTop="@dimen/divider_margin"
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
@@ -152,7 +152,7 @@
             <com.krunal.demo.stackexchange.views.Divider
                 android:id="@+id/divider"
                 style="@style/DividerStyle"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
                 app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
@@ -166,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
                 android:clipToPadding="false"
-                android:paddingStart="16dp"
+                android:paddingStart="@dimen/dp_16"
                 android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -247,53 +247,28 @@
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintTop_toTopOf="@id/tvCurrency" />
 
-            <include
-                android:id="@+id/shareDetails1"
-                layout="@layout/share_details_layout"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvShareDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
-                app:layout_constraintTop_toBottomOf="@id/tvCurrency"
-                app:shareDetails="@{ viewModel.shareDetails[0] }" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrency" />
 
             <com.krunal.demo.stackexchange.views.Divider
                 android:id="@+id/divider1"
                 style="@style/DividerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/shareDetails1"
-                app:progress="0dp" />
-
-            <include
-                android:id="@+id/shareDetails2"
-                layout="@layout/share_details_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/divider1"
-                app:shareDetails="@{ viewModel.shareDetails[1] }" />
-
-            <com.krunal.demo.stackexchange.views.Divider
-                android:id="@+id/divider2"
-                style="@style/DividerStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/shareDetails2"
-                app:progress="0dp" />
-
-            <include
-                android:id="@+id/shareDetails3"
-                layout="@layout/share_details_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/divider2"
-                app:shareDetails="@{ viewModel.shareDetails[2] }" />
+                app:layout_constraintTop_toBottomOf="@id/rvShareDetails"
+                app:progress="@dimen/dp_0" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="16dp" />
+                app:layout_constraintGuide_end="@dimen/dp_16" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

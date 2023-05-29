@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/dp_16"
     tools:context=".uicomponents.SpinnerFragment">
 
     <TextView
@@ -24,7 +24,7 @@
         android:id="@+id/tvSpinnerDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/spinnerDialog"
         android:text="@string/dialog_drop_down" />
 
@@ -38,7 +38,7 @@
         android:id="@+id/tvSpinnerUnderlined"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/spinnerUnderlined"
         android:text="@string/underlined_drop_down" />
 
@@ -52,7 +52,7 @@
         android:id="@+id/tvSpinnerBordered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/spinnerBordered"
         android:text="@string/bordered_drop_down" />
 
@@ -67,7 +67,7 @@
         android:id="@+id/tvExposedDropDown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/spinnerBordered"
         android:text="@string/exposed_drop_down" />
 
@@ -83,7 +83,7 @@
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:dropDownHeight="200dp"
+            android:dropDownHeight="@dimen/dp_200"
             android:ellipsize="end"
             android:inputType="none"
             android:maxLines="1" />
@@ -93,7 +93,7 @@
         android:id="@+id/tvSpinnerCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/spinnerCustom"
         android:text="@string/custom_drop_down" />
 
@@ -107,7 +107,7 @@
         android:id="@+id/tvSpinnerDisabled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dp_24"
         android:labelFor="@id/spinnerCustom"
         android:text="@string/disabled_drop_down" />
 

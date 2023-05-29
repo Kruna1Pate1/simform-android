@@ -22,26 +22,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="16dp" />
+            app:layout_constraintGuide_begin="@dimen/dp_16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineBottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="16dp" />
+            app:layout_constraintGuide_end="@dimen/dp_16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="16dp" />
+            app:layout_constraintGuide_end="@dimen/dp_16" />
 
         <View
             android:id="@+id/viewStart"
             android:layout_width="2dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/dp_0"
             app:backgroundColor="@{ shareDetails.isPositive ? @color/stack_exchange_theme_dark_green : @color/stack_exchange_theme_dark_red }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
 
         <TextView
             android:id="@+id/tvSubTitle"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/sub_divider_margin"
             android:ellipsize="end"
@@ -77,13 +77,13 @@
 
         <ImageView
             android:id="@+id/imgViewLogo"
-            android:layout_width="42dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dp_42"
+            android:layout_height="@dimen/dp_0"
             android:layout_marginTop="@dimen/sub_divider_margin"
             android:background="@drawable/rounded_image"
             android:contentDescription="@{ shareDetails.name }"
             android:cropToPadding="true"
-            android:padding="8dp"
+            android:padding="@dimen/dp_8"
             android:scaleType="fitXY"
             app:drawableResource="@{ shareDetails.logo }"
             app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
@@ -139,7 +139,7 @@
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="64dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/dp_0"
             app:layout_constraintDimensionRatio="1:1"
             android:indeterminateOnly="false"
             android:progress="@{ shareDetails.percentage }"
@@ -167,7 +167,7 @@
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="@dimen/dp_36"
             android:background="@drawable/rounded_transparent_background"
             android:text="@string/cancel"
             android:textColor="?android:attr/textColorPrimary"
@@ -192,8 +192,8 @@
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:background="@android:color/transparent"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
+            android:insetTop="@dimen/dp_0"
+            android:insetBottom="@dimen/dp_0"
             android:text="@string/buy"
             app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"

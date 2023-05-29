@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/holo_orange_dark"
             android:text="@string/swipeable_snack_bar"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="@dimen/dp_80"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +49,7 @@
             layout="@layout/fragment_frame_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="10dp"
+            app:elevation="@dimen/dp_10"
             app:layout_constraintTop_toBottomOf="@id/btnSwipeableSnackBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -60,8 +60,8 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:layout_marginBottom="@dimen/dp_24"
         app:layout_anchor="@id/bottomNavigation"
         app:layout_anchorGravity="top|end"
         android:src="@drawable/ic_add"

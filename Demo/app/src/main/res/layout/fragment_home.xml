@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/dp_16"
     tools:context=".uicomponents.tablayoutfragments.HomeFragment">
 
     <com.google.android.material.tabs.TabLayout
@@ -18,7 +18,7 @@
         android:id="@+id/tabLayoutIcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="@dimen/dp_100">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
         android:id="@+id/tabLayoutTextIcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="@dimen/dp_100">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         android:id="@+id/tabLayoutSelectedText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="@dimen/dp_100">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
         android:id="@+id/tabLayoutScrollable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/dp_100"
         app:tabGravity="center"
         app:tabMode="auto" />
 

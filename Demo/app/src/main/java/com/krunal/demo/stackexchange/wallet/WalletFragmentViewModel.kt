@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class WalletFragmentViewModel : ViewModel() {
 
-    private val _portfolios: MutableStateFlow<List<ShareDetails>?> = MutableStateFlow(null)
+    private val _portfolios: MutableStateFlow<List<ShareDetails>?> = MutableStateFlow(ShareDetails.dummyData)
     val portfolios: StateFlow<List<ShareDetails>?> = _portfolios
 
     private val _wallet: MutableStateFlow<Wallet?> = MutableStateFlow(null)
