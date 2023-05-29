@@ -135,4 +135,7 @@
     <string name="community_post_description">🎪 Coming to you live from Shoreline, it\'s #GoogleIO! \nJoin developers around the world for thoughtful discussions, interactive learning, and a first look at our latest product updates. </string>
     <string name="library">Library</string>
     <string name="type_something">Type something...</string>
+    <string name="add_more">Add More</string>
+    <string name="total">Total: %1$.2f</string>
+    <string name="add_value">Add Value</string>
 </resources>

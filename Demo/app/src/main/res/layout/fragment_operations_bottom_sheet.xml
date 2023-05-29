@@ -157,7 +157,7 @@
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toTopOf="@id/tvHistoryCost"
             app:lineColor="?attr/colorSecondary"
-            app:lineWidth="1dp"
+            app:lineWidth="@dimen/dp_1"
             app:thumbColor="?attr/colorSecondary"
             app:thumbRadius="4dp" />
 
@@ -205,7 +205,7 @@
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toTopOf="@id/tvHistoryCost2"
             app:lineColor="?attr/colorPrimary"
-            app:lineWidth="1dp"
+            app:lineWidth="@dimen/dp_1"
             app:thumbColor="?attr/colorPrimary"
             app:thumbRadius="4dp" />
 
