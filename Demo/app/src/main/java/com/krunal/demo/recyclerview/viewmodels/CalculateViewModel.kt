@@ -23,4 +23,34 @@ class CalculateViewModel : ViewModel() {
             _calculations.emit(Calculation.dummyData)
         }
     }
+
+    fun updateCalculation(calculations: List<Calculation>) {
+        viewModelScope.launch {
+            _calculations.emit(calculations)
+        }
+    }
+
+    fun addValue(position: Int, value: Int) {
+        viewModelScope.launch {
+            val list = _calculations.value.toMutableList()
+            list[position].additionalNums.add(value)
+            _calculations.emit(list)
+        }
+    }
+
+    fun removeValue(position: Int, valuePosition: Int) {
+        viewModelScope.launch {
+            val list = _calculations.value.toMutableList()
+            list[position].additionalNums.removeAt(position)
+            _calculations.emit(list)
+        }
+    }
+
+    fun updateValue(position: Int, valuePosition: Int, value: Int) {
+        viewModelScope.launch {
+            val list = _calculations.value.toMutableList()
+            list[position].additionalNums[valuePosition] = value
+            _calculations.emit(list)
+        }
+    }
 }

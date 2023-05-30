@@ -98,4 +98,11 @@
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="textAllCaps">true</item>
     </style>
+
+    <style name="NumberInputStyle" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>

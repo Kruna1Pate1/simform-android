@@ -33,30 +33,25 @@
                 android:id="@+id/txtLayoutNum1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="@dimen/dp_1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:layout_constraintEnd_toStartOf="@id/imgCross"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.3">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtNum1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/NumberInputStyle"
                     android:text="@{ String.valueOf(calculation.num1) }"
-                    android:textAlignment="center"
-                    app:strokeWidth="3dp"
                     tools:text="100" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgCross"
-                android:layout_width="@dimen/dp_40"
-                android:layout_height="@dimen/dp_40"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginHorizontal="@dimen/dp_16"
                 app:layout_constraintBottom_toBottomOf="@id/txtLayoutNum1"
                 app:layout_constraintEnd_toStartOf="@id/txtLayoutNum2"
                 app:layout_constraintStart_toEndOf="@id/txtLayoutNum1"
@@ -68,23 +63,17 @@
                 android:id="@+id/txtLayoutNum2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="@dimen/dp_1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imgCross"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.3">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtNum2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/NumberInputStyle"
                     android:text="@{ String.valueOf(calculation.num2) }"
-                    android:textAlignment="center"
-                    app:strokeWidth="3dp"
                     tools:text="90" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,11 +88,12 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnValue"
+                android:id="@+id/btnAddValue"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_16"
+                app:cornerRadius="@dimen/dp_10"
                 android:drawableStart="@drawable/ic_add"
                 android:enabled="@{ calculation.additionalNums.size() &lt; 10 ? true : false}"
                 android:text="@string/add_value"
@@ -125,13 +115,14 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnValue" />
+                app:layout_constraintTop_toBottomOf="@id/btnAddValue" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_16"
+                style="@style/Heading1"
                 android:text="@{ @string/total(calculation.total) }"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rvImages"
@@ -150,6 +141,7 @@
                 app:backgroundTint="@android:color/transparent"
                 app:icon="@drawable/ic_image"
                 app:iconGravity="end"
+                app:cornerRadius="@dimen/dp_10"
                 app:iconTint="?attr/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rvImages"

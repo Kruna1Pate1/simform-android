@@ -11,11 +11,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.krunal.demo.databinding.FragmentCalculateBinding
 import com.krunal.demo.recyclerview.adapters.CalculationAdapter
+import com.krunal.demo.recyclerview.listeners.OnItemChangeListener
 import com.krunal.demo.recyclerview.viewmodels.CalculateViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class CalculateFragment : Fragment() {
+class CalculateFragment : Fragment(), OnItemChangeListener {
 
     private lateinit var binding: FragmentCalculateBinding
     private val viewModel: CalculateViewModel by viewModels()
@@ -36,7 +37,9 @@ class CalculateFragment : Fragment() {
     }
 
     private fun setupCalculations() {
-        val adapter = CalculationAdapter()
+        val adapter = CalculationAdapter().apply {
+            onItemChangeListener = this@CalculateFragment
+        }
         binding.rvMain.adapter = adapter
 
         lifecycleScope.launch {
@@ -46,5 +49,17 @@ class CalculateFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onValueRemove(position: Int, valuePosition: Int) {
+        viewModel.removeValue(position, valuePosition)
+    }
+
+    override fun onValueAdd(position: Int, value: Int) {
+        viewModel.addValue(position, value)
+    }
+
+    override fun onValueChange(position: Int, valuePosition: Int, value: Int) {
+        viewModel.updateValue(position, valuePosition, value)
     }
 }
