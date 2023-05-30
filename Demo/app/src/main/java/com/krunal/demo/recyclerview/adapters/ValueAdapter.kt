@@ -24,19 +24,13 @@ class ValueAdapter(private val onValueChange: (position: Int, value: Int) -> Uni
         fun bind(number: Int, onValueChange: (Int, Int) -> Unit) {
             val adapter =
                 ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, values)
-            binding.spinnerValue.setAdapter(adapter)
-            binding.spinnerValue.onItemSelectedListener = object : OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
+            binding.number = number
+
+            binding.spinnerValue.apply {
+                setAdapter(adapter)
+                setText(number.toString(), false)
+                setOnItemClickListener { _, _, position, _ ->
                     onValueChange(adapterPosition, values[position])
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
                 }
             }
         }
@@ -58,16 +52,5 @@ class ValueAdapter(private val onValueChange: (position: Int, value: Int) -> Uni
         additionValues.clear()
         additionValues.addAll(list)
         notifyDataSetChanged()
-    }
-
-
-    fun removeItem(position: Int) {
-        additionValues.removeAt(position)
-        notifyItemRemoved(position)
-    }
-
-    fun addItem(item: Int, position: Int) {
-        additionValues.add(position, item)
-        notifyItemInserted(position)
     }
 }

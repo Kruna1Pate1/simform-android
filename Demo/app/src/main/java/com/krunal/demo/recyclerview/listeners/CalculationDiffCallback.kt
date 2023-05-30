@@ -6,7 +6,7 @@ import com.krunal.demo.recyclerview.models.Calculation
 object CalculationDiffCallback : DiffUtil.ItemCallback<Calculation>() {
 
     override fun areItemsTheSame(oldItem: Calculation, newItem: Calculation): Boolean =
-        oldItem == newItem
+        oldItem.id == newItem.id
 
     override fun areContentsTheSame(oldItem: Calculation, newItem: Calculation): Boolean =
         oldItem == newItem

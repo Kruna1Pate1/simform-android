@@ -16,7 +16,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgView"
             android:adjustViewBounds="true"
-            android:layout_width="300dp"
+            android:layout_width="@dimen/dp_250"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

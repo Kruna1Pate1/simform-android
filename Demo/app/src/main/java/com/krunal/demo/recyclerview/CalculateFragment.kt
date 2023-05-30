@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.krunal.demo.databinding.FragmentCalculateBinding
 import com.krunal.demo.recyclerview.adapters.CalculationAdapter
+import com.krunal.demo.recyclerview.decorations.SpaceDecoration
 import com.krunal.demo.recyclerview.listeners.OnItemChangeListener
 import com.krunal.demo.recyclerview.viewmodels.CalculateViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -40,7 +41,15 @@ class CalculateFragment : Fragment(), OnItemChangeListener {
         val adapter = CalculationAdapter().apply {
             onItemChangeListener = this@CalculateFragment
         }
-        binding.rvMain.adapter = adapter
+
+        binding.rvMain.apply {
+            this.adapter = adapter
+            addItemDecoration(SpaceDecoration())
+        }
+
+        binding.btnAddCalculation.setOnClickListener {
+            viewModel.addCalculation()
+        }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -49,6 +58,14 @@ class CalculateFragment : Fragment(), OnItemChangeListener {
                 }
             }
         }
+    }
+
+    override fun onCalculationRemove(position: Int) {
+        viewModel.removeCalculation(position)
+    }
+
+    override fun onNumberChange(position: Int, num1: Double, num2: Double) {
+        viewModel.updateNumber(position, num1, num2)
     }
 
     override fun onValueRemove(position: Int, valuePosition: Int) {
@@ -61,5 +78,13 @@ class CalculateFragment : Fragment(), OnItemChangeListener {
 
     override fun onValueChange(position: Int, valuePosition: Int, value: Int) {
         viewModel.updateValue(position, valuePosition, value)
+    }
+
+    override fun onImageAdd(position: Int, image: Int) {
+        viewModel.addImage(position, image)
+    }
+
+    override fun onImageRemove(position: Int, imagePosition: Int) {
+        viewModel.removeImage(position, imagePosition)
     }
 }

@@ -1,17 +1,16 @@
 package com.krunal.demo.recyclerview.viewmodels
 
+import androidx.annotation.DrawableRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.krunal.demo.recyclerview.models.Calculation
-import com.krunal.demo.recyclerview.models.ContactDetail
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class CalculateViewModel : ViewModel() {
 
-    private val _calculations: MutableStateFlow<List<Calculation>> =
-        MutableStateFlow(emptyList())
+    private val _calculations: MutableStateFlow<List<Calculation>> = MutableStateFlow(emptyList())
     val calculations: StateFlow<List<Calculation>> = _calculations
 
     init {
@@ -24,32 +23,83 @@ class CalculateViewModel : ViewModel() {
         }
     }
 
-    fun updateCalculation(calculations: List<Calculation>) {
+    fun updateCalculationList(calculations: List<Calculation>) {
         viewModelScope.launch {
             _calculations.emit(calculations)
         }
     }
 
+    fun updateNumber(position: Int, num1: Double, num2: Double) {
+        viewModelScope.launch {
+            val list = calculations.value.toMutableList()
+            list[position] = list[position].copy(num1 = num1, num2 = num2)
+            _calculations.emit(list)
+        }
+    }
+
     fun addValue(position: Int, value: Int) {
         viewModelScope.launch {
-            val list = _calculations.value.toMutableList()
-            list[position].additionalNums.add(value)
+            val list = calculations.value.toMutableList()
+            list[position] =
+                list[position].copy(additionalNums = list[position].additionalNums + value)
             _calculations.emit(list)
         }
     }
 
     fun removeValue(position: Int, valuePosition: Int) {
         viewModelScope.launch {
-            val list = _calculations.value.toMutableList()
-            list[position].additionalNums.removeAt(position)
+            val list = calculations.value.toMutableList()
+            list[position] = list[position].copy(
+                additionalNums = list[position].additionalNums - list[position].additionalNums[valuePosition]
+            )
             _calculations.emit(list)
         }
     }
 
     fun updateValue(position: Int, valuePosition: Int, value: Int) {
         viewModelScope.launch {
-            val list = _calculations.value.toMutableList()
-            list[position].additionalNums[valuePosition] = value
+            val list = calculations.value.toMutableList()
+            val additionalNums = list[position].additionalNums.toMutableList()
+            additionalNums[valuePosition] = value
+            list[position] = list[position].copy(additionalNums = additionalNums)
+            _calculations.emit(list)
+        }
+    }
+
+    fun addCalculation() {
+        viewModelScope.launch {
+            calculations.value.toMutableList().also { list ->
+                list.add(
+                    Calculation(0.0, 0.0)
+                )
+                _calculations.emit(list)
+            }
+        }
+    }
+
+    fun removeCalculation(position: Int) {
+        viewModelScope.launch {
+            calculations.value.toMutableList().also { list ->
+                list.removeAt(position)
+                _calculations.emit(list)
+            }
+        }
+    }
+
+    fun addImage(position: Int, @DrawableRes image: Int) {
+        viewModelScope.launch {
+            val list = calculations.value.toMutableList()
+            list[position] = list[position].copy(images = list[position].images + image)
+            _calculations.emit(list)
+        }
+    }
+
+    fun removeImage(position: Int, imagePosition: Int) {
+        viewModelScope.launch {
+            val list = calculations.value.toMutableList()
+            list[position] = list[position].copy(
+                images = list[position].images - list[position].images[imagePosition]
+            )
             _calculations.emit(list)
         }
     }

@@ -8,17 +8,22 @@ import com.krunal.demo.databinding.ImageLayoutBinding
 class ImagesAdapter : RecyclerView.Adapter<ImagesAdapter.ImageViewHolder>() {
 
     private val images: MutableList<Int> = mutableListOf()
+    var onLongClick: ((position: Int) -> Unit)? = null
 
-    class ImageViewHolder(private val binding: ImageLayoutBinding): RecyclerView.ViewHolder(binding.root) {
+    class ImageViewHolder(private val binding: ImageLayoutBinding, private val onLongClick: ((position: Int) -> Unit)?): RecyclerView.ViewHolder(binding.root) {
         fun bind(imageResource: Int) {
             binding.imgView.setImageResource(imageResource)
+            binding.root.setOnLongClickListener {
+                onLongClick?.invoke(adapterPosition)
+                true
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ImageLayoutBinding.inflate(layoutInflater)
-        return ImageViewHolder(binding)
+        return ImageViewHolder(binding, onLongClick)
     }
 
     override fun getItemCount(): Int = images.count()
