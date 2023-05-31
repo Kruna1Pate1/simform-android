@@ -21,25 +21,29 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_16"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toTopOf="@id/btnAddCalculation"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddCalculation"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp_16"
-            app:cornerRadius="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_16"
             android:text="@string/add_calculation"
             android:textAllCaps="false"
             android:textColor="?attr/colorOnSecondary"
             app:backgroundTint="?attr/colorSecondary"
+            app:cornerRadius="@dimen/dp_10"
             app:icon="@drawable/ic_add"
             app:iconTint="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvMain" />
+            app:layout_constraintTop_toBottomOf="@id/rvMain"
+            app:layout_constraintVertical_bias="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

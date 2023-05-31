@@ -8,7 +8,7 @@
         <import type="android.view.View" />
 
         <variable
-            name="viewModel"
+            name="mainViewModel"
             type="com.krunal.demo.recyclerview.viewmodels.ChatDetailsViewModel" />
     </data>
 
@@ -33,9 +33,9 @@
 
         <include
             android:id="@+id/currentDetail"
-            android:visibility="@{ viewModel.currentDetail == null ? View.GONE : View.VISIBLE }"
+            android:visibility="@{ mainViewModel.currentDetail == null ? View.GONE : View.VISIBLE }"
             layout="@layout/chat_contact_details_layout"
-            app:contactDetail="@{ viewModel.currentDetail.contactDetail }"
+            app:contactDetail="@{ mainViewModel.currentDetail.contactDetail }"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"

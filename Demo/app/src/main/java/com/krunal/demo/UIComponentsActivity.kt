@@ -37,7 +37,7 @@ class UIComponentsActivity : AppCompatActivity() {
 
     private fun setupFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.uiComponentsFragment, CalculateFragment())
+            .replace(R.id.uiComponentsFragment, ContactDetailFragment())
             .commit()
     }
 }

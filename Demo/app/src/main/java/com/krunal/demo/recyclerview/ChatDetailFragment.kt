@@ -32,7 +32,7 @@ class ChatDetailFragment : Fragment(), OnChatChangeListener {
     ): View {
         binding = FragmentChatDetailBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = viewModel
+        binding.mainViewModel = viewModel
         return binding.root
     }
 

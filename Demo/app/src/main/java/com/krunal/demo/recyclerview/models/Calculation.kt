@@ -1,10 +1,12 @@
 package com.krunal.demo.recyclerview.models
 
+import android.net.Uri
+
 data class Calculation(
     val num1: Double,
     val num2: Double,
     val additionalNums: List<Int> = emptyList(),
-    val images: List<Int> = emptyList(),
+    val images: List<Uri> = emptyList(),
     val id: Int = currentId
 ) {
 

@@ -59,6 +59,14 @@ class ContactDetailsAdapter :
         notifyDataSetChanged()
     }
 
+    fun collapseAll() {
+        if (currentExpandedPosition != SELECTED_NONE) {
+            contactDetails[currentExpandedPosition].isExpanded = false
+            notifyItemChanged(currentExpandedPosition)
+            currentExpandedPosition = SELECTED_NONE
+        }
+    }
+
     companion object {
         const val SELECTED_NONE = -1
     }

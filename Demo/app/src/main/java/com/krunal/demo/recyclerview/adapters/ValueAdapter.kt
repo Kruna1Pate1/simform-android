@@ -1,6 +1,7 @@
 package com.krunal.demo.recyclerview.adapters
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,5 +53,21 @@ class ValueAdapter(private val onValueChange: (position: Int, value: Int) -> Uni
         additionValues.clear()
         additionValues.addAll(list)
         notifyDataSetChanged()
+    }
+
+
+    fun addValue(value: Int) {
+        additionValues.add(value)
+        notifyItemInserted(additionValues.count() - 1)
+    }
+
+    fun removeValue(position: Int) {
+        additionValues.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    fun changeValue(position: Int, value: Int) {
+        additionValues[position] = value
+        notifyItemChanged(position)
     }
 }

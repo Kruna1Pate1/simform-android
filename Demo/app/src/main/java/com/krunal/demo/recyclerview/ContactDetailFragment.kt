@@ -43,6 +43,11 @@ class ContactDetailFragment : Fragment() {
         binding.rvContactDetails.apply {
             this.adapter = adapter
             addItemDecoration(ContactDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+            setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+                if (scrollY - oldScrollY > SCROLL_THRESHOLD) {
+                    adapter.collapseAll()
+                }
+            }
         }
 
         lifecycleScope.launch {
@@ -52,5 +57,9 @@ class ContactDetailFragment : Fragment() {
                 }
             }
         }
+    }
+
+    companion object {
+        const val SCROLL_THRESHOLD = 10
     }
 }

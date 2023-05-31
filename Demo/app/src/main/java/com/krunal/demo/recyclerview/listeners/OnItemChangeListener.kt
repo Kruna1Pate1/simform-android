@@ -1,12 +1,13 @@
 package com.krunal.demo.recyclerview.listeners
 
+import android.net.Uri
 import androidx.annotation.DrawableRes
 
 interface OnItemChangeListener {
 
     fun onCalculationRemove(position: Int)
 
-    fun onNumberChange(position: Int, num1: Double, num2: Double)
+    fun onNumberChange(position: Int, num1: Double?, num2: Double?)
 
     fun onValueRemove(position: Int, valuePosition: Int)
 
@@ -16,5 +17,5 @@ interface OnItemChangeListener {
 
     fun onImageRemove(position: Int, imagePosition: Int)
 
-    fun onImageAdd(position: Int, @DrawableRes image: Int)
+    fun onImageAdd(position: Int)
 }

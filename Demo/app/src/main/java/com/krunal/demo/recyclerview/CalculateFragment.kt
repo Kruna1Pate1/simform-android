@@ -1,5 +1,6 @@
 package com.krunal.demo.recyclerview
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.krunal.demo.databinding.FragmentCalculateBinding
 import com.krunal.demo.recyclerview.adapters.CalculationAdapter
 import com.krunal.demo.recyclerview.decorations.SpaceDecoration
+import com.krunal.demo.recyclerview.helpers.ImagePickerHelper
 import com.krunal.demo.recyclerview.listeners.OnItemChangeListener
 import com.krunal.demo.recyclerview.viewmodels.CalculateViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -21,6 +23,7 @@ class CalculateFragment : Fragment(), OnItemChangeListener {
 
     private lateinit var binding: FragmentCalculateBinding
     private val viewModel: CalculateViewModel by viewModels()
+    private lateinit var imagePickerHelper: ImagePickerHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -28,6 +31,7 @@ class CalculateFragment : Fragment(), OnItemChangeListener {
         binding = FragmentCalculateBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        imagePickerHelper = ImagePickerHelper(requireActivity())
         return binding.root
     }
 
@@ -64,7 +68,7 @@ class CalculateFragment : Fragment(), OnItemChangeListener {
         viewModel.removeCalculation(position)
     }
 
-    override fun onNumberChange(position: Int, num1: Double, num2: Double) {
+    override fun onNumberChange(position: Int, num1: Double?, num2: Double?) {
         viewModel.updateNumber(position, num1, num2)
     }
 
@@ -80,8 +84,10 @@ class CalculateFragment : Fragment(), OnItemChangeListener {
         viewModel.updateValue(position, valuePosition, value)
     }
 
-    override fun onImageAdd(position: Int, image: Int) {
-        viewModel.addImage(position, image)
+    override fun onImageAdd(position: Int) {
+        imagePickerHelper.pickImage { uri ->
+            viewModel.addImage(position, uri)
+        }
     }
 
     override fun onImageRemove(position: Int, imagePosition: Int) {

@@ -1,5 +1,7 @@
 package com.krunal.demo.recyclerview.adapters
 
+import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -11,28 +13,29 @@ import com.krunal.demo.recyclerview.decorations.SpaceDecoration
 import com.krunal.demo.recyclerview.listeners.CalculationDiffCallback
 import com.krunal.demo.recyclerview.listeners.OnItemChangeListener
 import com.krunal.demo.recyclerview.models.Calculation
+import com.krunal.demo.recyclerview.models.Payload
 
 class CalculationAdapter : ListAdapter<Calculation, CalculationAdapter.CalculationViewHolder>(CalculationDiffCallback) {
 
     var onItemChangeListener: OnItemChangeListener? = null
 
-    class CalculationViewHolder(private val binding: ItemCalculationBinding) :
+    class CalculationViewHolder(
+        private val binding: ItemCalculationBinding
+                                , private val onItemChangeListener: OnItemChangeListener?) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val images = listOf(R.drawable.profile, R.drawable.dark_forest, R.drawable.running_up_that_hill, R.drawable.thumbnail1)
+        fun bind(calculation: Calculation) {
 
-        fun bind(calculation: Calculation, onItemChangeListener: OnItemChangeListener?) {
-            val valueAdapter = ValueAdapter { position, value ->
-                onItemChangeListener?.onValueChange(adapterPosition, position, value)
-            }
-            valueAdapter.submitList(calculation.additionalNums)
-
-            val imageAdapter = ImagesAdapter().apply {
-                submitList(calculation.images)
+            val imageAdapter = CalculationImagesAdapter().apply {
                 onLongClick = { imagePosition ->
                     onItemChangeListener?.onImageRemove(adapterPosition, imagePosition)
                 }
             }
+
+            val valueAdapter = ValueAdapter { position, value ->
+                onItemChangeListener?.onValueChange(adapterPosition, position, value)
+            }
+            valueAdapter.submitList(calculation.additionalNums)
 
             ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
                 override fun onMove(
@@ -57,27 +60,27 @@ class CalculationAdapter : ListAdapter<Calculation, CalculationAdapter.Calculati
                 }
 
                 txtNum1.setOnFocusChangeListener { _, hasFocus ->
-                    if (hasFocus) return@setOnFocusChangeListener
+                    if (hasFocus || adapterPosition == -1) return@setOnFocusChangeListener
 
                     txtNum1.text.toString().toDoubleOrNull()?.let { num1 ->
                         if (num1 != calculation.num1) {
                             onItemChangeListener?.onNumberChange(
                                 adapterPosition,
                                 num1,
-                                calculation.num2
+                                null
                             )
                         }
                     }
                 }
 
                 txtNum2.setOnFocusChangeListener { _, hasFocus ->
-                    if (hasFocus) return@setOnFocusChangeListener
+                    if (hasFocus || adapterPosition == -1) return@setOnFocusChangeListener
 
                     txtNum2.text.toString().toDoubleOrNull()?.let { num2 ->
                         if (num2 != calculation.num2) {
                             onItemChangeListener?.onNumberChange(
                                 adapterPosition,
-                                calculation.num1,
+                                null,
                                 num2
                             )
                         }
@@ -89,21 +92,79 @@ class CalculationAdapter : ListAdapter<Calculation, CalculationAdapter.Calculati
                 }
 
                 btnAddImage.setOnClickListener {
-                    onItemChangeListener?.onImageAdd(adapterPosition, images.random())
+                    onItemChangeListener?.onImageAdd(adapterPosition)
                 }
             }
+        }
+
+        fun addImage(uri: Uri) {
+            (binding.rvImages.adapter as? CalculationImagesAdapter)?.addImage(uri)
+        }
+
+        fun removeImage(position: Int) {
+            (binding.rvImages.adapter as? CalculationImagesAdapter)?.removeImage(position)
+        }
+
+        fun addValue(value: Int, total: Double) {
+            (binding.rvValue.adapter as? ValueAdapter)?.addValue(value)
+            setTotal(total)
+        }
+
+        fun removeValue(position: Int, total: Double) {
+            (binding.rvValue.adapter as? ValueAdapter)?.removeValue(position)
+            setTotal(total)
+        }
+
+        fun bindNumbers(num1: Double, num2: Double, total: Double) {
+            binding.txtNum1.setText(num1.toString())
+            binding.txtNum2.setText(num2.toString())
+            setTotal(total)
+        }
+
+        fun changeValue(position: Int, value: Int, total: Double) {
+            (binding.rvImages.adapter as? ValueAdapter)?.changeValue(position, value)
+            setTotal(total)
+        }
+
+        private fun setTotal(total: Double) {
+            binding.tvTotal.text = binding.root.context.getString(R.string.total, total)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalculationViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemCalculationBinding.inflate(layoutInflater)
-        return CalculationViewHolder(binding)
+        return CalculationViewHolder(binding, onItemChangeListener)
     }
 
     override fun getItemCount(): Int = currentList.count()
 
     override fun onBindViewHolder(holder: CalculationViewHolder, position: Int) {
-        holder.bind(currentList[position], onItemChangeListener)
+        holder.bind(currentList[position])
+    }
+
+    override fun onBindViewHolder(
+        holder: CalculationViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+
+        (payloads.firstOrNull() as? Payload)?.let { payload ->
+            when (payload) {
+               is Payload.ChangeNumber -> holder.bindNumbers(payload.num1, payload.num2, currentList[position].total)
+
+                is Payload.AddImage -> holder.addImage(payload.uri)
+
+                is Payload.RemoveImage -> holder.removeImage(payload.position)
+
+                is Payload.AddValue -> holder.addValue(payload.value, currentList[position].total)
+
+                is Payload.RemoveValue -> holder.removeValue(payload.position, currentList[position].total)
+
+                is Payload.ChangeValue -> holder.changeValue(payload.position, payload.value, currentList[position].total)
+            }
+            return
+        }
+        super.onBindViewHolder(holder, position, payloads)
     }
 }

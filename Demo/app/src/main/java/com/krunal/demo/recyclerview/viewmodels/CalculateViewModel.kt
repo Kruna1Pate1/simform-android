@@ -1,5 +1,6 @@
 package com.krunal.demo.recyclerview.viewmodels
 
+import android.net.Uri
 import androidx.annotation.DrawableRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,10 +30,14 @@ class CalculateViewModel : ViewModel() {
         }
     }
 
-    fun updateNumber(position: Int, num1: Double, num2: Double) {
+    fun updateNumber(position: Int, num1: Double?, num2: Double?) {
         viewModelScope.launch {
             val list = calculations.value.toMutableList()
-            list[position] = list[position].copy(num1 = num1, num2 = num2)
+            if (num1 != null ) {
+                list[position] = list[position].copy(num1 = num1)
+            } else if (num2 != null) {
+                list[position] = list[position].copy(num2 = num2)
+            }
             _calculations.emit(list)
         }
     }
@@ -86,10 +91,10 @@ class CalculateViewModel : ViewModel() {
         }
     }
 
-    fun addImage(position: Int, @DrawableRes image: Int) {
+    fun addImage(position: Int, uri: Uri) {
         viewModelScope.launch {
             val list = calculations.value.toMutableList()
-            list[position] = list[position].copy(images = list[position].images + image)
+            list[position] = list[position].copy(images = list[position].images + uri)
             _calculations.emit(list)
         }
     }
