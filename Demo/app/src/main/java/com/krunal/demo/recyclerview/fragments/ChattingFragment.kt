@@ -1,4 +1,4 @@
-package com.krunal.demo.recyclerview
+package com.krunal.demo.recyclerview.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.FragmentChattingBinding
 import com.krunal.demo.recyclerview.adapters.ChatAdapter

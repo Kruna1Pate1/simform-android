@@ -3,6 +3,7 @@ package com.krunal.demo.recyclerview.models
 import androidx.annotation.DrawableRes
 import com.krunal.demo.R
 import com.krunal.demo.recyclerview.listeners.PaginationListener
+import com.krunal.demo.recyclerview.models.enums.FeedType
 
 sealed interface Feed {
     val type: FeedType

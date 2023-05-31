@@ -1,4 +1,4 @@
-package com.krunal.demo.recyclerview.models
+package com.krunal.demo.recyclerview.models.enums
 
 import java.util.Locale
 

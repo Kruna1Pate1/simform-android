@@ -1,6 +1,5 @@
-package com.krunal.demo.recyclerview
+package com.krunal.demo.recyclerview.fragments
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

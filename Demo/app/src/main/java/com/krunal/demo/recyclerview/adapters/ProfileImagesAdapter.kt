@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.ItemPlusCountBinding
 import com.krunal.demo.databinding.ItemProfileImageBinding
 import com.krunal.demo.recyclerview.listeners.OnChatChangeListener
-import com.krunal.demo.recyclerview.models.ProfileViewType
+import com.krunal.demo.recyclerview.models.enums.ProfileViewType
 import kotlin.math.min
 
 class ProfileImagesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

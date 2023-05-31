@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.ItemHistoryVideoBinding
 import com.krunal.demo.databinding.ItemLoadingBinding
-import com.krunal.demo.recyclerview.models.HistoryViewType
+import com.krunal.demo.recyclerview.models.enums.HistoryViewType
 import com.krunal.demo.recyclerview.models.VideoDetails
 
 class LibraryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

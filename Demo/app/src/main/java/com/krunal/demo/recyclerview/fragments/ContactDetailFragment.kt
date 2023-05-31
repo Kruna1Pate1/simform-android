@@ -1,4 +1,4 @@
-package com.krunal.demo.recyclerview
+package com.krunal.demo.recyclerview.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,7 +16,6 @@ import com.krunal.demo.recyclerview.decorations.ContactDecoration
 import com.krunal.demo.recyclerview.viewmodels.ContactDetailsViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import java.util.Locale
 
 class ContactDetailFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.krunal.demo.recyclerview
+package com.krunal.demo.recyclerview.fragments
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -13,7 +13,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.krunal.demo.databinding.FragmentChatDetailBinding
-import com.krunal.demo.recyclerview.adapters.ChatAdapter
 import com.krunal.demo.recyclerview.adapters.ProfileImagesAdapter
 import com.krunal.demo.recyclerview.decorations.SpaceDecoration
 import com.krunal.demo.recyclerview.listeners.OnChatChangeListener

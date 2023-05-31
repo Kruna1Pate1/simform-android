@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".recyclerview.ChatDetailFragment">
+        tools:context=".recyclerview.fragments.ChatDetailFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvProfile"
