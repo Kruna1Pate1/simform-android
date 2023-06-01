@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomShapeOverlay">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">30dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
+    </style>
+
+    <style name="BaseToolBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="placeholderText">Search</item>
+        <item name="subtitleTextColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
+        <!-- Query Text Color -->
+        <item name="android:textColorPrimary">?attr/colorOnPrimary</item>
+        <!-- Hint Color -->
+        <item name="android:textColorHint">?attr/colorOnPrimary</item>
+        <!-- Icon Color -->
+        <item name="android:tint">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="CardChip" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="checkedIcon">@drawable/ic_circle</item>
+        <item name="chipIconSize">8dp</item>
+        <item name="iconStartPadding">4dp</item>
+        <item name="checkedIconTint">?attr/colorPrimary</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_card_text</item>
+        <item name="chipStrokeColor">@color/white</item>
+        <item name="chipBackgroundColor">@color/chip_card</item>
+        <item name="closeIconVisible">false</item>
+    </style>
+
+    <style name="TimeChip">
+        <item name="checkedIconVisible">false</item>
+        <item name="android:checkable">true</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="chipStrokeColor">@color/chip_operations_time</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.BottomSheet.DragHandle" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="tint">?colorOnSurface</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Recent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Profile" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.ProfileExpanded" parent="ShapeAppearance.MaterialComponents.MediumComponent" />
+
+
+    <style name="Heading1" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="Heading2" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="NumberInputStyle" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>

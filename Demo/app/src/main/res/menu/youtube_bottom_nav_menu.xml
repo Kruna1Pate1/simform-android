@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/actionHome"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"/>
+    <item android:id="@+id/actionSubscription"
+        android:icon="@drawable/ic_feed"
+        android:iconTint="?attr/colorOnBackground"
+        android:title="@string/home"
+        tools:targetApi="o" />
+    <item android:id="@+id/actionLibrary"
+        android:icon="@drawable/ic_video_library"
+        android:title="@string/library"/>
+</menu>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="communityPost"
+            type="com.krunal.demo.recyclerview.models.CommunityPost" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgViewProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@{ communityPost.name }"
+            android:scaleType="centerCrop"
+            app:drawableResource="@{ communityPost.profileImage }"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.Profile"
+            tools:src="@drawable/android_dev" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{ communityPost.name }"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            app:layout_constraintEnd_toStartOf="@id/imgButtonMenu"
+            app:layout_constraintStart_toEndOf="@id/imgViewProfile"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Android Developers" />
+
+
+        <TextView
+            android:id="@+id/tvUploadDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{ communityPost.uploadDate }"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/imgButtonMenu"
+            app:layout_constraintStart_toEndOf="@id/imgViewProfile"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="13 days ago" />
+
+        <ImageButton
+            android:id="@+id/imgButtonMenu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_action_more"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnBackground" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{ communityPost.description }"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            app:layout_constraintTop_toBottomOf="@id/imgViewProfile"
+            tools:text="@string/community_post_description" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tlIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vpImage"
+            app:tabBackground="@drawable/tab_pager_selector"
+            app:tabIndicatorHeight="0dp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/imgBtnLike"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_like_outlined"
+            android:tint="?attr/colorOnBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tlIndicator" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/imgBtnDislike"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_dislike_outlined"
+            android:tint="?attr/colorOnBackground"
+            app:layout_constraintStart_toEndOf="@id/imgBtnLike"
+            app:layout_constraintTop_toBottomOf="@id/tlIndicator" />
+
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/imgBtnComment"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_comment"
+            android:drawablePadding="4dp"
+            android:drawableTint="?attr/colorPrimary"
+            android:minWidth="0dp"
+            android:textOff="@{ String.valueOf(communityPost.comments.size) }"
+            android:textOn="@{ String.valueOf(communityPost.comments.size)  }"
+            android:tint="?attr/colorOnBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tlIndicator"
+            tools:textOff="2"
+            tools:textOn="2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBtnLike" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

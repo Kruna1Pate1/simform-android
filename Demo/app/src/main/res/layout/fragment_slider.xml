@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".uicomponents.SliderFragment">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/sliderNormal"
+            android:text="@string/continues_slider_normal"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <TextView
+            android:id="@+id/tvSliderNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/cgNormal"
+            android:text="@{@string/slider_value(sliderNormal.getValue())}" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:value="50"
+            android:valueTo="150" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:labelFor="@id/sliderDiscrete"
+            android:text="@string/discrete_slider"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <TextView
+            android:id="@+id/tvSliderDiscrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/cgNormal"
+            android:text="@{@string/slider_value(2f)}" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderDiscrete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="30"
+            android:stepSize="1"
+            android:value="2"
+            android:valueTo="10"
+            app:labelBehavior="floating"
+            app:thumbStrokeColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:labelFor="@id/sliderRange"
+            android:text="@string/range_continues_slider"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <TextView
+            android:id="@+id/tvSliderRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/cgNormal"
+            android:text="@{@string/slider_range_value(10f, 50f)}" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/sliderRange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="30"
+            android:valueTo="100"
+            app:labelBehavior="floating"
+            app:thumbStrokeColor="@color/black"
+            app:values="@array/range_slider_initials" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:labelFor="@id/sliderRangeDiscrete"
+            android:text="@string/range_discrete_slider"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <TextView
+            android:id="@+id/tvSliderRangeDiscrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/cgNormal"
+            android:text="@{@string/slider_range_value(10f, 50f)}" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/sliderRangeDiscrete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="30"
+            android:stepSize="10"
+            android:value="2"
+            android:valueFrom="10"
+            android:valueTo="100"
+            app:labelBehavior="floating"
+            app:thumbStrokeColor="@color/black"
+            app:values="@array/range_slider_initials" />
+
+    </LinearLayout>
+
+</layout>
