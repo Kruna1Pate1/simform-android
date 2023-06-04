@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="videoDetail"
+            type="com.krunal.demo.recyclerview.models.VideoDetails" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="imgViewThumbnail, videoInfo"
+            app:flow_wrapMode="chain"
+            app:flow_horizontalStyle="spread_inside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgViewThumbnail"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:contentDescription="@{ videoDetail.title }"
+            android:scaleType="centerCrop"
+            app:drawableResource="@{ videoDetail.thumbnail }"
+            app:layout_constraintDimensionRatio="16:9"
+            tools:src="@drawable/running_up_that_hill" />
+
+        <include
+            android:id="@+id/videoInfo"
+            layout="@layout/video_details_layout"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_min="20dp"
+            android:layout_height="wrap_content"
+            app:videoDetail="@{ videoDetail }" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
