@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomButton">
+        <attr name="onCenter" format="boolean" />
+        <attr name="strokeSize" format="float" />
+        <attr name="circleColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="HistoryLineView">
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="thumbColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="Divider">
+        <attr name="lineHeight" format="dimension" />
+        <attr name="progressColor" format="color" />
+        <attr name="progress" format="dimension" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="dividerStyle" format="reference" />
+    </declare-styleable>
+    
+    <declare-styleable name="DonutChart">
+        <attr name="strokeWidth"/>
+        <attr name="radius" format="dimension" />
+        <attr name="donutSpacing" format="dimension" />
+        <attr name="values"/>
+        <attr name="totalValue" format="integer" />
+        <attr name="colors" format="reference" />
+    </declare-styleable>
+</resources>
