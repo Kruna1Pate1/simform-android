@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.commitNow
 import com.krunal.demo.appcomponents.ui.fragments.FirstFragment
 import com.krunal.demo.appcomponents.ui.viewmodels.FirstActivityViewModel
@@ -29,6 +30,7 @@ class FirstActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
 
         binding = ActivityFirstBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
@@ -66,7 +68,6 @@ class FirstActivity : AppCompatActivity() {
 
         }) {
             it?.let(viewModel::setMessage)
-            Log.d("TAG", "registerActivityForResult: ${viewModel.message.value}")
         }
     }
 

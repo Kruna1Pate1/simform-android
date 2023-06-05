@@ -15,42 +15,28 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.App.Starting"
+        android:theme="@style/Theme.Blue"
         tools:targetApi="31">
-        <activity
-            android:name=".stackexchange.StackExchangeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.StackExchange">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".UIComponentsActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".appcomponents.ui.activities.ImagePickerActivity"
-            android:label="DemoImagePicker"
-            android:taskAffinity="com.krunal.demo.imagePicker"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".stackexchange.StackExchangeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.StackExchange" />
+
+        <activity
+            android:name=".appcomponents.ui.activities.ImagePickerActivity"
+            android:exported="true"
+            android:label="DemoImagePicker"
+            android:taskAffinity="com.krunal.demo.imagePicker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".appcomponents.ui.activities.FirstActivity"
@@ -64,13 +50,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".appcomponents.ui.activities.SecondActivity" android:exported="true">
+        <activity
+            android:name=".appcomponents.ui.activities.SecondActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https"/>
-                <data android:host="youtube.com"/>
+
+                <data android:scheme="https" />
+                <data android:host="youtube.com" />
                 <data android:scheme="http" />
             </intent-filter>
         </activity>
@@ -84,6 +74,16 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".navigation.ui.activities.TriviaGameActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

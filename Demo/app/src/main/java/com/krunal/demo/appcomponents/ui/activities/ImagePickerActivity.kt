@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.krunal.demo.appcomponents.ui.viewmodels.ImagePickerViewModel
 import com.krunal.demo.databinding.ActivityImagePickerBinding
@@ -25,13 +26,12 @@ class ImagePickerActivity : AppCompatActivity() {
         registerActivityResultLauncher()
     private val uri: Uri by lazy {
         val file = File(Environment.getExternalStorageDirectory().listFiles()[8], "cameraPick")
-        val file2 = File(Environment.getExternalStorageDirectory().listFiles()[8], "text.txt")
-        file2.canWrite()
         FileProvider.getUriForFile(this, "${applicationContext.packageName}.provider", file)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
 
         binding = ActivityImagePickerBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this

@@ -188,9 +188,15 @@
     <string name="send_back_to_first">Send back to first</string>
     <string name="send_to_fragment">Send to Fragment</string>
     <string name="second_fragment">Second Fragment</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="message_with_bundle">Message with bundle</string>
     <string name="message_with_shared_viewmodel">Message with shared viewModel</string>
     <string name="send_to_implicit_fragment">Send to implicit Fragment</string>
+    <string name="cd_home">Bottom navigation home</string>
+    <string name="title_home">Home</string>
+    <string name="cd_list">Bottom navigation list</string>
+    <string name="title_list">List</string>
+    <string name="cd_form">Bottom navigation registration form</string>
+    <string name="title_register">Register</string>
+    <string name="rank">Rank</string>
+    <string name="rank_number"># %1$d</string>
 </resources>

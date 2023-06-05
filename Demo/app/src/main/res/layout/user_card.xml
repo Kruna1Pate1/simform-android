@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/rank"
+        android:textColor="#757575"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider8"/>
+
+    <View
+        android:id="@+id/dividerRank"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#D8D8D8"
+        app:layout_constraintBottom_toBottomOf="@+id/txtRankValue"
+        app:layout_constraintEnd_toStartOf="@+id/txtRankValue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtRank"
+        app:layout_constraintTop_toTopOf="@+id/txtRankValue" />
+
+    <TextView
+        android:id="@+id/txtRankValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/rank_number"
+        tools:text="# 1"
+        android:textAlignment="textEnd"
+        android:textColor="#757575"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtWinValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44"
+        android:gravity="end"
+        android:layout_marginRight="8dp"/>
+
+    <View
+        android:id="@+id/dividerWin"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#D8D8D8"
+        app:layout_constraintBottom_toBottomOf="@+id/txtWin"
+        app:layout_constraintEnd_toStartOf="@+id/txtWinValue"
+        app:layout_constraintStart_toEndOf="@+id/txtWin"
+        app:layout_constraintTop_toTopOf="@+id/txtWin" />
+
+    <TextView
+        android:id="@+id/txtWin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/wins"
+        android:textColor="#757575"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtLoss"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRank"/>
+
+    <TextView
+        android:id="@+id/txtWinValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="end"
+        android:text="@string/wins_amount"
+        android:textAlignment="textEnd"
+        android:textColor="#757575"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dividerWin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dividerWin"/>
+
+    <TextView
+        android:id="@+id/txtLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/losses"
+        android:textColor="#757575"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWin"/>
+
+    <TextView
+        android:id="@+id/txtLossValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="end"
+        android:text="@string/losses_amount"
+        android:textAlignment="textEnd"
+        android:textColor="#757575"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dividerLoss"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dividerLoss"/>
+
+    <View
+        android:id="@+id/dividerLoss"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#D8D8D8"
+        app:layout_constraintBottom_toBottomOf="@+id/txtLoss"
+        app:layout_constraintEnd_toStartOf="@+id/txtLossValue"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtLoss"
+        app:layout_constraintTop_toTopOf="@+id/txtLoss" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
