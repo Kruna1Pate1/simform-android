@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0"
             app:defaultNavHost="true"
+            app:navGraph="@menu/trivia_game_bottom_nav"
             app:layout_constraintBottom_toTopOf="@id/bottomNav"
             app:layout_constraintTop_toTopOf="parent" />
 

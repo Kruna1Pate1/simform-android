@@ -199,4 +199,19 @@
     <string name="title_register">Register</string>
     <string name="rank">Rank</string>
     <string name="rank_number"># %1$d</string>
+    <string name="losses">Losses</string>
+    <string name="wins">Wins</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="next_match">Next match</string>
+    <string name="leaderboards">Leaderboards</string>
+    <string name="game_over">Game over</string>
+    <string name="try_again">Try again</string>
+    <string name="versus">VS</string>
+    <string name="welcome">Welcome</string>
+    <string name="about">About</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="profile_image">Profile image</string>
+    <string name="points">%1$s pts</string>
 </resources>

@@ -6,6 +6,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.navigation.ui.viewmodels.MatchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,11 +16,61 @@
         android:layout_height="match_parent"
         tools:context=".navigation.ui.fragments.MatchFragment">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/dp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewProfile2"
+            app:strokeColor="?attr/colorPrimary" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgViewProfile1"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_120"
+            android:layout_marginStart="@dimen/dp_24"
+            app:drawableResource="@{ viewModel.match.user1.profileImage }"
+            app:layout_constraintBottom_toTopOf="@+id/txtVersus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
+            tools:src="@drawable/avatar_2_raster" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgViewProfile2"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_120"
+            android:layout_marginEnd="@dimen/dp_24"
+            app:drawableResource="@{ viewModel.match.user1.profileImage }"
+            app:layout_constraintBottom_toTopOf="@+id/btnStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtVersus"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
+            tools:src="@drawable/avatar_12_raster" />
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:id="@+id/txtVersus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/versus"
+            android:textAlignment="center"
+            android:textSize="@dimen/sp_36"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imgViewProfile2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewProfile1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
