@@ -16,15 +16,24 @@
         android:layout_height="match_parent"
         tools:context=".navigation.ui.activities.TriviaGameActivity">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleCentered="true" />
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navHost"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0"
             app:defaultNavHost="true"
-            app:navGraph="@menu/trivia_game_bottom_nav"
             app:layout_constraintBottom_toTopOf="@id/bottomNav"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:navGraph="@navigation/trivia_nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNav"

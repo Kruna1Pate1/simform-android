@@ -214,4 +214,5 @@
     <string name="sign_up">Sign Up</string>
     <string name="profile_image">Profile image</string>
     <string name="points">%1$s pts</string>
+    <string name="play">Play</string>
 </resources>

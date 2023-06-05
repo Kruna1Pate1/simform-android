@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.krunal.demo.databinding.FragmentThemeBinding
 import com.krunal.demo.uicomponents.adapters.ThemeAdapter
 import com.krunal.demo.uicomponents.extentions.isDarkMode
-import com.krunal.demo.uicomponents.helpers.ThemeHelper
+import com.krunal.demo.helpers.ThemeHelper
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

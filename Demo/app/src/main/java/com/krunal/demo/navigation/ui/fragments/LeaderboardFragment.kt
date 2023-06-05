@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.databinding.FragmentLeaderboardBinding
 import com.krunal.demo.navigation.ui.adapter.LeaderboardAdapter
@@ -34,7 +35,9 @@ class LeaderboardFragment : Fragment() {
     }
 
     private fun setupUI() {
-        val adapter = LeaderboardAdapter()
+        val adapter = LeaderboardAdapter { id ->
+            findNavController().navigate(LeaderboardFragmentDirections.actionLeaderboardFragmentToUserProfileFragment(id))
+        }
 
         binding.rvLeaderboard.apply {
             this.adapter = adapter

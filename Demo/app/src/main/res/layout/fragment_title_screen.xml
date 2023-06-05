@@ -27,14 +27,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPlay"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="160dp"
+            android:layout_width="@dimen/dp_160"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
-            android:text="@string/next_match"
+            android:text="@string/play"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
@@ -48,7 +47,7 @@
             android:id="@+id/btnLeaderboard"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dp_42"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
             android:text="@string/leaderboards"
             android:textColor="?attr/colorPrimary"
@@ -59,9 +58,9 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAbout"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp_160"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginVertical="@dimen/dp_16"
             android:text="@string/about"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/sp_18"
@@ -77,6 +76,7 @@
             android:layout_width="@dimen/dp_362"
             android:layout_height="@dimen/dp_225"
             android:layout_marginTop="@dimen/dp_8"
+            android:importantForAccessibility="no"
             android:scaleType="centerCrop"
             android:src="@drawable/image_category_entertainment_raster"
             app:layout_constraintBottom_toTopOf="@+id/btnAbout"

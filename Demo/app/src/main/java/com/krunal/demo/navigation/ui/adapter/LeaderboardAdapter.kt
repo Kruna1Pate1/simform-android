@@ -6,22 +6,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.ItemLeaderboardUserBinding
 import com.krunal.demo.navigation.data.models.UserProfile
 
-class LeaderboardAdapter : RecyclerView.Adapter<LeaderboardAdapter.UserProfileViewHolder>() {
+class LeaderboardAdapter(private val onClick: (userId: Int) -> Unit) :
+    RecyclerView.Adapter<LeaderboardAdapter.UserProfileViewHolder>() {
 
     private val userProfiles: MutableList<UserProfile> = mutableListOf()
 
-    class UserProfileViewHolder(val binding: ItemLeaderboardUserBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class UserProfileViewHolder(
+        private val binding: ItemLeaderboardUserBinding,
+        private val onClick: (userId: Int) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(userProfile: UserProfile) {
             binding.userProfile = userProfile
+            binding.root.setOnClickListener {
+                onClick(userProfile.id)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserProfileViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemLeaderboardUserBinding.inflate(layoutInflater, parent, false)
-        return UserProfileViewHolder(binding)
+        return UserProfileViewHolder(binding, onClick)
     }
 
     override fun getItemCount(): Int = userProfiles.count()

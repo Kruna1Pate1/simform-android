@@ -13,13 +13,10 @@ class UserProfileViewModel : ViewModel() {
     private val _userProfile: MutableStateFlow<UserProfile?> = MutableStateFlow(null)
     val userProfile: StateFlow<UserProfile?> = _userProfile
 
-    init {
-        setupInitialData()
-    }
-
-    private fun setupInitialData() {
+    fun setUser(userId: Int) {
         viewModelScope.launch {
-            _userProfile.emit(UserProfileRepository.getUserProfiles().firstOrNull())
+            _userProfile.emit(UserProfileRepository.getUserProfiles()
+                .firstOrNull { it.id == userId })
         }
     }
 }

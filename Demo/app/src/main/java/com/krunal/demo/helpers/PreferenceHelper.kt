@@ -1,4 +1,4 @@
-package com.krunal.demo.uicomponents.helpers
+package com.krunal.demo.helpers
 
 import android.content.Context
 import android.content.SharedPreferences

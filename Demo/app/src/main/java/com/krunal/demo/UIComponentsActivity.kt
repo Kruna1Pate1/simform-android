@@ -11,7 +11,7 @@ import com.krunal.demo.uicomponents.CoordinatorLayoutFragment
 import com.krunal.demo.uicomponents.ListViewFragment
 import com.krunal.demo.uicomponents.ThemeFragment
 import com.krunal.demo.uicomponents.cardscreen.CardFragment
-import com.krunal.demo.uicomponents.helpers.ThemeHelper
+import com.krunal.demo.helpers.ThemeHelper
 
 class UIComponentsActivity : AppCompatActivity() {
 

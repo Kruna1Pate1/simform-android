@@ -1,7 +1,7 @@
 package com.krunal.demo
 
 import android.app.Application
-import com.krunal.demo.uicomponents.helpers.PreferenceHelper
+import com.krunal.demo.helpers.PreferenceHelper
 
 class DemoApplication: Application() {
 

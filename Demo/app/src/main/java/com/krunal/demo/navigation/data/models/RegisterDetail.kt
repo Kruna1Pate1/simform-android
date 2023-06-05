@@ -15,7 +15,7 @@ data class RegisterDetail(
         set(value) {
             _username = value
             field = value
-            notifyPropertyChanged(BR.viewModel)
+            notifyPropertyChanged(BR.username)
         }
 
     @get:Bindable
@@ -23,7 +23,7 @@ data class RegisterDetail(
         set(value) {
             _email = value
             field = value
-            notifyPropertyChanged(BR.viewModel)
+            notifyPropertyChanged(BR.email)
         }
 
     @get:Bindable
@@ -31,6 +31,6 @@ data class RegisterDetail(
         set(value) {
             _password = value
             field = value
-            notifyPropertyChanged(BR.viewModel)
+            notifyPropertyChanged(BR.password)
         }
 }

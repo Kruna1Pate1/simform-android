@@ -3,6 +3,7 @@ package com.krunal.demo.navigation.data.models
 import androidx.annotation.DrawableRes
 
 data class UserProfile(
+    val id: Int,
     val name: String,
     val credential: Credential,
     @DrawableRes val profileImage: Int,

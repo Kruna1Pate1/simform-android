@@ -9,6 +9,71 @@
         android:id="@+id/titleScreenFragment"
         android:name="com.krunal.demo.navigation.ui.fragments.TitleScreenFragment"
         android:label="TitleScreenFragment"
-        tools:layout="@layout/fragment_title_screen"/>
+        tools:layout="@layout/fragment_title_screen">
+        <action
+            android:id="@+id/action_titleScreenFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_titleScreenFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_titleScreenFragment_to_inGameFragment"
+            app:destination="@id/inGameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.krunal.demo.navigation.ui.fragments.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.krunal.demo.navigation.ui.fragments.LeaderboardFragment"
+        android:label="LeaderboardFragment"
+        tools:layout="@layout/fragment_leaderboard">
+        <action
+            android:id="@+id/action_leaderboardFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment">
+            <argument
+                android:name="userId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.krunal.demo.navigation.ui.fragments.GameOverFragment"
+        android:label="GameOverFragment"
+        tools:layout="@layout/fragment_game_over" />
+
+    <fragment
+        android:id="@+id/inGameFragment"
+        android:name="com.krunal.demo.navigation.ui.fragments.InGameFragment"
+        android:label="InGameFragment"
+        tools:layout="@layout/fragment_in_game">
+        <action
+            android:id="@+id/action_inGameFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+        <action
+            android:id="@+id/action_inGameFragment_to_resultWinnerFragment"
+            app:destination="@id/resultWinnerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultWinnerFragment"
+        android:name="com.krunal.demo.navigation.ui.fragments.ResultWinnerFragment"
+        android:label="ResultWinnerFragment"
+        tools:layout="@layout/fragment_result_winner" />
+
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.krunal.demo.navigation.ui.fragments.UserProfileFragment"
+        android:label="UserProfileFragment"
+        tools:layout="@layout/fragment_user_profile">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>

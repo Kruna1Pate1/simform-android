@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentTitleScreenBinding
 
@@ -16,7 +17,6 @@ class TitleScreenFragment : Fragment(R.layout.fragment_title_screen) {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentTitleScreenBinding.inflate(layoutInflater, container, false)
-
         return binding.root
     }
 
@@ -28,11 +28,11 @@ class TitleScreenFragment : Fragment(R.layout.fragment_title_screen) {
     private fun setupUI() {
         binding.apply {
             btnLeaderboard.setOnClickListener {
-                // TODO: Go to leaderboard
+                findNavController().navigate(TitleScreenFragmentDirections.actionTitleScreenFragmentToLeaderboardFragment())
             }
 
             btnPlay.setOnClickListener {
-                // TODO: Play match again
+                findNavController().navigate(TitleScreenFragmentDirections.actionTitleScreenFragmentToRegisterFragment())
             }
 
             btnAbout.setOnClickListener {
