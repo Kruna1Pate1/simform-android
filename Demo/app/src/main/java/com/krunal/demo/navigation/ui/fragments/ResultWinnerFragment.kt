@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.krunal.demo.databinding.FragmentResultWinnerBinding
 
 class ResultWinnerFragment : Fragment() {
@@ -26,11 +27,11 @@ class ResultWinnerFragment : Fragment() {
     private fun setupUI() {
         binding.apply {
             btnLeaderboard.setOnClickListener {
-                // TODO: Go to leaderboard
+                findNavController().navigate(ResultWinnerFragmentDirections.actionResultWinnerFragmentToLeaderboardFragment())
             }
 
             btnPlay.setOnClickListener {
-                // TODO: Play match again
+                findNavController().navigate(ResultWinnerFragmentDirections.actionResultWinnerFragmentToMatchFragment())
             }
         }
     }

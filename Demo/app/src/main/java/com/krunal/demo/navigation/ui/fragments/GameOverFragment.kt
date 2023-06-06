@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.krunal.demo.databinding.FragmentGameOverBinding
 
 class GameOverFragment : Fragment() {
@@ -27,7 +28,7 @@ class GameOverFragment : Fragment() {
     private fun setupUI() {
         binding.apply {
             btnPlayAgain.setOnClickListener {
-                // TODO: Play again
+                findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToMatchFragment())
             }
         }
     }

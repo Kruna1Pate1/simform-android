@@ -1,35 +1,32 @@
-package com.krunal.demo.navigation.ui.activities
+package com.krunal.demo.searchwebview.ui.activities
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.krunal.demo.R
+import com.krunal.demo.databinding.ActivitySearchWebBinding
 import com.krunal.demo.databinding.ActivityTriviaGameBinding
-import com.krunal.demo.navigation.ui.viewmodels.TriviaGameViewModel
 import com.krunal.demo.helpers.ThemeHelper
+import com.krunal.demo.navigation.ui.viewmodels.TriviaGameViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class TriviaGameActivity : AppCompatActivity() {
+class SearchWebActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-    private lateinit var binding: ActivityTriviaGameBinding
-    private val viewModel: TriviaGameViewModel by viewModels()
+    private lateinit var binding: ActivitySearchWebBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTriviaGameBinding.inflate(layoutInflater)
-        binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        binding = ActivitySearchWebBinding.inflate(layoutInflater)
         installSplashScreen()
         setupTheme()
         setContentView(binding.root)

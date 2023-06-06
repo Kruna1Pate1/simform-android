@@ -12,4 +12,5 @@ object IntentData {
      * Actions
      */
     const val ACTION_MESSAGE = "com.krunal.demo.action.MESSAGE"
+    const val ACTION_TRIVIA = "com.krunal.demo.action.TRIVIA"
 }

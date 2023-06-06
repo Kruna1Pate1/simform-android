@@ -21,9 +21,7 @@ object MatchRepository {
 
     fun getAllMatches(): List<Match> = matches.toSortedMap().values.toList()
 
-    fun createMatch(match: Match): Int {
-        val id = matches.count()
-        matches[id] = match
-        return id
+    fun createMatch(match: Match) {
+        matches[match.matchId] = match
     }
 }

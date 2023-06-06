@@ -33,6 +33,14 @@ object UserProfileRepository {
             rank = 3,
             wins = 4,
             losses = 2
+        ), 4 to UserProfile(
+            id = 4,
+            name = "Harshit Patel",
+            credential = Credential("harshit@gmail.com", "Harshit@777"),
+            profileImage = R.drawable.avatar_4_raster,
+            rank = 4,
+            wins = 0,
+            losses = 2
         )
     )
 
@@ -50,5 +58,11 @@ object UserProfileRepository {
     fun setCurrentUser(userProfile: UserProfile) {
         userProfiles[userProfile.id] = userProfile
         PreferenceHelper.putInt(PreferenceKeys.TRIVIA_USER_ID, userProfile.id)
+    }
+
+    fun getRandomUser(): UserProfile? = userProfiles.values.randomOrNull()
+
+    fun updateUser(userProfile: UserProfile) {
+        userProfiles[userProfile.id] = userProfile
     }
 }

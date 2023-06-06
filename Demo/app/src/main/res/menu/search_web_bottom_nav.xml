@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/titleScreenFragment"
-        android:contentDescription="@string/cd_home"
-        android:icon="@drawable/ic_home"
-        android:title="@string/title_home" />
+        android:id="@+id/webViewFragment"
+        android:contentDescription="@string/cd_web"
+        android:icon="@drawable/ic_web"
+        android:title="@string/title_web" />
     <item
         android:id="@+id/leaderboardFragment"
         android:contentDescription="@string/cd_list"

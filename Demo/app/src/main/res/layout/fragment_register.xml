@@ -64,12 +64,29 @@
             android:autofillHints="password" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnSave"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:text="@string/save_details"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/dp_20"
+            app:layout_constraintBottom_toTopOf="@id/btnStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="?attr/colorPrimary" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="@dimen/dp_200"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_24"
-            android:text="@string/sign_up"
+            android:text="@string/start"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"

@@ -14,13 +14,37 @@ class InGameViewModel : ViewModel() {
     private val _match: MutableStateFlow<Match?> = MutableStateFlow(null)
     val match: StateFlow<Match?> = _match
 
-    fun createMatch(userId1: Int, userId2: Int) {
+    fun loadMatch(matchId: Int) {
         viewModelScope.launch {
-            val user1 = UserProfileRepository.getUserProfile(user)
-            val match = Match(
-                UserProfileRepository.getAllUserProfiles
-            )
-            _match.emit(MatchRepository.createMatch())
+            _match.emit(MatchRepository.getMatch(matchId))
+        }
+    }
+
+    fun win() {
+        viewModelScope.launch {
+            match.value?.let { match ->
+                val userProfile = match.user1.copy(
+                    wins = match.user1.wins + 1
+                )
+                UserProfileRepository.updateUser(userProfile)
+                _match.emit(
+                    match.copy(user1 = userProfile, winner = match.user1)
+                )
+            }
+        }
+    }
+
+    fun loss() {
+        viewModelScope.launch {
+            match.value?.let { match ->
+                val userProfile = match.user2.copy(
+                    wins = match.user2.wins + 1
+                )
+                UserProfileRepository.updateUser(userProfile)
+                _match.emit(
+                    match.copy(user2 = userProfile, winner = match.user2)
+                )
+            }
         }
     }
 }

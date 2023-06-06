@@ -15,17 +15,33 @@
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_titleScreenFragment_to_leaderboardFragment"
-            app:destination="@id/leaderboardFragment" />
+            app:destination="@id/leaderboardFragment"
+            app:enterAnim="@anim/nav_slide_in_left"
+            app:exitAnim="@anim/nav_slide_out_right"
+            app:popExitAnim="@anim/nav_slide_out_left"
+            app:popEnterAnim="@anim/nav_slide_out_right" />
         <action
-            android:id="@+id/action_titleScreenFragment_to_inGameFragment"
-            app:destination="@id/inGameFragment" />
+            android:id="@+id/action_titleScreenFragment_to_matchFragment"
+            app:destination="@id/matchFragment">
+            <argument
+                android:name="userId"
+                app:argType="integer" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.krunal.demo.navigation.ui.fragments.RegisterFragment"
         android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_matchFragment"
+            app:destination="@id/matchFragment">
+            <argument
+                android:name="userId"
+                app:argType="integer" />
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/leaderboardFragment"
@@ -34,7 +50,11 @@
         tools:layout="@layout/fragment_leaderboard">
         <action
             android:id="@+id/action_leaderboardFragment_to_userProfileFragment"
-            app:destination="@id/userProfileFragment">
+            app:destination="@id/userProfileFragment"
+            app:enterAnim="@anim/nav_slide_in_bottom"
+            app:exitAnim="@anim/nav_slide_out_up"
+            app:popEnterAnim="@anim/nav_slide_in_up"
+            app:popExitAnim="@anim/nav_slide_out_bottom">
             <argument
                 android:name="userId"
                 app:argType="integer" />
@@ -45,7 +65,13 @@
         android:id="@+id/gameOverFragment"
         android:name="com.krunal.demo.navigation.ui.fragments.GameOverFragment"
         android:label="GameOverFragment"
-        tools:layout="@layout/fragment_game_over" />
+        tools:layout="@layout/fragment_game_over">
+        <action
+            android:id="@+id/action_gameOverFragment_to_matchFragment"
+            app:destination="@id/matchFragment"
+            app:popUpTo="@id/matchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/inGameFragment"
@@ -53,24 +79,42 @@
         android:label="InGameFragment"
         tools:layout="@layout/fragment_in_game">
         <argument
-            android:name="userId1"
-            app:argType="integer" />
-        <argument
-            android:name="userId2"
+            android:name="matchId"
             app:argType="integer" />
         <action
             android:id="@+id/action_inGameFragment_to_gameOverFragment"
-            app:destination="@id/gameOverFragment" />
+            app:destination="@id/gameOverFragment"
+            app:enterAnim="@anim/nav_slide_in_right"
+            app:exitAnim="@anim/nav_slide_out_left"
+            app:popEnterAnim="@anim/nav_slide_in_left"
+            app:popExitAnim="@anim/nav_slide_out_right" />
         <action
             android:id="@+id/action_inGameFragment_to_resultWinnerFragment"
-            app:destination="@id/resultWinnerFragment" />
+            app:destination="@id/resultWinnerFragment"
+            app:enterAnim="@anim/nav_slide_in_right"
+            app:exitAnim="@anim/nav_slide_out_left"
+            app:popEnterAnim="@anim/nav_slide_in_left"
+            app:popExitAnim="@anim/nav_slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/resultWinnerFragment"
         android:name="com.krunal.demo.navigation.ui.fragments.ResultWinnerFragment"
         android:label="ResultWinnerFragment"
-        tools:layout="@layout/fragment_result_winner" />
+        tools:layout="@layout/fragment_result_winner">
+        <action
+            android:id="@+id/action_resultWinnerFragment_to_matchFragment"
+            app:destination="@id/matchFragment"
+            app:popUpTo="@id/matchFragment" />
+        <action
+            android:id="@+id/action_resultWinnerFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment"
+            app:enterAnim="@anim/nav_slide_in_left"
+            app:exitAnim="@anim/nav_slide_out_right"
+            app:popExitAnim="@anim/nav_slide_out_left"
+            app:popEnterAnim="@anim/nav_slide_out_right"
+            app:popUpTo="@id/leaderboardFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/userProfileFragment"
@@ -80,6 +124,28 @@
         <argument
             android:name="userId"
             app:argType="integer" />
+        <deepLink
+            app:uri="https://trivia.krunal.com/users/{userId}"
+            app:action="com.krunal.demo.action.TRIVIA"
+            app:mimeType="text/plain" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matchFragment"
+        android:name="com.krunal.demo.navigation.ui.fragments.MatchFragment"
+        android:label="MatchFragment"
+        tools:layout="@layout/fragment_match">
+        <argument
+            android:name="userId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_matchFragment_to_inGameFragment"
+            app:destination="@id/inGameFragment">
+            <argument
+                android:name="matchId"
+                app:argType="integer" />
+        </action>
     </fragment>
 
 </navigation>

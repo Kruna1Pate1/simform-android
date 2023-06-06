@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class LeaderboardViewModel : ViewModel() {
+class TitleScreenViewModel : ViewModel() {
 
-    private val _userProfiles: MutableStateFlow<List<UserProfile>> = MutableStateFlow(emptyList())
-    val userProfiles: StateFlow<List<UserProfile>> = _userProfiles
+    private val _userProfile: MutableStateFlow<UserProfile?> = MutableStateFlow(null)
+    val userProfile: StateFlow<UserProfile?> = _userProfile
 
     init {
         setupInitialData()
@@ -19,7 +19,7 @@ class LeaderboardViewModel : ViewModel() {
 
     private fun setupInitialData() {
         viewModelScope.launch {
-            _userProfiles.emit(UserProfileRepository.getAllUserProfiles().sortedBy { it.rank })
+            _userProfile.emit(UserProfileRepository.getCurrentUser())
         }
     }
 }
