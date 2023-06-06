@@ -15,7 +15,7 @@ class UserProfileViewModel : ViewModel() {
 
     fun setUser(userId: Int) {
         viewModelScope.launch {
-            _userProfile.emit(UserProfileRepository.getUserProfiles()
+            _userProfile.emit(UserProfileRepository.getAllUserProfiles()
                 .firstOrNull { it.id == userId })
         }
     }

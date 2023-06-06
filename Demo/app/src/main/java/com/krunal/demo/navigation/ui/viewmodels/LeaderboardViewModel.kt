@@ -19,7 +19,7 @@ class LeaderboardViewModel : ViewModel() {
 
     private fun setupInitialData() {
         viewModelScope.launch {
-            _userProfiles.emit(UserProfileRepository.getUserProfiles())
+            _userProfiles.emit(UserProfileRepository.getAllUserProfiles())
         }
     }
 }
