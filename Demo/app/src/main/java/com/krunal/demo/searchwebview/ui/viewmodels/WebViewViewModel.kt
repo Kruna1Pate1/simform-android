@@ -2,17 +2,19 @@ package com.krunal.demo.searchwebview.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.krunal.demo.navigation.data.models.UserProfile
-import com.krunal.demo.navigation.data.repositories.UserProfileRepository
+import com.krunal.demo.searchwebview.data.repositories.WebViewRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import java.net.URL
 
 class WebViewViewModel : ViewModel() {
 
     private val _url: MutableStateFlow<String> = MutableStateFlow("")
     val url: StateFlow<String> = _url
+
+    init {
+        loadUrl(WebViewRepository.getRandomUrl())
+    }
 
     fun loadUrl(url: String) {
         viewModelScope.launch {

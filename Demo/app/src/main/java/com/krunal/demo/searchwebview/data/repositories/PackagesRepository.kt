@@ -6,4 +6,6 @@ import com.krunal.demo.searchwebview.helpers.PackageHelper
 object PackagesRepository {
 
     fun getPackageDetails(): List<PackageDetail> = PackageHelper.getPackageDetails()
+
+    fun getPackageNames(): List<String> = PackageHelper.getPackageDetails().map { it.name }
 }

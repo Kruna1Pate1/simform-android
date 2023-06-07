@@ -222,4 +222,5 @@
     <string name="cd_web">Bottom navigation web</string>
     <string name="cd_packages">Bottom navigation packages</string>
     <string name="cd_application_icon">Application icon</string>
+    <string name="search_app_or_package_name">Search app or package name</string>
 </resources>
