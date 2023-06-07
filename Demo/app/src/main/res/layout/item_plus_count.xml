@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="count"
+            type="Integer" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dp_24">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/imgViewProfile"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:background="?attr/colorSecondary"
+            android:gravity="center"
+            android:text="@{ @string/plus_count(count) }"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/sp_22"
+            android:textStyle="bold"
+            tools:text="+5" />
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
