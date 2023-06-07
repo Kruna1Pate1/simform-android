@@ -25,14 +25,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="16dp" />
+                app:layout_constraintGuide_begin="@dimen/dp_16" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="16dp" />
+                app:layout_constraintGuide_end="@dimen/dp_16" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/cgTop"
@@ -77,8 +77,8 @@
 
             <com.krunal.demo.stackexchange.views.DonutChart
                 android:id="@+id/chart"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_0"
                 app:layout_constraintDimensionRatio="1:1"
                 app:colors="@array/chartColors"
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
@@ -137,7 +137,7 @@
                 android:layout_marginTop="@dimen/divider_margin"
                 android:text="@{ @string/euro_amount(viewModel.wallet.amount) }"
                 android:textAppearance="@style/Heading2"
-                android:textSize="20sp"
+                android:textSize="@dimen/sp_20"
                 app:layout_constraintBottom_toTopOf="@id/tvWalletAmountDiff"
                 app:layout_constraintEnd_toEndOf="@id/chart"
                 app:layout_constraintStart_toStartOf="@id/chart"
@@ -184,69 +184,33 @@
 
             <com.krunal.demo.stackexchange.views.Divider
                 android:id="@+id/dividerMain"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintStart_toEndOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@id/tvPortfolio" />
 
-
-            <include
-                android:id="@+id/portfolio1"
-                layout="@layout/portfolio_layout"
-                android:layout_width="0dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPortfolio"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
-                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-                app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                app:layout_constraintTop_toBottomOf="@id/dividerMain"
-                app:shareDetails="@{ viewModel.portfolios[0] }" />
-
-            <com.krunal.demo.stackexchange.views.Divider
-                android:id="@+id/divider1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/divider_margin"
-                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-                app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                app:layout_constraintTop_toBottomOf="@id/portfolio1"
-                app:progress="0dp" />
-
-
-            <include
-                android:id="@+id/portfolio2"
-                layout="@layout/portfolio_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/divider_margin"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                app:layout_constraintTop_toBottomOf="@id/divider1"
-                app:shareDetails="@{ viewModel.portfolios[1] }" />
+                app:layout_constraintTop_toBottomOf="@id/dividerMain" />
 
             <com.krunal.demo.stackexchange.views.Divider
                 android:id="@+id/divider2"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/divider_margin"
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                app:layout_constraintTop_toBottomOf="@id/portfolio2"
-                app:progress="0dp" />
-
-            <include
-                android:id="@+id/portfolio3"
-                layout="@layout/portfolio_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/divider_margin"
-                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-                app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                app:layout_constraintTop_toBottomOf="@id/divider2"
-                app:shareDetails="@{ viewModel.portfolios[2] }" />
-
+                app:layout_constraintTop_toBottomOf="@id/rvPortfolio"
+                app:progress="@dimen/dp_0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>
