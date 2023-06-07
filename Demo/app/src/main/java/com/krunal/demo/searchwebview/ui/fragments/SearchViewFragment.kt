@@ -1,30 +1,25 @@
 package com.krunal.demo.searchwebview.ui.fragments
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.navArgs
-import com.krunal.demo.R
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.databinding.FragmentSearchViewBinding
-import com.krunal.demo.databinding.FragmentUserProfileBinding
-import com.krunal.demo.databinding.FragmentWebViewBinding
-import com.krunal.demo.navigation.ui.fragments.UserProfileFragmentArgs
-import com.krunal.demo.navigation.ui.viewmodels.UserProfileViewModel
-import com.krunal.demo.searchwebview.ui.viewmodels.WebViewViewModel
+import com.krunal.demo.searchwebview.ui.adapters.PackageDetailAdapter
+import com.krunal.demo.searchwebview.ui.viewmodels.SearchViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class SearchViewFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchViewBinding
-    private val viewModel: WebViewViewModel by viewModels()
+    private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -41,16 +36,24 @@ class SearchViewFragment : Fragment() {
     }
 
     private fun setupUI() {
-        viewModel.loadUrl("https://google.com")
+        val adapter = PackageDetailAdapter {
 
-//        binding.webView.apply {
-//            settings.javaScriptEnabled = true
-//        }
+        }
+
+        binding.rvPackageDetail.apply {
+            this.adapter = adapter
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.url.collectLatest { url ->
-//                    binding.webView.loadUrl(url)
+                viewModel.packageDetails.collectLatest { list ->
+                    adapter.submitList(list)
                 }
             }
         }

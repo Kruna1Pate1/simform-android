@@ -10,14 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.navArgs
-import com.krunal.demo.R
-import com.krunal.demo.databinding.FragmentUserProfileBinding
 import com.krunal.demo.databinding.FragmentWebViewBinding
-import com.krunal.demo.navigation.ui.fragments.UserProfileFragmentArgs
-import com.krunal.demo.navigation.ui.viewmodels.UserProfileViewModel
 import com.krunal.demo.searchwebview.ui.viewmodels.WebViewViewModel
-import com.krunal.demo.searchwebview.utils.WebClient
+import com.krunal.demo.searchwebview.helpers.WebClient
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -46,12 +41,12 @@ class WebViewFragment : Fragment() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebView() {
-        viewModel.loadUrl("https://www.facebook.com")
-
         binding.webView.apply {
-            settings.javaScriptEnabled = true
             webViewClient = WebClient()
+            settings.javaScriptEnabled = true
         }
+
+        viewModel.loadUrl("https://www.facebook.com")
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {

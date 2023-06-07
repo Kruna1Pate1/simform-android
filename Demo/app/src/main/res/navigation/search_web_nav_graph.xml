@@ -8,5 +8,11 @@
         android:id="@+id/webViewFragment"
         android:name="com.krunal.demo.searchwebview.ui.fragments.WebViewFragment"
         android:label="WebViewFragment"
-        tools:layout="@layout/fragment_web_view"/>
+        tools:layout="@layout/fragment_web_view" />
+
+    <fragment
+        android:id="@+id/searchViewFragment"
+        android:name="com.krunal.demo.searchwebview.ui.fragments.SearchViewFragment"
+        android:label="SearchViewFragment"
+        tools:layout="@layout/fragment_search_view" />
 </navigation>

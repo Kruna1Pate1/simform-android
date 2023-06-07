@@ -220,4 +220,6 @@
     <string name="save_details">Save details</string>
     <string name="title_web">Web</string>
     <string name="cd_web">Bottom navigation web</string>
+    <string name="cd_packages">Bottom navigation packages</string>
+    <string name="cd_application_icon">Application icon</string>
 </resources>

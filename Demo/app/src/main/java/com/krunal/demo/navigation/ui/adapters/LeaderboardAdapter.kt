@@ -1,4 +1,4 @@
-package com.krunal.demo.navigation.ui.adapter
+package com.krunal.demo.navigation.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

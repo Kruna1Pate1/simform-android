@@ -2,8 +2,7 @@ package com.krunal.demo
 
 import android.app.Application
 import com.krunal.demo.helpers.PreferenceHelper
-import com.krunal.demo.searchwebview.data.repositories.PackagesRepository
-import com.krunal.demo.searchwebview.utils.PackageHelper
+import com.krunal.demo.searchwebview.helpers.PackageHelper
 
 class DemoApplication: Application() {
 

@@ -36,14 +36,14 @@
             android:text="@{ userProfile.name }"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textSize="@dimen/sp_22"
-            app:layout_constraintBottom_toTopOf="@+id/txtPoint"
+            app:layout_constraintBottom_toTopOf="@+id/txtApplicationPackage"
             app:layout_constraintEnd_toStartOf="@+id/txtRank"
             app:layout_constraintStart_toEndOf="@+id/imgViewProfile"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/full_names" />
 
         <TextView
-            android:id="@+id/txtPoint"
+            android:id="@+id/txtApplicationPackage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{ @string/points(userProfile.pts) }"

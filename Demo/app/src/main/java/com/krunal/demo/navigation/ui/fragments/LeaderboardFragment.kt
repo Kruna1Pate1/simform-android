@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.databinding.FragmentLeaderboardBinding
-import com.krunal.demo.navigation.ui.adapter.LeaderboardAdapter
+import com.krunal.demo.navigation.ui.adapters.LeaderboardAdapter
 import com.krunal.demo.navigation.ui.viewmodels.LeaderboardViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
