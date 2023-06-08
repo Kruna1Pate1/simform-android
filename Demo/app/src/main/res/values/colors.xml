@@ -444,4 +444,9 @@
     <color name="stack_exchange_theme_dark_textColorSecondary">#7E8084</color>
     <color name="stack_exchange_theme_dark_green">#729975</color>
     <color name="stack_exchange_theme_dark_red">#d26e6d</color>
+
+    <color name="light_green">#35A571</color>
+    <color name="lime">#B7F8C9</color>
+    <color name="light_pink">#FF897D</color>
+    <color name="light_pink_text">#FFE2DF</color>
 </resources>

@@ -23,7 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/imgBtnReceive"
             android:layout_width="40dp"
@@ -50,7 +49,6 @@
             app:layout_constraintEnd_toStartOf="@id/imgBtnSend"
             app:layout_constraintStart_toEndOf="@id/imgBtnReceive"
             app:layout_constraintTop_toBottomOf="@id/rvChat" />
-
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/imgBtnSend"

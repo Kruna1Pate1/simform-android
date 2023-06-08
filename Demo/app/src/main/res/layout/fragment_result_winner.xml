@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lime"
+        tools:context=".navigation.ui.fragments.ResultWinnerFragment">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/congratulations"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/light_green"
+            android:textSize="@dimen/sp_36"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imgViewWin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlay"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/next_match"
+            android:textColor="@color/light_green"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/dp_20"
+            app:layout_constraintBottom_toTopOf="@+id/btnLeaderboard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewWin"
+            app:strokeColor="@color/light_green" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLeaderboard"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_42"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:text="@string/leaderboards"
+            android:textColor="@color/light_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnPlay" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgViewWin"
+            android:layout_width="@dimen/dp_362"
+            android:layout_height="@dimen/dp_279"
+            android:layout_margin="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/btnPlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            app:srcCompat="@drawable/icon_category_leaderboard_raster" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

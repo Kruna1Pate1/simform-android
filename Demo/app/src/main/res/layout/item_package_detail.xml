@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="packageDetail"
+            type="com.krunal.demo.searchwebview.data.models.PackageDetail" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgViewIcon"
+            android:layout_width="@dimen/dp_52"
+            android:layout_height="@dimen/dp_52"
+            android:contentDescription="@string/cd_application_icon"
+            android:src="@{ packageDetail.icon }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_termux" />
+
+        <TextView
+            android:id="@+id/txtApplicationName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:text="@{ packageDetail.name }"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintBottom_toTopOf="@+id/txtApplicationPackage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgViewIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Termux" />
+
+        <TextView
+            android:id="@+id/txtApplicationPackage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{ packageDetail.packageName }"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/txtApplicationName"
+            app:layout_constraintTop_toBottomOf="@+id/txtApplicationName"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="com.termux.app" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

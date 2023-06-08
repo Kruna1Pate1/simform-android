@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="userProfile"
+            type="com.krunal.demo.navigation.data.models.UserProfile" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtProfileName"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@{ userProfile.name }"
+        android:textAlignment="center"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/sp_30"
+        tools:text="Krunal Patel"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:text="@string/rank"
+        android:textSize="@dimen/sp_18"
+        android:layout_marginTop="@dimen/dp_30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtProfileName" />
+
+    <View
+        android:id="@+id/dividerRank"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_2"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:background="?attr/colorSurfaceDim"
+        app:layout_constraintBottom_toBottomOf="@id/txtRank"
+        app:layout_constraintEnd_toStartOf="@id/txtWinValue"
+        app:layout_constraintStart_toEndOf="@id/txtRank"
+        app:layout_constraintTop_toTopOf="@id/txtRank" />
+
+    <TextView
+        android:id="@+id/txtRankValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:gravity="end"
+        android:text="@{ @string/rank_number(userProfile.rank) }"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintBottom_toTopOf="@+id/txtWinValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtRank"
+        app:layout_constraintVertical_bias="0.44"
+        tools:text="# 1" />
+
+    <View
+        android:id="@+id/dividerWin"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_2"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:background="?attr/colorSurfaceDim"
+        app:layout_constraintBottom_toBottomOf="@+id/txtWin"
+        app:layout_constraintEnd_toStartOf="@+id/txtWinValue"
+        app:layout_constraintStart_toEndOf="@+id/txtWin"
+        app:layout_constraintTop_toTopOf="@+id/txtWin" />
+
+    <TextView
+        android:id="@+id/txtWin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:text="@string/wins"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintBottom_toTopOf="@+id/txtLoss"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRank" />
+
+    <TextView
+        android:id="@+id/txtWinValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:gravity="end"
+        android:text="@{ @string/rank_number(userProfile.wins) }"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintBottom_toBottomOf="@+id/dividerWin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dividerWin"
+        tools:text="# 1" />
+
+    <TextView
+        android:id="@+id/txtLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:text="@string/losses"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWin" />
+
+    <TextView
+        android:id="@+id/txtLossValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:gravity="end"
+        android:text="@{ @string/rank_number(userProfile.losses) }"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintBottom_toBottomOf="@+id/dividerLoss"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dividerLoss"
+        tools:text="# 1" />
+
+    <View
+        android:id="@+id/dividerLoss"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_2"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:background="?attr/colorSurfaceDim"
+        app:layout_constraintBottom_toBottomOf="@+id/txtLoss"
+        app:layout_constraintEnd_toStartOf="@+id/txtLossValue"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtLoss"
+        app:layout_constraintTop_toTopOf="@+id/txtLoss" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
