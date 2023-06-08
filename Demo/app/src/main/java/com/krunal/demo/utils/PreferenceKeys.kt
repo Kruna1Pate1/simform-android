@@ -7,6 +7,7 @@ object PreferenceKeys {
      */
     const val THEME_MODE = "theme_mode"
     const val ACCENT_COLOR = "accent_color"
+    const val DARK_MODE = "dark_mode"
 
     /**
      * Trivia game

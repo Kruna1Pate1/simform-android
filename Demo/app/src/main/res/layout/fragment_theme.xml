@@ -4,32 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".uicomponents.ThemeFragment">
 
-    <TextView
-        android:id="@+id/tvTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme"
-        android:textStyle="bold|italic"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarTheme"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppSearchView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/theme_toolbar_menu"
+        app:title="Select Theme"
+        app:titleTextColor="?attr/colorOnPrimary" />
 
     <GridView
         android:id="@+id/gvTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvTheme"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/dp_16"
         android:layout_marginTop="24dp"
-        android:numColumns="3"
-        android:drawSelectorOnTop="true"
-        android:listSelector="@drawable/selected_theme"
         android:choiceMode="singleChoice"
+        android:drawSelectorOnTop="true"
         android:horizontalSpacing="16dp"
-        android:verticalSpacing="16dp" />
+        android:listSelector="@drawable/selected_theme"
+        android:numColumns="3"
+        android:verticalSpacing="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTheme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

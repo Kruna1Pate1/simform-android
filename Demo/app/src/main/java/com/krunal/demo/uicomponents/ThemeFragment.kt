@@ -38,20 +38,19 @@ class ThemeFragment : Fragment() {
 
         binding.gvTheme.adapter = themeAdapter
         binding.gvTheme.setItemChecked(ThemeHelper.getThemeAccent().ordinal, true)
-        lifecycleScope.launch {
-            delay(100)
-
-            binding.gvTheme.setItemChecked(ThemeHelper.getThemeAccent().ordinal, true)
-            binding.gvTheme.setSelection(ThemeHelper.getThemeAccent().ordinal)
-            Log.d("Tag", ThemeHelper.getThemeAccent().ordinal.toString())
-            Log.d("Tag", binding.gvTheme.selectedItemPosition.toString())
-        }
+        binding.gvTheme.setSelection(ThemeHelper.getThemeAccent().ordinal)
         // binding.gvTheme.selectedView.performClick() // selectedView is null
 
         binding.gvTheme.setOnItemClickListener { _, _, position, _ ->
             ThemeHelper.setThemeAccent(themes[position].accentColor)
             // TODO: Restart activity
-//            activity?.recreate()
+            activity?.recreate()
+        }
+
+        binding.toolbarTheme.setOnMenuItemClickListener {
+            ThemeHelper.setDarkMode(ThemeHelper.getDarkMode().not())
+            activity?.recreate()
+            true
         }
     }
 }

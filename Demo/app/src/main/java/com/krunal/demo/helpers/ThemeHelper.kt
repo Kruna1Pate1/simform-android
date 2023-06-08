@@ -37,8 +37,7 @@ object ThemeHelper {
     fun getThemeMode(): ThemeMode {
         return ThemeMode.valueOf(
             PreferenceHelper.getString(
-                PreferenceKeys.THEME_MODE,
-                ThemeMode.AUTO.name
+                PreferenceKeys.THEME_MODE, ThemeMode.AUTO.name
             )
         )
     }
@@ -50,8 +49,7 @@ object ThemeHelper {
     fun getThemeAccent(): AccentColor {
         return AccentColor.valueOf(
             PreferenceHelper.getString(
-                PreferenceKeys.ACCENT_COLOR,
-                AccentColor.VIOLET.name
+                PreferenceKeys.ACCENT_COLOR, AccentColor.VIOLET.name
             )
         )
     }
@@ -60,10 +58,16 @@ object ThemeHelper {
         PreferenceHelper.putString(PreferenceKeys.ACCENT_COLOR, color.name)
     }
 
+    fun setDarkMode(isDark: Boolean) {
+        PreferenceHelper.putBoolean(PreferenceKeys.DARK_MODE, isDark)
+    }
+
+    fun getDarkMode(): Boolean {
+        return PreferenceHelper.getBoolean(PreferenceKeys.DARK_MODE, true)
+    }
+
     private fun getAccentColor(
-        context: Context,
-        accentColor: AccentColor,
-        isDarkMode: Boolean
+        context: Context, accentColor: AccentColor, isDarkMode: Boolean
     ): Int {
         return context.getColor(
             when (accentColor) {

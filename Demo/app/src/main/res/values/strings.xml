@@ -223,4 +223,5 @@
     <string name="cd_packages">Bottom navigation packages</string>
     <string name="cd_application_icon">Application icon</string>
     <string name="search_app_or_package_name">Search app or package name</string>
+    <string name="toggle_dark_mode">Toggle Dark Mode</string>
 </resources>

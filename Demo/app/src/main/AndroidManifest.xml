@@ -24,16 +24,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".stackexchange.StackExchangeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.StackExchange" />
-
-        <activity
-            android:name="com.krunal.demo.searchwebview.ui.activities.SearchWebActivity"
+            android:name=".mainnavigation.ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,13 +33,22 @@
         </activity>
 
         <activity
+            android:name=".stackexchange.StackExchangeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.StackExchange" />
+
+        <activity
+            android:name="com.krunal.demo.searchwebview.ui.activities.SearchWebActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".appcomponents.ui.activities.ImagePickerActivity"
             android:exported="true"
             android:label="DemoImagePicker"
             android:taskAffinity="com.krunal.demo.imagePicker">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-<!--                                <category android:name="android.intent.category.LAUNCHER" />-->
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -56,13 +56,7 @@
             android:name=".appcomponents.ui.activities.FirstActivity"
             android:exported="true"
             android:label="FirstActivity"
-            android:taskAffinity="com.krunal.demo.firstActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            </intent-filter>
-        </activity>
+            android:taskAffinity="com.krunal.demo.firstActivity"></activity>
 
         <activity
             android:name=".appcomponents.ui.activities.SecondActivity"
@@ -94,11 +88,6 @@
         <activity
             android:name=".navigation.ui.activities.TriviaGameActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-<!--                                <category android:name="android.intent.category.LAUNCHER" />-->
-            </intent-filter>
             <nav-graph android:value="@navigation/trivia_nav_graph" />
         </activity>
 
