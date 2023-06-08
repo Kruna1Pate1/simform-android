@@ -19,5 +19,5 @@ object WebViewRepository {
         "m.youtube.com"
     )
 
-    fun getRandomUrl(): String = urls.random()
+    fun getRandomUrl(): String = "https://google.com"//urls.random()
 }
