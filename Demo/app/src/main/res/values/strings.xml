@@ -225,4 +225,8 @@
     <string name="search_app_or_package_name">Search app or package name</string>
     <string name="toggle_dark_mode">Toggle Dark Mode</string>
     <string name="validate">Validate</string>
+    <string name="full_name">Full Name</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="favorite_movies_hint">Harry Potter, Stranger Things, Mr. Robot</string>
+    <string name="submit">Submit</string>
 </resources>

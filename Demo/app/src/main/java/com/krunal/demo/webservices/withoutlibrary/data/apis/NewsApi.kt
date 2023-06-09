@@ -13,7 +13,7 @@ import java.net.URL
 object NewsApi {
 
     private const val HEADLINE_URL =
-        "${AppConstants.NEST_BASE_URL}/top-headlines?country=in&apiKey=${AppConstants.NEWS_API_KEY}"
+        "${AppConstants.NEWS_BASE_URL}/top-headlines?country=in&apiKey=${AppConstants.NEWS_API_KEY}"
 
     suspend fun getNews(): NewsResponse? {
         var newsResponse: NewsResponse? = null
