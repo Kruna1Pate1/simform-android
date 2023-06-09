@@ -15,5 +15,5 @@
         android:id="@+id/registerFragment"
         android:contentDescription="@string/cd_form"
         android:icon="@drawable/ic_feedback"
-        android:title="@string/title_register" />
+        android:title="@string/register" />
 </menu>

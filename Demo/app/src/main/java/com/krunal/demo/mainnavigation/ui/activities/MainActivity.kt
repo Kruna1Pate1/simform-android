@@ -28,6 +28,13 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         setupTheme()
         setContentView(binding.root)
+        setupHostFragment()
+    }
+
+    private fun setupHostFragment() {
+        supportFragmentManager.commit {
+            replace(R.id.hostFragmentContainer, HostFragment::class.java, null)
+        }
     }
 
     private fun setupTheme() {
