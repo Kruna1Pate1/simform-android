@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="notificationItem"
+            type="com.krunal.demo.githubclient.data.local.NotificationItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_16"
+        android:background="?attr/colorPrimary">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_0"
+            android:adjustViewBounds="true"
+            app:drawableResource="@{ notificationItem.icon }"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.GithubItem"
+            app:layout_constraintTop_toTopOf="parent"
+            app:contentPadding="4dp"
+            app:tint="@android:color/white"
+            tools:srcCompat="@drawable/ic_git_pull_request" />
+
+        <View
+            android:layout_width="@dimen/dp_8"
+            android:layout_height="@dimen/dp_8"
+            android:background="@drawable/notification_dot"
+            android:layout_marginTop="@dimen/dp_4"
+            android:visibility="@{ notificationItem.unread ? View.VISIBLE : View.GONE }"
+            app:layout_constraintTop_toBottomOf="@id/imgIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/imgIcon"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtHeading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="@{ notificationItem.heading }"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintStart_toEndOf="@id/imgIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="libre-tube / LibreTube #3934"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="@{ notificationItem.title }"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintTop_toBottomOf="@id/txtHeading"
+            app:layout_constraintStart_toEndOf="@id/imgIcon"
+            tools:text="Add own download manager"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="@dimen/dp_18"
+            app:imageUrl="@{ notificationItem.authorAvatar }"
+            android:layout_height="@dimen/dp_0"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
+            tools:srcCompat="@drawable/avatar_1_raster"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginStart="@dimen/dp_16"
+            app:layout_constraintStart_toEndOf="@id/imgIcon"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDescription"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:text="@{ notificationItem.description }"
+            android:textColor="?android:attr/textColorSecondary"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintTop_toTopOf="@id/imgAvatar"
+            app:layout_constraintStart_toEndOf="@id/imgAvatar"
+            tools:text="Add own download manager"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

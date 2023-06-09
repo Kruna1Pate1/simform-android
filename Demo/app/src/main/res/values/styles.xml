@@ -144,4 +144,35 @@
     <style name="CardStyle" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">@dimen/corner_radius</item>
     </style>
+
+<!--    GitHub Client-->
+    <style name="GitHubSearchView" parent="@style/Widget.AppCompat.SearchView">
+        <item name="searchHintIcon">@null</item>
+        <item name="searchIcon">@drawable/ic_search</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.GithubItem" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15%</item>
+    </style>
+    
+    <style name="GithubToolbarPrimary" >
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="colorOnPrimary">?attr/colorAccent</item>
+        <item name="iconTint">?attr/colorAccent</item>
+    </style>
+
+    <style name="GithubTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+        <item name="hintTextColor">?android:attr/textColorPrimary</item>
+        <item name="boxStrokeColor">@color/selector_text_input_layout</item>
+        <item name="android:textCursorDrawable">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="AlertPrimary" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
 </resources>

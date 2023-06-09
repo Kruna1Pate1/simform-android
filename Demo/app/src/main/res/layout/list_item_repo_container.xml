@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="repoItem"
+            type="com.krunal.demo.githubclient.data.local.RepoDetailItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_16"
+        android:background="?attr/colorPrimary">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_0"
+            android:adjustViewBounds="true"
+            android:background="@{ repoItem.iconBackground }"
+            tools:background="#6CA030"
+            app:drawableResource="@{ repoItem.icon }"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.GithubItem"
+            app:layout_constraintTop_toTopOf="parent"
+            app:contentPadding="4dp"
+            app:tint="@android:color/white"
+            tools:srcCompat="@drawable/ic_git_pull_request" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:maxLines="1"
+            android:text="@{ repoItem.title }"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@+id/imgIcon"
+            app:layout_constraintEnd_toStartOf="@id/txtCount"
+            app:layout_constraintStart_toEndOf="@id/imgIcon"
+            app:layout_constraintTop_toTopOf="@id/imgIcon"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@string/repositories" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:maxLines="1"
+            android:text="@{ repoItem.count == null ? `` : Integer.toString(repoItem.count) }"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@+id/imgIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtTitle"
+            app:layout_constraintTop_toTopOf="@id/imgIcon"
+            tools:text="24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

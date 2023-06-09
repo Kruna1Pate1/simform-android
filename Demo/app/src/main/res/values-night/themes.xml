@@ -266,4 +266,11 @@
         <item name="colorSurface">@android:color/black</item>
 
     </style>
+
+<!--    GitHub Theme-->
+    <style name="GitHubTheme" parent="@style/GitHubAbstractTheme">
+        <item name="android:statusBarColor">@color/github_toolbarBackground</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 </resources>

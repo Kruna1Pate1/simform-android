@@ -13,4 +13,9 @@ object PreferenceKeys {
      * Trivia game
      */
     const val TRIVIA_USER_ID = "trivia_user_id"
+
+    /**
+     * GitHub Client
+     */
+    const val AUTHORIZATION_TOKEN = "authorization_token"
 }

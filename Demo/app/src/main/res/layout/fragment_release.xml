@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.githubclient.ui.viewmodel.ReleaseViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".githubclient.ui.fragment.ReleaseFragment">
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:indeterminateOnly="false"
+                app:indicatorColor="?attr/colorAccent"
+                android:progress="@{ viewModel.downloadProgress }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtUsername"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{ viewModel.release.repoFullName }"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progressBar"
+                tools:text="Kruna1Patel" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{ viewModel.release.releaseName }"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtUsername"
+                tools:text="0.15.1" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgAuthorAvatar"
+                android:layout_width="@dimen/dp_18"
+                android:layout_height="@dimen/dp_0"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:adjustViewBounds="true"
+                app:imageUrl="@{ viewModel.release.authorAvatar }"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtName"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
+                tools:srcCompat="@drawable/avatar_1_raster" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtAuthorName"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{ viewModel.release.author }"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgAuthorAvatar"
+                app:layout_constraintTop_toTopOf="@id/imgAuthorAvatar"
+                tools:text="Kruna1Patel" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRelease"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="?attr/colorPrimary"
+                android:paddingHorizontal="@dimen/dp_16"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgAuthorAvatar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
