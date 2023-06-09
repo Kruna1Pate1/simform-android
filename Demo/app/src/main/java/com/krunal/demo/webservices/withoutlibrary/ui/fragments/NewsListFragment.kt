@@ -1,27 +1,20 @@
 package com.krunal.demo.webservices.withoutlibrary.ui.fragments
 
-import android.app.SearchManager
-import android.database.MatrixCursor
+import android.content.Intent
 import android.os.Bundle
-import android.provider.BaseColumns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.widget.SearchView
-import androidx.cursoradapter.widget.SimpleCursorAdapter
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentNewsListBinding
-import com.krunal.demo.searchwebview.ui.adapters.PackageDetailAdapter
 import com.krunal.demo.webservices.withoutlibrary.ui.adapters.NewsAdapter
 import com.krunal.demo.webservices.withoutlibrary.ui.viewmodels.NewsViewModel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class NewsListFragment : Fragment() {
@@ -44,17 +37,24 @@ class NewsListFragment : Fragment() {
     }
 
     private fun setupUI() {
-
-        val adapter = NewsAdapter()
+        val adapter = NewsAdapter { newsItem ->
+            Intent(Intent.ACTION_VIEW, newsItem.url.toUri()).also { intent ->
+                activity?.startActivity(intent)
+            }
+        }
 
         binding.rvNewsList.apply {
             this.adapter = adapter
-            addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(), DividerItemDecoration.VERTICAL
+                )
+            )
         }
 
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.newsList.collectLatest { list ->
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.newsList.collect { list ->
                     adapter.submitList(list)
                 }
             }

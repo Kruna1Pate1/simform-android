@@ -7,23 +7,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.krunal.demo.databinding.ItemNewsBinding
 import com.krunal.demo.webservices.withoutlibrary.data.models.local.NewsItem
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(val onClick: (newsItem: NewsItem) -> Unit) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     private val newsList: MutableList<NewsItem> = mutableListOf()
 
     class NewsViewHolder(
-        private val binding: ItemNewsBinding
+        private val binding: ItemNewsBinding,
+        val onClick: (NewsItem) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(newsItem: NewsItem) {
             binding.newsItem = newsItem
+            binding.root.setOnClickListener {
+                onClick(newsItem)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemNewsBinding.inflate(layoutInflater, parent, false)
-        return NewsViewHolder(binding)
+        return NewsViewHolder(binding, onClick)
     }
 
     override fun getItemCount(): Int = newsList.count()

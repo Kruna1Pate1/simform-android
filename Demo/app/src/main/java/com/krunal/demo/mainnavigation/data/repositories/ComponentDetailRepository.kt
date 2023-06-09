@@ -57,7 +57,7 @@ object ComponentDetailRepository {
             ), ComponentDetail.ActivityComponent(
                 "Search and Web view", SearchWebActivity::class.java
             ), ComponentDetail.FragmentComponent(
-                "News Li", NewsListFragment::class.java
+                "News List", NewsListFragment::class.java
             )
         )
     }

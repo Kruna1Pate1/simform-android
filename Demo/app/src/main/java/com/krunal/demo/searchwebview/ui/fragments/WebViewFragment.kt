@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.krunal.demo.appcomponents.utils.IntentData
 import com.krunal.demo.databinding.FragmentWebViewBinding
 import com.krunal.demo.searchwebview.helpers.WebClient
 import com.krunal.demo.searchwebview.ui.viewmodels.WebViewViewModel
@@ -41,6 +42,8 @@ class WebViewFragment : Fragment() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebView() {
+        arguments?.getString(IntentData.WEB_URL)?.let(viewModel::loadUrl)
+
         binding.webView.apply {
             webViewClient = WebClient()
             settings.javaScriptEnabled = true

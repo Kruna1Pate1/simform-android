@@ -18,6 +18,7 @@
             android:id="@+id/imgViewNews"
             android:layout_width="@dimen/dp_130"
             android:layout_height="@dimen/dp_130"
+            app:imageUrl="@{ newsItem.imageUrl }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

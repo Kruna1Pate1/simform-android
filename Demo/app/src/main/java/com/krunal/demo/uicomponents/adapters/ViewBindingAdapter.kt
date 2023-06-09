@@ -1,7 +1,9 @@
 package com.krunal.demo.uicomponents.adapters
 
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.media.ThumbnailUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,6 +12,12 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.ColorUtils
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.net.HttpURLConnection
+import java.net.URL
 
 @BindingAdapter("drawableResource")
 fun ImageView.setDrawableResource(@DrawableRes drawableResource: Int) {
@@ -56,6 +64,19 @@ fun View.setGradientBackground(gradientStartColor: Int?, gradientEndColor: Int?,
                 it.cornerRadius = 0f
                 background = it
             }
+        }
+    }
+}
+
+@BindingAdapter("imageUrl")
+fun ImageView.bindImage(url: String?) {
+    if (url == null) return
+
+    findViewTreeLifecycleOwner()?.lifecycleScope?.launch(Dispatchers.IO) {
+        runCatching {
+            val urlConnection = URL(url).openConnection() as HttpURLConnection
+            val bitmap = BitmapFactory.decodeStream(urlConnection.inputStream)
+            setImageBitmap(ThumbnailUtils.extractThumbnail(bitmap, 200, 200))
         }
     }
 }
