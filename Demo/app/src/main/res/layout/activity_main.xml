@@ -17,7 +17,6 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/hostFragmentContainer"
-            android:name="com.krunal.demo.mainnavigation.ui.fragments.HostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

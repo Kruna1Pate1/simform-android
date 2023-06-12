@@ -33,11 +33,11 @@ class UserViewModel : ViewModel() {
 
                     is Resource.Success -> {
                         response.data?.let { _users.emit(it) }
-                        _isLoading.emit(true)
+                        _isLoading.emit(false)
                     }
 
                     is Resource.Error -> {
-                        _isLoading.emit(true)
+                        _isLoading.emit(false)
                     }
                 }
             }

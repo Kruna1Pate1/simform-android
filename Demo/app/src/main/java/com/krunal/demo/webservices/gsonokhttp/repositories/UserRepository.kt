@@ -11,7 +11,15 @@ object UserRepository {
         return UserProfileApi.getAllUsers()
     }
 
+    suspend fun getUser(userId: Int): Flow<Resource<UserDetail>> {
+        return UserProfileApi.getUser(userId)
+    }
+
     suspend fun registerUser(userDetail: UserDetail) {
         UserProfileApi.registerUser(userDetail)
+    }
+
+    suspend fun updateUser(userDetail: UserDetail) {
+        UserProfileApi.updateUser(userDetail)
     }
 }

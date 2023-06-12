@@ -13,7 +13,6 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
 import java.io.IOException
 
 object UserProfileApi {
@@ -49,10 +48,30 @@ object UserProfileApi {
         }
     }.flowOn(Dispatchers.IO)
 
-    suspend fun getUser(userId: Int): Response = withContext(Dispatchers.IO) {
+    suspend fun getUser(userId: Int) = flow<Resource<UserDetail>> {
         val request = Request.Builder().url("$USER_URL/$userId").get().build()
-        return@withContext client.newCall(request).execute()
-    }
+
+        try {
+            val response = client.newCall(request).execute()
+            Resource.Success("")
+
+            if (!response.isSuccessful) {
+                emit(Resource.Error(response.message))
+            }
+
+            response.body?.string()?.let { body ->
+                val gson = GsonBuilder().setDateFormat(DATE_FORMAT).create()
+
+                val user = gson.fromJson(body, UserDetail::class.java)
+                emit(Resource.Success(user))
+            }
+
+        } catch (e: JsonParseException) {
+            emit(Resource.Error(e.message ?: "Can't parse response"))
+        } catch (e: IOException) {
+            emit(Resource.Error(e.message ?: "Can't make request"))
+        }
+    }.flowOn(Dispatchers.IO)
 
     suspend fun registerUser(userDetail: UserDetail) {
         withContext(Dispatchers.IO) {
@@ -60,6 +79,19 @@ object UserProfileApi {
             val user = gson.toJson(userDetail, UserDetail::class.java)
             val body = user.toRequestBody("application/json".toMediaType())
             val request = Request.Builder().url(USER_URL).post(body)
+                .addHeader("Content-Type", "application/json").build()
+
+            client.newCall(request).execute()
+        }
+    }
+
+    suspend fun updateUser(userDetail: UserDetail) {
+        withContext(Dispatchers.IO) {
+            val gson = GsonBuilder().setDateFormat(DATE_FORMAT).create()
+            val user = gson.toJson(userDetail, UserDetail::class.java)
+            val body = user.toRequestBody("application/json".toMediaType())
+            val request = Request.Builder().url("$USER_URL/${userDetail.userId}")
+                .put(body)
                 .addHeader("Content-Type", "application/json").build()
 
             client.newCall(request).execute()

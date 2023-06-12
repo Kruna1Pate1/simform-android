@@ -196,7 +196,7 @@
     <string name="cd_list">Bottom navigation list</string>
     <string name="title_list">List</string>
     <string name="cd_form">Bottom navigation registration form</string>
-    <string name="title_register">Register</string>
+    <string name="register">Register</string>
     <string name="rank">Rank</string>
     <string name="rank_number"># %1$d</string>
     <string name="losses">Losses</string>

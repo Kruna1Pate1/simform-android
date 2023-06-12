@@ -14,8 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue"
-        tools:context=".webservices.gsonokhttp.ui.fragments">
+        tools:context=".navigation.ui.fragments.RegisterFragment">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtLayoutName"
@@ -89,8 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_24"
             android:onClick="@{ () -> viewModel.submitDetails() }"
-            android:text="@{ viewModel.isUpdateUser() ? @string/save_changes : @string/register}"
-            tools:text="@string/register"
+            android:text="@string/submit"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
