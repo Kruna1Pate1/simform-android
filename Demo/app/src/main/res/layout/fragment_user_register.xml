@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.krunal.demo.webservices.gsonokhttp.ui.viewmodels.UserRegisterViewModel" />
@@ -90,6 +92,28 @@
             android:layout_marginBottom="@dimen/dp_24"
             android:onClick="@{ () -> viewModel.submitDetails() }"
             android:text="@{ viewModel.isUpdateUser() ? @string/save_changes : @string/register}"
+            tools:text="@string/register"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/dp_20"
+            app:layout_goneMarginBottom="@dimen/dp_36"
+            app:layout_constraintBottom_toTopOf="@id/btnDeleteAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="?attr/colorPrimary" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteAccount"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:onClick="@{ () -> viewModel.submitDetails() }"
+            android:text="@string/delete_account"
+            android:visibility="@{ viewModel.isUpdateUser() ? View.VISIBLE : View.GONE }"
+            tools:visibility="gone"
             tools:text="@string/register"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/sp_18"

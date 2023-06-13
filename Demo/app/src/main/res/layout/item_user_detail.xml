@@ -18,7 +18,6 @@
             android:id="@+id/imgViewNews"
             android:layout_width="@dimen/dp_130"
             android:layout_height="@dimen/dp_130"
-            app:imageUrl="@{ userDetail.avatarUrl }"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

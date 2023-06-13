@@ -19,8 +19,9 @@ class UserRegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentUserRegisterBinding.inflate(layoutInflater, container, false)
-        binding.lifecycleOwner = requireActivity()
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        binding.btnSubmit
         binding.executePendingBindings()
         return binding.root
     }

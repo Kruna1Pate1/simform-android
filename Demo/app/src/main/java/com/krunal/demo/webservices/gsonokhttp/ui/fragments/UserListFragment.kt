@@ -41,8 +41,8 @@ class UserListFragment : Fragment() {
 
     private fun setupUI() {
         val adapter = UserAdapter { userDetail ->
-            parentFragmentManager.commitNow(true) {
-                add(
+            parentFragmentManager.commit {
+                replace(
                     R.id.hostFragmentContainer,
                     UserRegisterFragment::class.java,
                     bundleOf(IntentData.USER_ID to userDetail.userId)

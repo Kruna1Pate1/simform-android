@@ -229,4 +229,5 @@
     <string name="favorite_movies">Favorite Movies</string>
     <string name="favorite_movies_hint">Harry Potter, Stranger Things, Mr. Robot</string>
     <string name="submit">Submit</string>
+    <string name="delete_account">Delete Account</string>
 </resources>
