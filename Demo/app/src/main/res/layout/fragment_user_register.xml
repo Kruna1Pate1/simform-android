@@ -16,7 +16,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue"
         tools:context=".webservices.gsonokhttp.ui.fragments">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +58,6 @@
                 android:text="@={ viewModel.userDetails.email }" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtLayoutFavoriteMovies"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -88,7 +86,7 @@
             android:id="@+id/btnSubmit"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="@dimen/dp_200"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp_56"
             android:layout_marginBottom="@dimen/dp_24"
             android:onClick="@{ () -> viewModel.submitDetails() }"
             android:text="@{ viewModel.isUpdateUser() ? @string/save_changes : @string/register}"
@@ -96,7 +94,7 @@
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
-            app:cornerRadius="@dimen/dp_20"
+            app:cornerRadius="@dimen/dp_8"
             app:layout_goneMarginBottom="@dimen/dp_36"
             app:layout_constraintBottom_toTopOf="@id/btnDeleteAccount"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,19 +104,16 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDeleteAccount"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="@dimen/dp_200"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp_56"
             android:layout_marginBottom="@dimen/dp_24"
-            android:onClick="@{ () -> viewModel.submitDetails() }"
+            app:backgroundTint="?attr/colorError"
             android:text="@string/delete_account"
             android:visibility="@{ viewModel.isUpdateUser() ? View.VISIBLE : View.GONE }"
-            tools:visibility="gone"
-            tools:text="@string/register"
-            android:textColor="?attr/colorPrimary"
+            android:textColor="?attr/colorOnError"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
-            app:cornerRadius="@dimen/dp_20"
+            app:cornerRadius="@dimen/dp_8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

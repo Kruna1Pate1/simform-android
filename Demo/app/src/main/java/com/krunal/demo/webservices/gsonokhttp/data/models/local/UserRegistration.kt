@@ -7,7 +7,10 @@ import java.util.Date
 
 data class UserRegistration(
     var userId: Int? = null,
-    private var _name: String? = null, private var _email: String? = null, private var _dob: Date? = null, private var _movies: String? = null
+    private var _name: String? = null,
+    private var _email: String? = null,
+    private var _dob: Date? = null,
+    private var _movies: String? = null
 ) : BaseObservable() {
 
     @get:Bindable

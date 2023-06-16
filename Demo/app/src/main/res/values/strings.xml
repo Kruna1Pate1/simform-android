@@ -229,5 +229,9 @@
     <string name="favorite_movies">Favorite Movies</string>
     <string name="favorite_movies_hint">Harry Potter, Stranger Things, Mr. Robot</string>
     <string name="submit">Submit</string>
-    <string name="delete_account">Delete Account</string>
+    <string name="delete_account">Delete</string>
+    <string name="delete_confirmation">Are you sure to delete?</string>
+    <string name="ok">OK</string>
+    <string name="user_delete_success">Successfully deleted user %1$s</string>
+    <string name="user_delete_failed">Can\'t delete user %1$s</string>
 </resources>

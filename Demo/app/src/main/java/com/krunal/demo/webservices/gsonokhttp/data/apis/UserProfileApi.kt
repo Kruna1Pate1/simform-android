@@ -97,4 +97,14 @@ object UserProfileApi {
             client.newCall(request).execute()
         }
     }
+
+    suspend fun deleteUser(userId: Int) {
+        withContext(Dispatchers.IO) {
+            val request = Request.Builder().url("$USER_URL/${userId}")
+                .delete()
+                .build()
+
+            client.newCall(request).execute()
+        }
+    }
 }

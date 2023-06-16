@@ -35,7 +35,7 @@ import com.krunal.demo.uicomponents.constraintLayouts.RelativeFragment
 import com.krunal.demo.uicomponents.picker.DatePickerFragment
 import com.krunal.demo.uicomponents.picker.TimePickerFragment
 import com.krunal.demo.webservices.gsonokhttp.ui.fragments.UserListFragment
-import com.krunal.demo.webservices.gsonokhttp.ui.fragments.UserRegisterFragment
+import com.krunal.demo.webservices.gsonokhttp.ui.fragments.UserDetailFragment
 import com.krunal.demo.webservices.withoutlibrary.ui.fragments.NewsListFragment
 
 object ComponentDetailRepository {
@@ -63,7 +63,7 @@ object ComponentDetailRepository {
             ), ComponentDetail.FragmentComponent(
                 "User List", UserListFragment::class.java
             ), ComponentDetail.FragmentComponent(
-                "Register User", UserRegisterFragment::class.java
+                "Register User", UserDetailFragment::class.java
             )
         )
     }

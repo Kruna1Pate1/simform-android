@@ -22,4 +22,8 @@ object UserRepository {
     suspend fun updateUser(userDetail: UserDetail) {
         UserProfileApi.updateUser(userDetail)
     }
+
+    suspend fun deleteUser(userId: Int) {
+        UserProfileApi.deleteUser(userId)
+    }
 }

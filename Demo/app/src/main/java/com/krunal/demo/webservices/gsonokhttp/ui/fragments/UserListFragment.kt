@@ -44,7 +44,7 @@ class UserListFragment : Fragment() {
             parentFragmentManager.commit {
                 replace(
                     R.id.hostFragmentContainer,
-                    UserRegisterFragment::class.java,
+                    UserDetailFragment::class.java,
                     bundleOf(IntentData.USER_ID to userDetail.userId)
                 )
             }
