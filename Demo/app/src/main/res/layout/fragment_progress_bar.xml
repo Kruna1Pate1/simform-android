@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".uicomponents.ProgressBarFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/cgNormal"
+        android:text="Indetermint circular" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/pbCircularIndeterminate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:indeterminate="false"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDuration="3000"
+            android:indeterminateTint="?attr/colorPrimary" />
+
+        <ProgressBar
+            android:id="@+id/pbCircularIndeterminate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="16dp"
+            android:indeterminateBehavior="cycle"
+            android:indeterminateDuration="3000"
+            android:indeterminateTint="?attr/colorPrimary" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/cgNormal"
+        android:text="Determinate circular" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pbCircularDeterminate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:indeterminate="false"
+        android:progress="40"
+        app:indicatorColor="?attr/colorSecondary"
+        app:trackCornerRadius="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:labelFor="@id/cgNormal"
+        android:text="Horizontal Linear" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pbHorizontalIndeterminate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="16dp"
+        android:indeterminate="true"
+        app:trackThickness="6dp" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pbHorizontalDeterminate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:progress="90"
+        android:progressTint="?attr/colorSecondary"
+        app:indicatorDirectionLinear="endToStart"
+        app:trackThickness="6dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:labelFor="@id/cgNormal"
+        android:text="Vertical Linear" />
+
+    <ProgressBar
+        android:id="@+id/pbVertical"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="4dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:progress="35"
+        android:progressDrawable="@drawable/progress_vertical_graph" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:labelFor="@id/cgNormal"
+        android:text="Secondary" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pbSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:progress="50"
+        android:secondaryProgress="25"
+
+        android:secondaryProgressTint="?attr/colorSecondary"
+        app:trackCornerRadius="10dp" />
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/gradient_progress"
+        tools:progress="60"
+        />
+
+</LinearLayout>
