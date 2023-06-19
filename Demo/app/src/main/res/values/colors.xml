@@ -449,4 +449,17 @@
     <color name="lime">#B7F8C9</color>
     <color name="light_pink">#FF897D</color>
     <color name="light_pink_text">#FFE2DF</color>
+
+    <!--    GitHub Client-->
+    <color name="github_backgroundPrimary">#eff0f5</color>
+    <color name="github_textPrimary">#050505</color>
+    <color name="github_textSecondary">#41434e</color>
+    <color name="github_textTertiary">#525560</color>
+    <color name="github_textInverted">#eff0f5</color>
+    <color name="github_colorAccent">#0366d6</color>
+    <color name="github_codeBackground">#f7f7f9</color>
+    <color name="github_toolbarBackground">#ffffff</color>
+    <color name="github_snackbarActionTextColor">#0366d6</color>
+    <color name="github_textPlaceholder">#809194a1</color>
+    <color name="github_buttonInverted">#050505</color>
 </resources>

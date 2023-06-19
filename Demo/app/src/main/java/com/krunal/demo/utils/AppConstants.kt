@@ -17,4 +17,13 @@ object AppConstants {
      * User
      */
     const val MOCKAPI_BASE_URL = "https://6482a62bf2e76ae1b95b5f48.mockapi.io/v1"
+
+    /**
+     * GitHub Client
+     */
+    const val GITHUB_CLIENT_TAG = "GitHubClient"
+    const val GITHUB_CODE = "code"
+    const val GITHUB_CLIENT_ID = "Iv1.0a792d59b1f10f9f"
+    const val GITHUB_CLIENT_SECRET = "73fabde34e4207136ec671f7ebb17f33e31252dc"
+    const val GITHUB_CLIENT_STATE = "aBcEwXyZ"
 }

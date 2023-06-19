@@ -91,6 +91,27 @@
             <nav-graph android:value="@navigation/trivia_nav_graph" />
         </activity>
 
+        <activity
+            android:name="com.krunal.demo.githubclient.ui.activity.GitHubClientActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.krunal.demo.githubclient.ui.activity.AuthorizationActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/GitHubTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.krunal.demo"
+                    android:scheme="krunal" />
+            </intent-filter>
+        </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

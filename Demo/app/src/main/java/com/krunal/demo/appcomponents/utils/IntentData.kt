@@ -9,6 +9,7 @@ object IntentData {
     const val AUTH_KEY = "auth_key"
     const val WEB_URL = "web_url"
     const val USER_ID = "user_id"
+    const val GITHUB_AUTHORIZATION_TOKEN = "github_authorization_token"
 
     /**
      * Actions

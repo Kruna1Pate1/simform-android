@@ -3,7 +3,9 @@ package com.krunal.demo
 import android.app.Application
 import com.krunal.demo.helpers.PreferenceHelper
 import com.krunal.demo.searchwebview.helpers.PackageHelper
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class DemoApplication: Application() {
 
     override fun onCreate() {
