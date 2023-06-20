@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Theme.MaterialComponents.BottomSheetDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurfaceDim"
+        tools:context=".uicomponents.sheets.OperationsBottomSheetFragment">
+
+        <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+            android:id="@+id/dragHandler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/llHeaderContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dragHandler">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/operations"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="*** 1963"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:contentDescription="@string/mastercard_logo"
+                android:src="@drawable/ic_mastercard" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <TextView
+            android:id="@+id/tvRecent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/recent"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/llHeaderContainer" />
+
+        <include
+            android:id="@+id/food"
+            layout="@layout/recent_operation_layout"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            app:imgBackground="@{@color/blue}"
+            app:imgSrc="@{@drawable/ic_food}"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvRecent"
+            app:title="@{`Food`}" />
+
+        <include
+            android:id="@+id/gasoline"
+            layout="@layout/recent_operation_layout"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            app:imgBackground="@{@color/purple}"
+            app:imgSrc="@{@drawable/ic_gasoline}"
+            app:layout_constraintStart_toEndOf="@id/food"
+            app:layout_constraintTop_toTopOf="@id/food"
+            app:title="@{`Gasoline`}" />
+
+        <include
+            android:id="@+id/travel"
+            layout="@layout/recent_operation_layout"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            app:imgBackground="@{@color/lightBrown}"
+            app:imgSrc="@{@drawable/ic_paperplane}"
+            app:layout_constraintStart_toEndOf="@id/gasoline"
+            app:layout_constraintTop_toTopOf="@id/food"
+            app:title="@{`Travel`}" />
+
+
+        <include
+            android:id="@+id/heart"
+            layout="@layout/recent_operation_layout"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            app:imgBackground="@{@color/red}"
+            app:imgSrc="@{@drawable/ic_heart_outlined}"
+            app:layout_constraintStart_toEndOf="@id/travel"
+            app:layout_constraintTop_toTopOf="@id/food"
+            app:title="@{`Heart`}" />
+
+        <TextView
+            android:id="@+id/tvHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/history"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/search"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/food" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/tvHistory"
+            app:layout_constraintTop_toTopOf="@id/tvHistory"
+            app:searchIcon="@drawable/ic_search" />
+
+        <com.krunal.demo.uicomponents.views.HistoryLineView
+            android:id="@+id/historyLine1"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvHistoryCost2"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryCost"
+            app:lineColor="?attr/colorSecondary"
+            app:lineWidth="1dp"
+            app:thumbColor="?attr/colorSecondary"
+            app:thumbRadius="4dp" />
+
+        <TextView
+            android:id="@+id/tvHistoryCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:text="$24.99"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvHistory" />
+
+        <TextView
+            android:id="@+id/tvHistoryLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="B&amp;J Supermarket"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvHistoryCost" />
+
+        <TextView
+            android:id="@+id/tvHistoryTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="Oct 12"
+            android:textColor="?attr/colorSecondary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvHistoryLocation"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryCost" />
+
+
+        <com.krunal.demo.uicomponents.views.HistoryLineView
+            android:id="@+id/historyLine2"
+            android:layout_width="10dp"
+            android:layout_height="80dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryCost2"
+            app:lineColor="?attr/colorPrimary"
+            app:lineWidth="1dp"
+            app:thumbColor="?attr/colorPrimary"
+            app:thumbRadius="4dp" />
+
+        <TextView
+            android:id="@+id/tvHistoryCost2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:text="$21.12"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvHistoryLocation" />
+
+        <TextView
+            android:id="@+id/tvHistoryLocation2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="Safeway Fuel Station"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvHistoryCost2" />
+
+        <TextView
+            android:id="@+id/tvHistoryTime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="Oct 11"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvHistoryLocation2"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryCost2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
