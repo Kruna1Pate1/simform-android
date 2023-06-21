@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/github_nav_graph"
+    app:startDestination="@id/gitHubHomeFragment">
+
+    <fragment tools:layout="@layout/fragment_github_home"
+        android:id="@+id/gitHubHomeFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.GitHubHomeFragment"
+        android:label="@string/home" />
+
+    <fragment tools:layout="@layout/fragment_notification"
+        android:id="@+id/notificationFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.NotificationFragment"
+        android:label="@string/notification" />
+
+    <fragment tools:layout="@layout/fragment_explore"
+        android:id="@+id/exploreFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.ExploreFragment"
+        android:label="@string/explore" />
+
+    <fragment tools:layout="@layout/fragment_profile"
+        android:id="@+id/profileFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.ProfileFragment"
+        android:label="@string/profile" />
+</navigation>

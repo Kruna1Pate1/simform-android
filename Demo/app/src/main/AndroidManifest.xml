@@ -87,7 +87,8 @@
 
         <activity
             android:name=".navigation.ui.activities.TriviaGameActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/GitHubTheme">
             <nav-graph android:value="@navigation/trivia_nav_graph" />
         </activity>
 

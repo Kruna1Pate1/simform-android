@@ -16,7 +16,7 @@ object AppConstants {
     /**
      * User
      */
-    const val MOCKAPI_BASE_URL = "https://6482a62bf2e76ae1b95b5f48.mockapi.io/v1"
+    const val MOCKAPI_BASE_URL = "https://6492c8f3428c3d2035d0ad4e.mockapi.io/v1"
 
     /**
      * GitHub Client
