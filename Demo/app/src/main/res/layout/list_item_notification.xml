@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="notificationItem"
+            type="com.krunal.demo.githubclient.data.local.NotificationItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_16"
+        android:background="?attr/colorPrimary">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_0"
+            android:adjustViewBounds="true"
+            app:drawableResource="@{ notificationItem.icon }"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.GithubItem"
+            app:layout_constraintTop_toTopOf="parent"
+            app:contentPadding="4dp"
+            app:tint="@android:color/white"
+            tools:srcCompat="@drawable/ic_git_pull_request" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -3,13 +3,15 @@ package com.krunal.demo.githubclient.di
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.krunal.demo.githubclient.data.remote.api.ApiService
 import com.krunal.demo.githubclient.data.remote.api.AuthorizationService
-import com.krunal.demo.githubclient.data.repository.ApiRepository
+import com.krunal.demo.githubclient.data.remote.api.UserService
 import com.krunal.demo.githubclient.data.repository.AuthorizationRepository
+import com.krunal.demo.githubclient.data.repository.HomeRepository
+import com.krunal.demo.githubclient.data.repository.UserRepository
 import com.krunal.demo.githubclient.util.GitHubAuthenticator
 import com.krunal.demo.githubclient.util.GitHubUrls
 import com.krunal.demo.helpers.PreferenceHelper
+import com.krunal.demo.utils.PreferenceKeys
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,8 +45,13 @@ object ApiModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(authenticator: Authenticator): OkHttpClient =
-        OkHttpClient.Builder().authenticator(authenticator)
-            .readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+        OkHttpClient.Builder().authenticator(authenticator).addInterceptor {
+            val request = it.request().newBuilder().addHeader(
+                "Authorization",
+                "Bearer " + PreferenceHelper.getString(PreferenceKeys.AUTHORIZATION_TOKEN, "")
+            ).build()
+            it.proceed(request)
+        }.readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS).build()
 
     @Provides
@@ -68,8 +75,8 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun providesApiService(@Named(API_RETROFIT) retrofit: Retrofit): ApiService =
-        retrofit.create(ApiService::class.java)
+    fun providesUserService(@Named(API_RETROFIT) retrofit: Retrofit): UserService =
+        retrofit.create(UserService::class.java)
 
     @Provides
     @Singleton
@@ -78,5 +85,10 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun providesApiRepository(apiService: ApiService): ApiRepository = ApiRepository(apiService)
+    fun providesUserRepository(userService: UserService): UserRepository =
+        UserRepository(userService)
+
+    @Provides
+    @Singleton
+    fun providesHomeRepository(): HomeRepository = HomeRepository()
 }

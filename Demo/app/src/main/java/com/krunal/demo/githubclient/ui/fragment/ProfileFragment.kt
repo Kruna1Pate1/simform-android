@@ -1,10 +1,10 @@
 package com.krunal.demo.githubclient.ui.fragment
 
-import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentProfileBinding
 import com.krunal.demo.githubclient.ui.adapter.ProfileAdapter
@@ -20,9 +20,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
     private lateinit var profileAdapter: ProfileAdapter
     override val viewModel: ProfileViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun getLayoutResId(): Int = R.layout.fragment_profile
 
     override fun initialize() {
@@ -44,6 +41,13 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
 
     private fun setupProfile() {
         profileAdapter = ProfileAdapter()
-        binding.rvProfile.adapter = profileAdapter
+        binding.rvProfile.apply {
+            adapter = profileAdapter
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(), DividerItemDecoration.VERTICAL
+                )
+            )
+        }
     }
 }

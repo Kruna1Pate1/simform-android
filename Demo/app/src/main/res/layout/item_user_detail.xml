@@ -16,12 +16,14 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgViewNews"
-            android:layout_width="@dimen/dp_130"
-            android:layout_height="@dimen/dp_130"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            app:imageUrl="@{ userDetail.avatarUrl }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/dp_16"
             app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
             tools:src="@drawable/ic_termux" />
 
         <TextView
@@ -47,9 +49,9 @@
             android:text="@{ userDetail.email }"
             android:textSize="@dimen/sp_15"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/txtApplicationName"
             app:layout_constraintTop_toBottomOf="@+id/txtApplicationName"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:text="com.termux.app" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

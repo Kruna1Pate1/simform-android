@@ -2,6 +2,7 @@ package com.krunal.demo
 
 import android.app.Application
 import com.krunal.demo.helpers.PreferenceHelper
+import com.krunal.demo.helpers.ResourceHelper
 import com.krunal.demo.searchwebview.helpers.PackageHelper
 import dagger.hilt.android.HiltAndroidApp
 
@@ -22,6 +23,11 @@ class DemoApplication: Application() {
          * Initialize [PackageHelper]
          */
         PackageHelper.initialize(applicationContext)
+
+        /**
+         * Initialize [ResourceHelper]
+         */
+        ResourceHelper.initialize(applicationContext)
     }
 
     companion object {

@@ -4,7 +4,7 @@ import com.krunal.demo.githubclient.data.remote.model.response.UserResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface ApiService {
+interface UserService {
 
     @GET("user")
     suspend fun getAuthorizedUser(): Response<UserResponse>

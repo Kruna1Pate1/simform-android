@@ -151,4 +151,9 @@
         <item name="searchIcon">@drawable/ic_search</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.GithubItem" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15%</item>
+    </style>
+
 </resources>

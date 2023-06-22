@@ -17,6 +17,7 @@ abstract class BaseActivity<Binding : ViewDataBinding, ViewModel : androidx.life
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupTheme()
         bindViewModel()
         initializeObservers()
     }

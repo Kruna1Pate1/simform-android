@@ -6,24 +6,30 @@
     <data>
 
         <variable
-            name="profileInfo"
-            type="com.krunal.demo.githubclient.data.local.ProfileDetail.ProfileInfo" />
+            name="workItem"
+            type="com.krunal.demo.githubclient.data.local.HomeItem.WorkItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_16"
+        android:background="?attr/colorPrimary">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgIcon"
-            android:layout_width="@dimen/dp_24"
+            android:layout_width="@dimen/dp_32"
             android:layout_height="@dimen/dp_0"
             android:adjustViewBounds="true"
-            app:drawableResource="@{ profileInfo.icon }"
+            android:background="@{ workItem.iconBackground }"
+            tools:background="#6CA030"
+            app:drawableResource="@{ workItem.icon }"
             app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.GithubItem"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="?android:attr/textColorHint"
-            tools:srcCompat="@drawable/ic_email" />
+            app:contentPadding="4dp"
+            app:tint="@android:color/white"
+            tools:srcCompat="@drawable/ic_git_pull_request" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtTitle"
@@ -31,15 +37,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
             android:maxLines="1"
-            android:text="@{ profileInfo.title }"
+            android:text="@{ workItem.title }"
             android:textSize="@dimen/sp_16"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imgIcon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgIcon"
             app:layout_constraintTop_toTopOf="@id/imgIcon"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:text="kbpatel5802@gmail.com" />
+            tools:text="@string/repositories" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

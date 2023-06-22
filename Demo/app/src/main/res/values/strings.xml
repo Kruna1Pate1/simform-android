@@ -242,4 +242,16 @@
     <string name="cd_notification">Bottom navigation notification</string>
     <string name="cd_explore">Bottom navigation explore</string>
     <string name="cd_profile">Bottom navigation profile</string>
+    <string name="follow_info">%1$d followers • %2$d following</string>
+    <string name="repositories">Repositories</string>
+    <string name="organizations">Organizations</string>
+    <string name="starred">Starred</string>
+    <string name="gists">Gists</string>
+    <string name="issues">Issues</string>
+    <string name="pull_requests">Pull Requests</string>
+    <string name="discussion">Discussion</string>
+    <string name="project">Project</string>
+    <string name="my_work">My Work</string>
+    <string name="favorites">Favorites</string>
+
 </resources>

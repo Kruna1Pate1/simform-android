@@ -20,6 +20,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            android:background="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +35,7 @@
             app:layout_constraintBottom_toTopOf="@id/bottomNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:navGraph="@navigation/github_nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -42,6 +43,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:labelVisibilityMode="labeled"
+            app:elevation="@dimen/dp_6"
+            app:itemIconTint="@color/github_bottom_bar"
+            app:itemTextColor="@color/github_bottom_bar"
+            android:background="?android:attr/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/github_bottom_nav" />
 

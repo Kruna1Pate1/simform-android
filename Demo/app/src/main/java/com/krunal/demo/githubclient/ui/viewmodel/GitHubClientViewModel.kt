@@ -2,7 +2,7 @@ package com.krunal.demo.githubclient.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.krunal.demo.githubclient.data.repository.ApiRepository
+import com.krunal.demo.githubclient.data.repository.UserRepository
 import com.krunal.demo.webservices.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GitHubClientViewModel @Inject constructor(
-    private val apiRepository: ApiRepository
+    private val apiRepository: UserRepository
 ) : ViewModel() {
 
     private var token: String = ""

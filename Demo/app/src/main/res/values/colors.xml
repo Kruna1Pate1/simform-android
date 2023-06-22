@@ -462,4 +462,11 @@
     <color name="github_snackbarActionTextColor">#0366d6</color>
     <color name="github_textPlaceholder">#809194a1</color>
     <color name="github_buttonInverted">#050505</color>
+    <color name="github_repository">#41434e</color>
+    <color name="github_gists">#8D0030</color>
+    <color name="github_pull">#2e8eff</color>
+    <color name="github_issues">#40d663</color>
+    <color name="github_discussion">#7548c7</color>
+    <color name="github_starred">#ffcf2b</color>
+    <color name="github_organization">#fd8938</color>
 </resources>
