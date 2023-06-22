@@ -3,15 +3,17 @@ package com.krunal.demo.githubclient.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.krunal.demo.githubclient.data.local.Profile
-import com.krunal.demo.githubclient.data.local.ProfileDetail
 import com.krunal.demo.githubclient.data.repository.ApiRepository
 import com.krunal.demo.webservices.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProfileViewModel(
+@HiltViewModel
+class ProfileViewModel @Inject constructor(
     private val apiRepository: ApiRepository
 ) : ViewModel() {
 
@@ -20,8 +22,8 @@ class ProfileViewModel(
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
 
-    private val _profileDetail = MutableStateFlow<Profile?>(null)
-    val profileDetail = _profileDetail.asStateFlow()
+    private val _profile = MutableStateFlow<Profile?>(null)
+    val profile = _profile.asStateFlow()
 
     fun setToken(token: String) {
         this.token = token
@@ -37,7 +39,7 @@ class ProfileViewModel(
 
                     is Resource.Success -> {
                         _isLoading.emit(false)
-                        _profileDetail.emit(resource.data)
+                        _profile.emit(resource.data)
                     }
 
                     is Resource.Error -> {

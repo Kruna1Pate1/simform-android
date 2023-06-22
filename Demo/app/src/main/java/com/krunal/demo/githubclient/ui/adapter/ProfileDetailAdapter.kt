@@ -9,7 +9,12 @@ import com.krunal.demo.githubclient.ui.base.BaseAdapter
 
 class ProfileDetailAdapter : BaseAdapter<ProfileDetail>() {
 
-    override fun getLayoutId(): Int = R.layout.list_item_profile_detail
+    override fun getLayoutId(viewType: Int): Int = when (DetailType.values()[viewType]) {
+        DetailType.NAME -> R.layout.list_item_profile_name
+        DetailType.INFO -> R.layout.list_item_profile_info
+    }
+
+    override fun getItemViewType(position: Int): Int = itemList[position].type.ordinal
 
     override fun setDataForListItemWithPosition(
         binding: ViewDataBinding, data: ProfileDetail, adapterPosition: Int
@@ -27,5 +32,9 @@ class ProfileDetailAdapter : BaseAdapter<ProfileDetail>() {
                 }
             }
         }
+    }
+
+    enum class DetailType {
+        NAME, INFO
     }
 }

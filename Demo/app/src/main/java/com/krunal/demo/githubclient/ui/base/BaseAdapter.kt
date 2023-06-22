@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseAdapter<T>.BaseViewHolder>() {
 
-    private val itemList = mutableListOf<T>()
+    internal val itemList = mutableListOf<T>()
 
     @LayoutRes
-    abstract fun getLayoutId(): Int
+    abstract fun getLayoutId(viewType: Int = 0): Int
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding: ViewDataBinding =
-            DataBindingUtil.inflate(inflater, getLayoutId(), parent, false)
+            DataBindingUtil.inflate(inflater, getLayoutId(viewType), parent, false)
         return BaseViewHolder(binding)
     }
 
