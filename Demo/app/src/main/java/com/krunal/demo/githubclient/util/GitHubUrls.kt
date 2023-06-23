@@ -11,7 +11,7 @@ object GitHubUrls {
 
     const val BASE_AUTH_URL = "https://github.com/login/oauth/"
     const val AUTHORIZATION_URL =
-        BASE_AUTH_URL + "authorize?client_id=" + AppConstants.GITHUB_CLIENT_ID + "&state=" + AppConstants.GITHUB_CLIENT_STATE
+        BASE_AUTH_URL + "authorize?client_id=" + AppConstants.GITHUB_CLIENT_ID + "&state=" + AppConstants.GITHUB_CLIENT_STATE + "&scope=" + AppConstants.GITHUB_SCOPE
 
     const val BASE_API_URL = "https://api.github.com/"
 }

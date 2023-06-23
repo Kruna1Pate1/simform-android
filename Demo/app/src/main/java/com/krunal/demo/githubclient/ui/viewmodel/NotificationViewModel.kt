@@ -2,6 +2,7 @@ package com.krunal.demo.githubclient.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.krunal.demo.githubclient.data.local.NotificationItem
 import com.krunal.demo.githubclient.data.remote.model.response.NotificationsResponseItem
 import com.krunal.demo.githubclient.data.repository.NotificationRepository
 import com.krunal.demo.webservices.utils.Resource
@@ -20,7 +21,7 @@ class NotificationViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
 
-    private val _notifications: MutableStateFlow<List<NotificationsResponseItem>> =
+    private val _notifications: MutableStateFlow<List<NotificationItem>> =
         MutableStateFlow(
             emptyList()
         )

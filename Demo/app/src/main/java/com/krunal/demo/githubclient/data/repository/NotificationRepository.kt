@@ -1,9 +1,10 @@
 package com.krunal.demo.githubclient.data.repository
 
 import com.google.gson.Gson
+import com.krunal.demo.R
+import com.krunal.demo.githubclient.data.local.NotificationItem
 import com.krunal.demo.githubclient.data.remote.api.NotificationService
 import com.krunal.demo.githubclient.data.remote.model.response.ApiErrorResponse
-import com.krunal.demo.githubclient.data.remote.model.response.NotificationsResponseItem
 import com.krunal.demo.webservices.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
@@ -11,13 +12,22 @@ import kotlinx.coroutines.flow.flowOn
 
 class NotificationRepository(private val notificationService: NotificationService) {
 
-    fun getNotifications() = flow<Resource<List<NotificationsResponseItem>>> {
+    fun getNotifications() = flow<Resource<List<NotificationItem>>> {
         emit(Resource.Loading())
         notificationService.getNotifications().let { response ->
             try {
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        emit(Resource.Success(it))
+                    response.body()?.let { list ->
+                        val notificationItems = list.map {
+                            NotificationItem(
+                                R.drawable.ic_git_pull_request_closed,
+                                it.repository.full_name,
+                                it.subject.url.split("/").last().toInt(),
+                                it.subject.title,
+                                it.unread
+                            )
+                        }
+                        emit(Resource.Success(notificationItems))
                     }
 
                 } else {

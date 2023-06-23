@@ -23,7 +23,9 @@ object AppConstants {
      */
     const val GITHUB_CLIENT_TAG = "GitHubClient"
     const val GITHUB_CODE = "code"
-    const val GITHUB_CLIENT_ID = "Iv1.0a792d59b1f10f9f"
-    const val GITHUB_CLIENT_SECRET = "73fabde34e4207136ec671f7ebb17f33e31252dc"
+    const val GITHUB_CLIENT_ID = "594aeb36eda718a9a767"
+    const val GITHUB_CLIENT_SECRET = "b14ba2086f4686f86099116158de88fffa223be3"
     const val GITHUB_CLIENT_STATE = "aBcEwXyZ"
+    const val GITHUB_SCOPE =
+        "repo%20repo_deployment%20security_events%20admin:repo_hook%20write:repo_hook%20admin:public_key%20write:public_key%20read:public_key%20gist%20notifications%20user%20project%20delete_repo%20write:package%20read:package%20delete:package%20workflow"
 }
