@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.krunal.demo.githubclient.ui.viewmodel.UpdateProfileViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:clipToPadding="false"
+        android:paddingVertical="@dimen/dp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".githubclient.ui.fragment.UpdateProfileFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/dp_16" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/dp_16" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateOnly="true"
+                android:visibility="@{ viewModel.isLoading() ? View.VISIBLE : View.GONE }"
+                app:indicatorColor="?attr/colorSecondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/dp_160"
+                android:layout_height="@dimen/dp_0"
+                app:imageUrl="@{ viewModel.profileDetail.avatar }"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
+                tools:srcCompat="@drawable/avatar_2_raster" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtLayoutName"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                style="@style/GithubTextInputLayout"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                android:hint="@string/hint_name"
+                android:layout_marginTop="@dimen/dp_20"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtName"
+                    android:text="@={ viewModel.profileDetail.name }"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtLayoutEmail"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                style="@style/GithubTextInputLayout"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                android:hint="@string/hint_required_email"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/txtLayoutName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmail"
+                    android:text="@={ viewModel.profileDetail.email }"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtLayoutBio"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_100"
+                style="@style/GithubTextInputLayout"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                android:hint="@string/hint_bio"
+                android:layout_marginTop="@dimen/dp_16"
+                app:expandedHintEnabled="false"
+                app:placeholderText="@string/add_about_your_self"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/txtLayoutEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtBio"
+                    android:inputType="textMultiLine"
+                    android:gravity="top"
+                    android:text="@={ viewModel.profileDetail.bio }"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtLayoutWebsite"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                style="@style/GithubTextInputLayout"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                android:hint="@string/hint_website"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/txtLayoutBio">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtWebsite"
+                    android:text="@{ viewModel.profileDetail.website }"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtLayoutTwitter"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                style="@style/GithubTextInputLayout"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                android:hint="@string/hint_twitter"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/txtLayoutWebsite">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtTwitter"
+                    android:text="@{ viewModel.profileDetail.twitter }"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtLayoutCompany"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                style="@style/GithubTextInputLayout"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                android:hint="@string/hint_company"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/txtLayoutTwitter">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCompany"
+                    android:text="@{ viewModel.profileDetail.company }"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:text="@string/save_changes"
+                android:layout_marginTop="@dimen/dp_20"
+                android:onClick="@{ () -> viewModel.updateDetail() }"
+                app:layout_constraintTop_toBottomOf="@id/txtLayoutCompany"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/github_textInverted"
+                android:letterSpacing="0.05"
+                app:backgroundTint="@color/github_buttonInverted"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

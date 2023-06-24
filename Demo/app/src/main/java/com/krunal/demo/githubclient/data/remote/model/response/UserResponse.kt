@@ -17,7 +17,7 @@ data class UserResponse(
     val blog: String?,
     val company: String?,
     val createdAt: String,
-    val email: String?,
+    val email: String,
     val eventsUrl: String,
     val followers: Int,
     val following: Int,

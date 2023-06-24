@@ -20,11 +20,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:theme="@style/GithubToolbarPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:titleCentered="true" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/gitHubHostFragmentContainer"

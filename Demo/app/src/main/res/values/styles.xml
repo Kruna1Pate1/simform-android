@@ -155,5 +155,16 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">15%</item>
     </style>
+    
+    <style name="GithubToolbarPrimary" >
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="colorOnPrimary">?attr/colorAccent</item>
+    </style>
+
+    <style name="GithubTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+        <item name="hintTextColor">?android:attr/textColorPrimary</item>
+        <item name="boxStrokeColor">@color/selector_text_input_layout</item>
+        <item name="android:textCursorDrawable">?android:attr/textColorPrimary</item>
+    </style>
 
 </resources>

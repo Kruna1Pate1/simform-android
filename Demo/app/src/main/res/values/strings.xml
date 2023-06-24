@@ -253,5 +253,11 @@
     <string name="project">Project</string>
     <string name="my_work">My Work</string>
     <string name="favorites">Favorites</string>
-
+    <string name="hint_name">Full Name</string>
+    <string name="hint_required_email">Email <font color="red">*</font></string>
+    <string name="hint_bio">Bio</string>
+    <string name="add_about_your_self">Add about your self</string>
+    <string name="hint_twitter">Twitter</string>
+    <string name="hint_company">Company</string>
+    <string name="hint_website">Website</string>
 </resources>

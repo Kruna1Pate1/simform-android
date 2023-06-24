@@ -5,23 +5,37 @@
     android:id="@+id/github_nav_graph"
     app:startDestination="@id/gitHubHomeFragment">
 
-    <fragment tools:layout="@layout/fragment_github_home"
+    <fragment
         android:id="@+id/gitHubHomeFragment"
         android:name="com.krunal.demo.githubclient.ui.fragment.GitHubHomeFragment"
-        android:label="@string/home" />
+        android:label="@string/home"
+        tools:layout="@layout/fragment_github_home" />
 
-    <fragment tools:layout="@layout/fragment_notification"
+    <fragment
         android:id="@+id/notificationFragment"
         android:name="com.krunal.demo.githubclient.ui.fragment.NotificationFragment"
-        android:label="@string/notification" />
+        android:label="@string/notification"
+        tools:layout="@layout/fragment_notification" />
 
-    <fragment tools:layout="@layout/fragment_explore"
+    <fragment
         android:id="@+id/exploreFragment"
         android:name="com.krunal.demo.githubclient.ui.fragment.ExploreFragment"
-        android:label="@string/explore" />
+        android:label="@string/explore"
+        tools:layout="@layout/fragment_explore" />
 
-    <fragment tools:layout="@layout/fragment_profile"
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.krunal.demo.githubclient.ui.fragment.ProfileFragment"
-        android:label="@string/profile" />
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.UpdateProfileFragment"
+        tools:layout="@layout/fragment_update_profile"
+        android:label="UpdateProfileFragment" />
 </navigation>
