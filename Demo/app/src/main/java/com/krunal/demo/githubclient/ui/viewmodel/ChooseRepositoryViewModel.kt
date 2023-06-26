@@ -29,7 +29,7 @@ class ChooseRepositoryViewModel @Inject constructor(
 
     fun getRepositories() {
         viewModelScope.launch {
-            repoRepository.getAuthorizedUserRepos().collectLatest { resource ->
+            repoRepository.getAuthorizedUserRepos().collect { resource ->
                 when (resource) {
                     is Resource.Loading -> {
                         _isLoading.emit(true)

@@ -1,14 +1,9 @@
 package com.krunal.demo.githubclient.ui.fragment
 
-import android.os.Bundle
-import android.view.LayoutInflater
+import android.content.Intent
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.view.MenuProvider
-import androidx.core.view.iterator
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -17,8 +12,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentProfileBinding
+import com.krunal.demo.githubclient.ui.activity.AuthorizationActivity
 import com.krunal.demo.githubclient.ui.adapter.ProfileAdapter
 import com.krunal.demo.githubclient.ui.base.BaseFragment
+import com.krunal.demo.githubclient.ui.dialog.LogoutConfirmationDialog
 import com.krunal.demo.githubclient.ui.viewmodel.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -54,9 +51,21 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        val direction = ProfileFragmentDirections.actionProfileFragmentToUpdateProfileFragment()
-        findNavController().navigate(direction)
-        return true
+        return when (menuItem.itemId) {
+            R.id.actionEdit -> {
+                val direction =
+                    ProfileFragmentDirections.actionProfileFragmentToUpdateProfileFragment()
+                findNavController().navigate(direction)
+                true
+            }
+
+            R.id.actionLogout -> {
+                logout()
+                true
+            }
+
+            else -> false
+        }
     }
 
     private fun setupProfile() {
@@ -69,5 +78,15 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                 )
             )
         }
+    }
+
+    private fun logout() {
+        val dialog = LogoutConfirmationDialog {
+            viewModel.logout {
+                val intent = Intent(requireContext(), AuthorizationActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        dialog.show(childFragmentManager, LogoutConfirmationDialog.TAG)
     }
 }

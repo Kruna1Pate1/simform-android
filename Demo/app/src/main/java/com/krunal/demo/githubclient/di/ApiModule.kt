@@ -4,11 +4,13 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.krunal.demo.githubclient.data.remote.api.AuthorizationService
+import com.krunal.demo.githubclient.data.remote.api.IssueService
 import com.krunal.demo.githubclient.data.remote.api.NotificationService
 import com.krunal.demo.githubclient.data.remote.api.RepoService
 import com.krunal.demo.githubclient.data.remote.api.UserService
 import com.krunal.demo.githubclient.data.repository.AuthorizationRepository
 import com.krunal.demo.githubclient.data.repository.HomeRepository
+import com.krunal.demo.githubclient.data.repository.IssueRepository
 import com.krunal.demo.githubclient.data.repository.NotificationRepository
 import com.krunal.demo.githubclient.data.repository.RepoRepository
 import com.krunal.demo.githubclient.data.repository.UserRepository
@@ -94,6 +96,11 @@ object ApiModule {
 
     @Provides
     @Singleton
+    fun providesIssueService(@Named(API_RETROFIT) retrofit: Retrofit): IssueService =
+        retrofit.create(IssueService::class.java)
+
+    @Provides
+    @Singleton
     fun providesAuthorizationRepository(authorizationService: AuthorizationService): AuthorizationRepository =
         AuthorizationRepository(authorizationService)
 
@@ -115,4 +122,9 @@ object ApiModule {
     @Singleton
     fun providesRepoRepository(repoService: RepoService): RepoRepository =
         RepoRepository(repoService)
+
+    @Provides
+    @Singleton
+    fun providesIssueRepository(issueService: IssueService): IssueRepository =
+        IssueRepository(issueService)
 }

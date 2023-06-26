@@ -5,3 +5,8 @@ data class AuthorizationErrorResponse(
     val errorDescription: String,
     val errorUri: String
 )
+
+data class ApiError(
+    val documentationUrl: String,
+    val message: String
+)

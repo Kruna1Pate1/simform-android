@@ -82,3 +82,18 @@ data class RepositoryResponse(
     val watchersCount: Int,
     val webCommitSignoffRequired: Boolean
 )
+
+data class Subject(
+    val latest_comment_url: String,
+    val title: String,
+    val type: String,
+    val url: String?
+)
+
+data class Permissions(
+    val admin: Boolean,
+    val maintain: Boolean,
+    val pull: Boolean,
+    val push: Boolean,
+    val triage: Boolean
+)

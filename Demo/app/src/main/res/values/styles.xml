@@ -159,6 +159,7 @@
     <style name="GithubToolbarPrimary" >
         <item name="android:background">?attr/colorPrimary</item>
         <item name="colorOnPrimary">?attr/colorAccent</item>
+        <item name="iconTint">?attr/colorAccent</item>
     </style>
 
     <style name="GithubTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
@@ -167,4 +168,11 @@
         <item name="android:textCursorDrawable">?android:attr/textColorPrimary</item>
     </style>
 
+    <style name="AlertPrimary" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
 </resources>

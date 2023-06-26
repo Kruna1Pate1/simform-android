@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.krunal.demo.githubclient.data.repository.UserRepository
 import com.krunal.demo.webservices.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,20 +17,16 @@ class GitHubClientViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var token: String = ""
+    private val _subtitle = MutableStateFlow("")
+    val subtitle = _subtitle.asStateFlow()
 
     fun setToken(token: String) {
         this.token = token
     }
 
-    fun getUser() {
+    fun setSubtitle(subtitle: String) {
         viewModelScope.launch {
-            apiRepository.getAuthorizedUser().collectLatest { resource ->
-                when (resource) {
-                    is Resource.Loading -> {}
-                    is Resource.Error -> {}
-                    is Resource.Success -> {}
-                }
-            }
+            _subtitle.emit(subtitle)
         }
     }
 }

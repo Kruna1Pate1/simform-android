@@ -265,4 +265,6 @@
     <string name="create_issue">Create Issue</string>
     <string name="title">Title</string>
     <string name="hint_comment_optional">Leave a comment (optional)</string>
+    <string name="logout">Logout</string>
+    <string name="confirm_logout">Are you sure to logout?</string>
 </resources>

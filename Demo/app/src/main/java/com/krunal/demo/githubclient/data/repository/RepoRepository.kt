@@ -1,39 +1,25 @@
 package com.krunal.demo.githubclient.data.repository
 
-import com.google.gson.Gson
 import com.krunal.demo.githubclient.data.local.RepoCard
 import com.krunal.demo.githubclient.data.remote.api.RepoService
-import com.krunal.demo.githubclient.data.remote.model.response.ApiErrorResponse
+import com.krunal.demo.githubclient.ui.base.BaseRepository
 import com.krunal.demo.webservices.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class RepoRepository(private val repoService: RepoService) {
+class RepoRepository(private val repoService: RepoService) : BaseRepository() {
 
-    fun getAuthorizedUserRepos() = flow<Resource<List<RepoCard>>> {
+    suspend fun getAuthorizedUserRepos() = flow<Resource<List<RepoCard>>> {
         emit(Resource.Loading())
         repoService.getAuthorizedUserRepos().let { response ->
-            try {
-                if (response.isSuccessful) {
-                    val repoList = response.body()?.map {
-                        RepoCard(it.owner.avatarUrl, it.owner.username, it.name)
-                    }
-                    emit(Resource.Success(repoList))
-                } else {
-                    if (response.code() in 400..499) {
-                        response.errorBody().let {
-                            val errorResponse = Gson().fromJson(
-                                response.errorBody()?.string(), ApiErrorResponse::class.java
-                            )
-                            emit(Resource.Error(errorResponse.message))
-                        }
-                    } else {
-                        emit(Resource.Error(response.message()))
-                    }
-                }
-            } catch (e: Exception) {
-                emit(Resource.Error(e.message ?: "Can't fetch repositories."))
+            val resource = handleResponse(response)
+            val data =
+                resource.data?.map { RepoCard(it.owner.avatarUrl, it.owner.username, it.name, it.fullName) }
+            if (resource is Resource.Success) {
+                emit(Resource.Success(data))
+            } else if (resource is Resource.Error) {
+                emit(Resource.Error(resource.message ?: "Can't fetch repos", data))
             }
         }
     }.flowOn(Dispatchers.IO)

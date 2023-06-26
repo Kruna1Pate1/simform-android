@@ -5,14 +5,18 @@ import com.krunal.demo.githubclient.data.local.ProfileInfo
 import com.krunal.demo.githubclient.data.local.ProfileModel
 import com.krunal.demo.githubclient.data.local.UpdateProfileDetail
 import com.krunal.demo.githubclient.data.remote.api.UserService
+import com.krunal.demo.githubclient.data.remote.model.request.LogoutRequest
 import com.krunal.demo.githubclient.data.remote.model.request.UpdateProfileRequest
-import com.krunal.demo.githubclient.data.remote.model.response.ApiErrorResponse
+import com.krunal.demo.githubclient.data.remote.model.response.ApiError
+import com.krunal.demo.githubclient.ui.base.BaseRepository
+import com.krunal.demo.utils.AppConstants
 import com.krunal.demo.webservices.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import retrofit2.http.Body
 
-class UserRepository(private val userService: UserService) {
+class UserRepository(private val userService: UserService): BaseRepository() {
 
     fun getAuthorizedUser() = flow<Resource<ProfileModel>> {
         emit(Resource.Loading())
@@ -30,7 +34,7 @@ class UserRepository(private val userService: UserService) {
                     if (response.code() in 400..499) {
                         response.errorBody().let {
                             val errorResponse = Gson().fromJson(
-                                response.errorBody()?.string(), ApiErrorResponse::class.java
+                                response.errorBody()?.string(), ApiError::class.java
                             )
                             emit(Resource.Error(errorResponse.message))
                         }
@@ -39,7 +43,7 @@ class UserRepository(private val userService: UserService) {
                     }
                 }
             } catch (e: Exception) {
-                emit(Resource.Error(e.message ?: "Can't fetch user."))
+                emit(Resource.Error(e.message ?: "Something wants wrong."))
             }
         }
     }.flowOn(Dispatchers.IO)
@@ -57,7 +61,7 @@ class UserRepository(private val userService: UserService) {
                     if (response.code() in 400..499) {
                         response.errorBody().let {
                             val errorResponse = Gson().fromJson(
-                                response.errorBody()?.string(), ApiErrorResponse::class.java
+                                response.errorBody()?.string(), ApiError::class.java
                             )
                             emit(Resource.Error(errorResponse.message))
                         }
@@ -90,7 +94,7 @@ class UserRepository(private val userService: UserService) {
                     if (response.code() in 400..499) {
                         response.errorBody().let {
                             val errorResponse = Gson().fromJson(
-                                response.errorBody()?.string(), ApiErrorResponse::class.java
+                                response.errorBody()?.string(), ApiError::class.java
                             )
                             emit(Resource.Error(errorResponse.message))
                         }
@@ -103,4 +107,12 @@ class UserRepository(private val userService: UserService) {
             }
         }
     }.flowOn(Dispatchers.IO)
+
+    fun logout(clientId: String, body: LogoutRequest) = flow<Resource<Unit>> {
+        emit(Resource.Loading())
+        userService.logout(clientId, body).let { response ->
+            val resource = handleResponse(response)
+            emit(resource)
+        }
+    }
 }

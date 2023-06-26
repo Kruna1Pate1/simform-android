@@ -3,6 +3,9 @@ package com.krunal.demo.githubclient.ui.activity
 import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -14,6 +17,7 @@ import com.krunal.demo.githubclient.ui.viewmodel.GitHubClientViewModel
 import com.krunal.demo.helpers.PreferenceHelper
 import com.krunal.demo.utils.PreferenceKeys
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -33,22 +37,28 @@ class GitHubClientActivity : BaseActivity<ActivityGithubClientBinding, GitHubCli
         super.initialize()
         checkAuthorizationStatus()
         setupUI()
-        viewModel.getUser()
     }
 
     override fun initializeObservers() {
         super.initializeObservers()
         lifecycleScope.launch {
-//            viewModel.user
+            viewModel.subtitle.collectLatest { subtitle ->
+                binding.toolbar.subtitle = subtitle
+            }
         }
     }
 
-    fun updateTitle(title: String) {
-        binding.toolbar.title = title
-    }
-
-    fun updateSubtitle(subtitle: String?) {
-        binding.toolbar.subtitle = subtitle
+    fun updateSubtitle(subtitle: String?, owner: LifecycleOwner) {
+        val lifecycle = owner.lifecycle
+        lifecycle.addObserver(object : LifecycleEventObserver {
+            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                if (event == Lifecycle.Event.upTo(Lifecycle.State.RESUMED)) {
+                    binding.toolbar.subtitle = subtitle
+                } else {
+                    binding.toolbar.subtitle = ""
+                }
+            }
+        })
     }
 
     private fun setupUI() {
