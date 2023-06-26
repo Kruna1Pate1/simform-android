@@ -1,35 +1,25 @@
 package com.krunal.demo.githubclient.data.repository
 
 import com.google.gson.Gson
-import com.krunal.demo.R
-import com.krunal.demo.githubclient.data.local.NotificationItem
-import com.krunal.demo.githubclient.data.remote.api.NotificationService
+import com.krunal.demo.githubclient.data.local.RepoCard
+import com.krunal.demo.githubclient.data.remote.api.RepoService
 import com.krunal.demo.githubclient.data.remote.model.response.ApiErrorResponse
 import com.krunal.demo.webservices.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class NotificationRepository(private val notificationService: NotificationService) {
+class RepoRepository(private val repoService: RepoService) {
 
-    fun getNotifications() = flow<Resource<List<NotificationItem>>> {
+    fun getAuthorizedUserRepos() = flow<Resource<List<RepoCard>>> {
         emit(Resource.Loading())
-        notificationService.getNotifications().let { response ->
+        repoService.getAuthorizedUserRepos().let { response ->
             try {
                 if (response.isSuccessful) {
-                    response.body()?.let { list ->
-                        val notificationItems = list.map {
-                            NotificationItem(
-                                R.drawable.ic_git_pull_request_closed,
-                                it.repository.fullName,
-                                it.subject.url.split("/").last().toInt(),
-                                it.subject.title,
-                                it.unread
-                            )
-                        }
-                        emit(Resource.Success(notificationItems))
+                    val repoList = response.body()?.map {
+                        RepoCard(it.owner.avatarUrl, it.owner.username, it.name)
                     }
-
+                    emit(Resource.Success(repoList))
                 } else {
                     if (response.code() in 400..499) {
                         response.errorBody().let {
@@ -43,7 +33,7 @@ class NotificationRepository(private val notificationService: NotificationServic
                     }
                 }
             } catch (e: Exception) {
-                emit(Resource.Error(e.message ?: "Can't fetch notifications."))
+                emit(Resource.Error(e.message ?: "Can't fetch repositories."))
             }
         }
     }.flowOn(Dispatchers.IO)

@@ -1,9 +1,13 @@
 package com.krunal.demo.githubclient.ui.fragment
 
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentGithubHomeBinding
@@ -38,6 +42,17 @@ class GitHubHomeFragment : BaseFragment<FragmentGithubHomeBinding, GitHubHomeVie
                 }
             }
         }
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        super.onCreateMenu(menu, menuInflater)
+        menuInflater.inflate(R.menu.menu_toolbar_github_home, menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        val direction = GitHubHomeFragmentDirections.actionGitHubHomeFragmentToChooseRepositoryFragment()
+        findNavController().navigate(direction)
+        return true
     }
 
     private fun setupHome() {

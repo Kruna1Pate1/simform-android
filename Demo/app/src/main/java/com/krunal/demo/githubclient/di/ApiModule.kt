@@ -5,10 +5,12 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.krunal.demo.githubclient.data.remote.api.AuthorizationService
 import com.krunal.demo.githubclient.data.remote.api.NotificationService
+import com.krunal.demo.githubclient.data.remote.api.RepoService
 import com.krunal.demo.githubclient.data.remote.api.UserService
 import com.krunal.demo.githubclient.data.repository.AuthorizationRepository
 import com.krunal.demo.githubclient.data.repository.HomeRepository
 import com.krunal.demo.githubclient.data.repository.NotificationRepository
+import com.krunal.demo.githubclient.data.repository.RepoRepository
 import com.krunal.demo.githubclient.data.repository.UserRepository
 import com.krunal.demo.githubclient.util.GitHubAuthenticator
 import com.krunal.demo.githubclient.util.GitHubUrls
@@ -87,6 +89,11 @@ object ApiModule {
 
     @Provides
     @Singleton
+    fun providesRepoService(@Named(API_RETROFIT) retrofit: Retrofit): RepoService =
+        retrofit.create(RepoService::class.java)
+
+    @Provides
+    @Singleton
     fun providesAuthorizationRepository(authorizationService: AuthorizationService): AuthorizationRepository =
         AuthorizationRepository(authorizationService)
 
@@ -103,4 +110,9 @@ object ApiModule {
     @Singleton
     fun providesNotificationRepository(notificationService: NotificationService): NotificationRepository =
         NotificationRepository(notificationService)
+
+    @Provides
+    @Singleton
+    fun providesRepoRepository(repoService: RepoService): RepoRepository =
+        RepoRepository(repoService)
 }

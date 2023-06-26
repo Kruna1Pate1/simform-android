@@ -9,7 +9,11 @@
         android:id="@+id/gitHubHomeFragment"
         android:name="com.krunal.demo.githubclient.ui.fragment.GitHubHomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_github_home" />
+        tools:layout="@layout/fragment_github_home" >
+        <action
+            android:id="@+id/action_gitHubHomeFragment_to_chooseRepositoryFragment"
+            app:destination="@id/chooseRepositoryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/notificationFragment"
@@ -37,5 +41,24 @@
         android:id="@+id/updateProfileFragment"
         android:name="com.krunal.demo.githubclient.ui.fragment.UpdateProfileFragment"
         tools:layout="@layout/fragment_update_profile"
-        android:label="UpdateProfileFragment" />
+        android:label="Update Profile" />
+
+    <fragment
+        tools:layout="@layout/fragment_choose_repository"
+        android:id="@+id/chooseRepositoryFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.ChooseRepositoryFragment"
+        android:label="Choose Repository" >
+        <action
+            android:id="@+id/action_chooseRepositoryFragment_to_createIssueFragment"
+            app:destination="@id/createIssueFragment" />
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_create_issue"
+        android:id="@+id/createIssueFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.CreateIssueFragment"
+        android:label="Create Issue">
+        <argument android:name="repositoryName"
+            app:argType="String"/>
+    </fragment>
 </navigation>

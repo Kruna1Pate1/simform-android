@@ -25,19 +25,12 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(), MenuProvider {
+class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>() {
 
     private lateinit var profileAdapter: ProfileAdapter
     override val viewModel: ProfileViewModel by viewModels()
 
     override fun getLayoutResId(): Int = R.layout.fragment_profile
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
 
     override fun initialize() {
         super.initialize()

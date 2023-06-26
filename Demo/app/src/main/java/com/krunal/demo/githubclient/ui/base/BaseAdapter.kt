@@ -7,10 +7,12 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.krunal.demo.githubclient.listener.ItemClickListener
 
-abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseAdapter<T>.BaseViewHolder>() {
+abstract class BaseAdapter<T>() : RecyclerView.Adapter<BaseAdapter<T>.BaseViewHolder>() {
 
     internal val itemList = mutableListOf<T>()
+    open var itemClickListener: ItemClickListener<T>? = null
 
     @LayoutRes
     abstract fun getLayoutId(viewType: Int = 0): Int
@@ -43,6 +45,16 @@ abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseAdapter<T>.BaseViewHold
 
     open inner class BaseViewHolder(val binding: ViewDataBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                itemClickListener?.onClick(
+                    itemList[adapterPosition],
+                    adapterPosition
+                )
+            }
+        }
+
         fun bind(data: T) {
             setDataForListItemWithPosition(binding, data, adapterPosition)
         }

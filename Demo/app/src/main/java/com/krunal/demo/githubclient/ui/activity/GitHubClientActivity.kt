@@ -43,6 +43,14 @@ class GitHubClientActivity : BaseActivity<ActivityGithubClientBinding, GitHubCli
         }
     }
 
+    fun updateTitle(title: String) {
+        binding.toolbar.title = title
+    }
+
+    fun updateSubtitle(subtitle: String?) {
+        binding.toolbar.subtitle = subtitle
+    }
+
     private fun setupUI() {
         setSupportActionBar(binding.toolbar)
         (supportFragmentManager.findFragmentById(R.id.gitHubHostFragmentContainer) as? NavHostFragment)?.let {
