@@ -14,6 +14,7 @@ import com.krunal.demo.githubclient.data.repository.IssueRepository
 import com.krunal.demo.githubclient.data.repository.NotificationRepository
 import com.krunal.demo.githubclient.data.repository.RepoRepository
 import com.krunal.demo.githubclient.data.repository.UserRepository
+import com.krunal.demo.githubclient.util.APIInterceptor
 import com.krunal.demo.githubclient.util.GitHubAuthenticator
 import com.krunal.demo.githubclient.util.GitHubUrls
 import com.krunal.demo.helpers.PreferenceHelper
@@ -23,6 +24,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Authenticator
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -50,14 +52,12 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(authenticator: Authenticator): OkHttpClient =
-        OkHttpClient.Builder().authenticator(authenticator).addInterceptor {
-            val request = it.request().newBuilder().addHeader(
-                "Authorization",
-                "Bearer " + PreferenceHelper.getString(PreferenceKeys.AUTHORIZATION_TOKEN, "")
-            ).build()
-            it.proceed(request)
-        }.readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+    fun providesInterceptor(): Interceptor = APIInterceptor()
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(authenticator: Authenticator, interceptor: Interceptor): OkHttpClient =
+        OkHttpClient.Builder().authenticator(authenticator).addInterceptor(interceptor).readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS).build()
 
     @Provides

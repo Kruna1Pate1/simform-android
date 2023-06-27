@@ -34,7 +34,6 @@ class AuthorizationActivity : BaseActivity<ActivityAuthorizationBinding, Authori
 
     override fun initialize() {
         super.initialize()
-//        PreferenceHelper.clearPreferences()
         checkAuthorizationStatus()
         setClickListener()
         setTermAndPrivacyText()
@@ -53,7 +52,10 @@ class AuthorizationActivity : BaseActivity<ActivityAuthorizationBinding, Authori
             }
             launch {
                 viewModel.errorMessage.collectLatest { message ->
-                    Toast.makeText(this@AuthorizationActivity, message, Toast.LENGTH_SHORT).show()
+                    if (message.isNotEmpty()) {
+                        Toast.makeText(this@AuthorizationActivity, message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
             }
         }

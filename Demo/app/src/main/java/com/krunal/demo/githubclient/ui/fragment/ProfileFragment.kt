@@ -85,6 +85,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
             viewModel.logout {
                 val intent = Intent(requireContext(), AuthorizationActivity::class.java)
                 startActivity(intent)
+                requireActivity().finish()
             }
         }
         dialog.show(childFragmentManager, LogoutConfirmationDialog.TAG)

@@ -20,7 +20,6 @@ class ChooseRepositoryViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
 
-
     private val _repositories: MutableStateFlow<List<RepoCard>> =
         MutableStateFlow(
             emptyList()
