@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_gitHubHomeFragment_to_chooseRepositoryFragment"
             app:destination="@id/chooseRepositoryFragment" />
+        <action
+            android:id="@+id/action_gitHubHomeFragment_to_repositoriesFragment"
+            app:destination="@id/repositoriesFragment" />
     </fragment>
 
     <fragment
@@ -58,6 +61,25 @@
         android:id="@+id/createIssueFragment"
         android:name="com.krunal.demo.githubclient.ui.fragment.CreateIssueFragment"
         android:label="Create Issue">
+        <argument android:name="repositoryName"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_repositories"
+        android:id="@+id/repositoriesFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.RepositoriesFragment"
+        android:label="Repositories" >
+        <action
+            android:id="@+id/action_repositoriesFragment_to_repositoryDetailFragment"
+            app:destination="@id/repositoryDetailFragment" />
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_repository_detail"
+        android:id="@+id/repositoryDetailFragment"
+        android:name="com.krunal.demo.githubclient.ui.fragment.RepositoryDetailFragment"
+        android:label="Repository Detail">
         <argument android:name="repositoryName"
             app:argType="string"/>
     </fragment>

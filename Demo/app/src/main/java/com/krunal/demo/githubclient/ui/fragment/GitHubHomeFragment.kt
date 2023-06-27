@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentGithubHomeBinding
+import com.krunal.demo.githubclient.data.local.HomeItem
+import com.krunal.demo.githubclient.listener.ItemClickListener
 import com.krunal.demo.githubclient.ui.adapter.HomeAdapter
 import com.krunal.demo.githubclient.ui.adapter.ProfileAdapter
 import com.krunal.demo.githubclient.ui.base.BaseFragment
@@ -60,6 +62,16 @@ class GitHubHomeFragment : BaseFragment<FragmentGithubHomeBinding, GitHubHomeVie
         binding.rvHome.apply {
             adapter = homeAdapter
             addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+        }
+        homeAdapter.itemClickListener = object : ItemClickListener<HomeItem> {
+            override fun onClick(item: HomeItem, position: Int) {
+                if (item is HomeItem.WorkItem) {
+                    if (item.title == getString(R.string.repositories)) {
+                        val direction = GitHubHomeFragmentDirections.actionGitHubHomeFragmentToRepositoriesFragment()
+                        findNavController().navigate(direction)
+                    }
+                }
+            }
         }
     }
 }
