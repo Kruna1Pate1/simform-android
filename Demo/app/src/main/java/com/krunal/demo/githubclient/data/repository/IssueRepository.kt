@@ -31,4 +31,12 @@ class IssueRepository(private val issueService: IssueService) : BaseRepository()
             emit(resource)
         }
     }.flowOn(Dispatchers.IO)
+
+    suspend fun getIssue(repo: String, issueId: Int) = flow<Resource<IssueResponse>> {
+        emit(Resource.Loading())
+        issueService.getIssue(repo, issueId).let { response ->
+            val resource = handleResponse(response)
+            emit(resource)
+        }
+    }.flowOn(Dispatchers.IO)
 }

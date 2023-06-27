@@ -56,7 +56,6 @@
             tools:text="libre-tube / LibreTube #3934"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtTitle"
             android:layout_width="0dp"
@@ -68,6 +67,34 @@
             android:textSize="@dimen/sp_14"
             app:layout_constraintTop_toBottomOf="@id/txtHeading"
             app:layout_constraintStart_toEndOf="@id/imgIcon"
+            tools:text="Add own download manager"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="@dimen/dp_18"
+            app:imageUrl="@{ notificationItem.authorAvatar }"
+            android:layout_height="@dimen/dp_0"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Profile"
+            tools:srcCompat="@drawable/avatar_1_raster"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginStart="@dimen/dp_16"
+            app:layout_constraintStart_toEndOf="@id/imgIcon"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDescription"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:text="@{ notificationItem.description }"
+            android:textColor="?android:attr/textColorSecondary"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintTop_toTopOf="@id/imgAvatar"
+            app:layout_constraintStart_toEndOf="@id/imgAvatar"
             tools:text="Add own download manager"
             app:layout_constraintEnd_toEndOf="parent"/>
 

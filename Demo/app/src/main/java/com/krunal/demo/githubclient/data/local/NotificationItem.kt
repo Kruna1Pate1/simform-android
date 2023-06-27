@@ -11,7 +11,9 @@ data class NotificationItem(
     val repoName: String,
     val issueId: Int?,
     val title: String,
-    val isUnread: Boolean
+    val isUnread: Boolean,
+    var description: String? = null,
+    var authorAvatar: String? = null,
 ) {
 
     val heading: String

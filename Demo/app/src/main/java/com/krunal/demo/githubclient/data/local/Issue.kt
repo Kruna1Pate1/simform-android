@@ -6,8 +6,17 @@ import com.krunal.demo.BR
 
 data class IssueModel(
     private var _title: String,
+    private var _authorAvatar: String? = null,
     private var _body: String? = null,
 ) : BaseObservable() {
+
+    @get:Bindable
+    var authorAvatar: String? = _authorAvatar
+        set(value) {
+            _authorAvatar = value
+            field = value
+            notifyPropertyChanged(BR.authorAvatar)
+        }
 
     @get:Bindable
     var title: String = _title

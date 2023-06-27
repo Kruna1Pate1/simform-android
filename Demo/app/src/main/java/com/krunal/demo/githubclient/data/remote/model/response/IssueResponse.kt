@@ -34,7 +34,7 @@ data class Label(
     val color: String,
     val default: Boolean,
     val description: String,
-    val id: Int,
+    val id: String,
     val name: String,
     val nodeId: String,
     val url: String
