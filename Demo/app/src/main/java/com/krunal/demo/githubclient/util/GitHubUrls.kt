@@ -14,4 +14,7 @@ object GitHubUrls {
         BASE_AUTH_URL + "authorize?client_id=" + AppConstants.GITHUB_CLIENT_ID + "&state=" + AppConstants.GITHUB_CLIENT_STATE + "&scope=" + AppConstants.GITHUB_SCOPE
 
     const val BASE_API_URL = "https://api.github.com/"
+
+    const val IMAGE_URL = "https://api.imgbb.com/1/upload"
+    const val IMGBB_KEY = "c7ff9cb8aa396cf2bd53bb631e48db32"
 }

@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.krunal.demo.githubclient.data.local.IssueModel
 import com.krunal.demo.githubclient.data.remote.model.response.IssueResponse
+import com.krunal.demo.githubclient.data.repository.FileRepository
 import com.krunal.demo.githubclient.data.repository.IssueRepository
+import com.krunal.demo.webservices.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CreateIssueViewModel @Inject constructor(
-    private val issueRepository: IssueRepository
+    private val issueRepository: IssueRepository,
+    private val fileRepository: FileRepository
 ) : ViewModel() {
 
     private val _isLoading = MutableStateFlow(false)
@@ -34,6 +37,30 @@ class CreateIssueViewModel @Inject constructor(
         viewModelScope.launch {
             issueRepository.createIssue(repoName, issueModel.value).collectLatest { resource ->
 
+            }
+        }
+    }
+
+    fun addImage(image: ByteArray) {
+        viewModelScope.launch {
+            fileRepository.uploadImage("image.jpeg", image).collectLatest { resource ->
+                when (resource) {
+                    is Resource.Loading -> {
+                        _isLoading.emit(true)
+                    }
+
+                    is Resource.Success -> {
+                        _isLoading.emit(false)
+                        resource.data?.let { url ->
+                            val urlMarkdown = "[$url]($url)"
+                            _issueModel.value.apply { (body ?: "") + urlMarkdown }
+                        }
+                    }
+
+                    is Resource.Error -> {
+                        _isLoading.emit(false)
+                    }
+                }
             }
         }
     }

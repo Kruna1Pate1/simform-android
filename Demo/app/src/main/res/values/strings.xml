@@ -270,4 +270,5 @@
     <string name="releases">Releases</string>
     <string name="asset_title">%1$s • %2$s</string>
     <string name="cant_create_file">Can\'t create file</string>
+    <string name="add_image">Add Image</string>
 </resources>

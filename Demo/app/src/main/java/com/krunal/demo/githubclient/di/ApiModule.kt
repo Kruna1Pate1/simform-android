@@ -145,4 +145,9 @@ object ApiModule {
     @Singleton
     fun providesIssueRepository(issueService: IssueService): IssueRepository =
         IssueRepository(issueService)
+
+    @Provides
+    @Singleton
+    fun providesFileRepository(fileService: FileService): FileRepository =
+        FileRepository(fileService)
 }
