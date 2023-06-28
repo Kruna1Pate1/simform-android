@@ -3,7 +3,7 @@ package com.krunal.demo.githubclient.data.local
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import com.krunal.demo.R
-import com.krunal.demo.githubclient.data.remote.model.response.UserResponse
+import com.krunal.demo.githubclient.data.remote.model.response.RepositoryResponse
 import com.krunal.demo.helpers.ResourceHelper
 
 data class RepoCard(
@@ -19,7 +19,8 @@ data class RepoDetail(
     val website: String?,
     val starCount: Int,
     val watchCount: Int?,
-    val forkCount: Int?
+    val forkCount: Int?,
+    val repoItems: List<RepoDetailItem> = emptyList()
 )
 
 data class RepoDetailItem(
@@ -29,7 +30,7 @@ data class RepoDetailItem(
     val count: Int? = null
 ) {
     companion object {
-        fun from(userResponse: UserResponse) = with(userResponse) {
+        fun from(repositoryResponse: RepositoryResponse) = with(repositoryResponse) {
             with(ResourceHelper.resources) {
                 listOf(
                     RepoDetailItem(

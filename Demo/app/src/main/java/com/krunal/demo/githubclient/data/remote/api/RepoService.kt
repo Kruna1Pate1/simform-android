@@ -16,4 +16,7 @@ interface RepoService {
 
     @PUT("repos/{repo}/contents/{path}")
     suspend fun createFile(@Path("repo", encoded = true) repo: String, @Path("path") filePath: String): Response<List<RepositoryResponse>>
+
+    @GET("repos/{repoName}")
+    suspend fun getRepo(@Path("repoName", encoded = true) repoName: String): Response<RepositoryResponse>
 }

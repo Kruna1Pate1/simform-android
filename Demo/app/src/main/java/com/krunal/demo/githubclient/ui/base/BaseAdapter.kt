@@ -7,6 +7,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.krunal.demo.databinding.ListItemRepoContainerBinding
 import com.krunal.demo.githubclient.listener.ItemClickListener
 
 abstract class BaseAdapter<T>() : RecyclerView.Adapter<BaseAdapter<T>.BaseViewHolder>() {

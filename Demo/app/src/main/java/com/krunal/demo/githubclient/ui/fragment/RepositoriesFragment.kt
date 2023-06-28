@@ -58,7 +58,7 @@ class RepositoriesFragment :
         }
         repoAdapter.itemClickListener = object : ItemClickListener<RepoCard> {
             override fun onClick(item: RepoCard, position: Int) {
-                val direction = ChooseRepositoryFragmentDirections.actionChooseRepositoryFragmentToCreateIssueFragment(item.repoFullName)
+                val direction = RepositoriesFragmentDirections.actionRepositoriesFragmentToRepositoryDetailFragment(item.repoFullName)
                 findNavController().navigate(direction)
             }
         }

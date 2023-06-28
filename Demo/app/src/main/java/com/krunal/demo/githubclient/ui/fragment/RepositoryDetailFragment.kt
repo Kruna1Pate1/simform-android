@@ -7,13 +7,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import com.krunal.demo.R
 import com.krunal.demo.databinding.FragmentRepositoryDetailBinding
-import com.krunal.demo.githubclient.data.local.RepoCard
-import com.krunal.demo.githubclient.data.local.RepoDetailItem
-import com.krunal.demo.githubclient.listener.ItemClickListener
-import com.krunal.demo.githubclient.ui.adapter.RepoAdapter
 import com.krunal.demo.githubclient.ui.adapter.RepoDetailAdapter
 import com.krunal.demo.githubclient.ui.base.BaseFragment
-import com.krunal.demo.githubclient.ui.viewmodel.RepositoriesViewModel
 import com.krunal.demo.githubclient.ui.viewmodel.RepositoryDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -27,25 +22,29 @@ class RepositoryDetailFragment :
     private val args: RepositoryDetailFragmentArgs by navArgs()
     override val viewModel: RepositoryDetailViewModel by viewModels()
 
-    override fun getLayoutResId(): Int = R.layout.fragment_repositories
+    override fun getLayoutResId(): Int = R.layout.fragment_repository_detail
 
     override fun initialize() {
         super.initialize()
-        setupRepositories()
+        setupRepository()
         viewModel.getRepository(args.repositoryName)
     }
 
-    private fun setupRepositories() {
-        repoDetailAdapter = RepoDetailAdapter()
-        binding.rvRepository.apply {
-            adapter = repoDetailAdapter
-        }
-        repoDetailAdapter.itemClickListener = object : ItemClickListener<RepoDetailItem> {
-            override fun onClick(item: RepoDetailItem, position: Int) {
-                if (item.title == getString(R.string.releases)) {
-                    // TODO: viewModel.getReleases()
+    override fun initializeObservers() {
+        super.initializeObservers()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.repository.collectLatest { detail ->
+                    detail?.repoItems?.let { list ->
+                        repoDetailAdapter.submitList(list)
+                    }
                 }
             }
         }
+    }
+
+    private fun setupRepository() {
+        repoDetailAdapter = RepoDetailAdapter()
+        binding.rvRepository.adapter = repoDetailAdapter
     }
 }
