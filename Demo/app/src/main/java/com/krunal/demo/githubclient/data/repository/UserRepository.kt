@@ -21,29 +21,17 @@ class UserRepository(private val userService: UserService): BaseRepository() {
     fun getAuthorizedUser() = flow<Resource<ProfileModel>> {
         emit(Resource.Loading())
         userService.getAuthorizedUser().let { response ->
-            try {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        val infos: MutableList<ProfileInfo> =
-                            ProfileInfo.ProfileItem.from(it).toMutableList()
-                        infos.add(0, ProfileInfo.ProfileCard.from(it))
-                        emit(Resource.Success(ProfileModel(infos)))
-                    }
-
-                } else {
-                    if (response.code() in 400..499) {
-                        response.errorBody().let {
-                            val errorResponse = Gson().fromJson(
-                                response.errorBody()?.string(), ApiError::class.java
-                            )
-                            emit(Resource.Error(errorResponse.message))
-                        }
-                    } else {
-                        emit(Resource.Error(response.message()))
-                    }
-                }
-            } catch (e: Exception) {
-                emit(Resource.Error(e.message ?: "Something wants wrong."))
+            val resource = handleResponse(response)
+            val data = resource.data?.let {
+                val infos: MutableList<ProfileInfo> =
+                    ProfileInfo.ProfileItem.from(it).toMutableList()
+                infos.add(0, ProfileInfo.ProfileCard.from(it))
+                ProfileModel(infos)
+            }
+            if (resource is Resource.Success) {
+                emit(Resource.Success(data))
+            } else if (resource is Resource.Error) {
+                emit(Resource.Error(resource.message ?: "Can't get profile details", data))
             }
         }
     }.flowOn(Dispatchers.IO)
@@ -51,26 +39,12 @@ class UserRepository(private val userService: UserService): BaseRepository() {
     fun getUserUpdateDetail() = flow<Resource<UpdateProfileDetail>> {
         emit(Resource.Loading())
         userService.getAuthorizedUser().let { response ->
-            try {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        emit(Resource.Success(UpdateProfileDetail.from(it)))
-                    }
-
-                } else {
-                    if (response.code() in 400..499) {
-                        response.errorBody().let {
-                            val errorResponse = Gson().fromJson(
-                                response.errorBody()?.string(), ApiError::class.java
-                            )
-                            emit(Resource.Error(errorResponse.message))
-                        }
-                    } else {
-                        emit(Resource.Error(response.message()))
-                    }
-                }
-            } catch (e: Exception) {
-                emit(Resource.Error(e.message ?: "Can't fetch user."))
+            val resource = handleResponse(response)
+            val data = resource.data?.let { UpdateProfileDetail.from(it) }
+            if (resource is Resource.Success) {
+                emit(Resource.Success(data))
+            } else if (resource is Resource.Error) {
+                emit(Resource.Error(resource.message ?: "Can't get profile details", data))
             }
         }
     }.flowOn(Dispatchers.IO)
@@ -84,26 +58,12 @@ class UserRepository(private val userService: UserService): BaseRepository() {
         }
 
         userService.updateUser(updateProfileRequest).let { response ->
-            try {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        emit(Resource.Success(UpdateProfileDetail.from(it)))
-                    }
-
-                } else {
-                    if (response.code() in 400..499) {
-                        response.errorBody().let {
-                            val errorResponse = Gson().fromJson(
-                                response.errorBody()?.string(), ApiError::class.java
-                            )
-                            emit(Resource.Error(errorResponse.message))
-                        }
-                    } else {
-                        emit(Resource.Error(response.message()))
-                    }
-                }
-            } catch (e: Exception) {
-                emit(Resource.Error(e.message ?: "Can't update user."))
+            val resource = handleResponse(response)
+            val data = resource.data?.let { UpdateProfileDetail.from(it) }
+            if (resource is Resource.Success) {
+                emit(Resource.Success(data))
+            } else if (resource is Resource.Error) {
+                emit(Resource.Error(resource.message ?: "Can't get profile updates", data))
             }
         }
     }.flowOn(Dispatchers.IO)

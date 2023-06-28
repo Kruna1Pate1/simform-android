@@ -96,7 +96,7 @@ sealed interface ProfileInfo {
                 with(ResourceHelper.resources) {
                 listOf(
                     ProfileItem(
-                        R.drawable.ic_git_pull_request,
+                        R.drawable.ic_repo_24,
                         getColor(R.color.github_pull, null),
                         getString(R.string.repositories),
                         publicRepos
@@ -106,11 +106,11 @@ sealed interface ProfileInfo {
                         getString(R.string.gists),
                         publicGists
                     ), ProfileItem(
-                        R.drawable.ic_git_pull_request,
+                        R.drawable.ic_organization_24,
                         getColor(R.color.github_organization, null),
                         getString(R.string.organizations)
                     ), ProfileItem(
-                        R.drawable.ic_git_pull_request,
+                        R.drawable.ic_star_24,
                         getColor(R.color.github_starred, null),
                         getString(R.string.starred)
                     )
