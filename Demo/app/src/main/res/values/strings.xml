@@ -268,4 +268,6 @@
     <string name="logout">Logout</string>
     <string name="confirm_logout">Are you sure to logout?</string>
     <string name="releases">Releases</string>
+    <string name="asset_title">%1$s • %2$s</string>
+    <string name="cant_create_file">Can\'t create file</string>
 </resources>

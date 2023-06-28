@@ -4,11 +4,13 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.krunal.demo.githubclient.data.remote.api.AuthorizationService
+import com.krunal.demo.githubclient.data.remote.api.FileService
 import com.krunal.demo.githubclient.data.remote.api.IssueService
 import com.krunal.demo.githubclient.data.remote.api.NotificationService
 import com.krunal.demo.githubclient.data.remote.api.RepoService
 import com.krunal.demo.githubclient.data.remote.api.UserService
 import com.krunal.demo.githubclient.data.repository.AuthorizationRepository
+import com.krunal.demo.githubclient.data.repository.FileRepository
 import com.krunal.demo.githubclient.data.repository.HomeRepository
 import com.krunal.demo.githubclient.data.repository.IssueRepository
 import com.krunal.demo.githubclient.data.repository.NotificationRepository
@@ -18,7 +20,6 @@ import com.krunal.demo.githubclient.util.APIInterceptor
 import com.krunal.demo.githubclient.util.GitHubAuthenticator
 import com.krunal.demo.githubclient.util.GitHubUrls
 import com.krunal.demo.helpers.PreferenceHelper
-import com.krunal.demo.utils.PreferenceKeys
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,6 +39,7 @@ object ApiModule {
 
     private const val AUTH_RETROFIT = "AUTH_RETROFIT"
     private const val API_RETROFIT = "API_RETROFIT"
+    private const val COMMON_RETROFIT = "COMMON_RETROFIT"
     private const val NETWORK_TIMEOUT: Long = 60 // Second
 
     @Provides
@@ -48,7 +50,9 @@ object ApiModule {
     @Provides
     @Singleton
     fun providesGson(): Gson =
-        GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+        GsonBuilder()
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
 
     @Provides
     @Singleton
@@ -57,7 +61,8 @@ object ApiModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(authenticator: Authenticator, interceptor: Interceptor): OkHttpClient =
-        OkHttpClient.Builder().authenticator(authenticator).addInterceptor(interceptor).readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+        OkHttpClient.Builder().authenticator(authenticator).addInterceptor(interceptor)
+            .readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS).build()
 
     @Provides
@@ -72,6 +77,14 @@ object ApiModule {
     @Named(API_RETROFIT)
     fun providesApiRetrofit(gson: Gson, client: OkHttpClient): Retrofit =
         Retrofit.Builder().baseUrl(GitHubUrls.BASE_API_URL).client(client)
+            .addConverterFactory(GsonConverterFactory.create(gson)).build()
+
+    @Provides
+    @Singleton
+    @Named(COMMON_RETROFIT)
+    fun providesCommonRetrofit(gson: Gson, client: OkHttpClient): Retrofit =
+        Retrofit.Builder().client(client)
+            .baseUrl(GitHubUrls.BASE_AUTH_URL)
             .addConverterFactory(GsonConverterFactory.create(gson)).build()
 
     @Provides
@@ -101,6 +114,11 @@ object ApiModule {
 
     @Provides
     @Singleton
+    fun providesFileService(@Named(COMMON_RETROFIT) retrofit: Retrofit): FileService =
+        retrofit.create(FileService::class.java)
+
+    @Provides
+    @Singleton
     fun providesAuthorizationRepository(authorizationService: AuthorizationService): AuthorizationRepository =
         AuthorizationRepository(authorizationService)
 
@@ -120,8 +138,8 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun providesRepoRepository(repoService: RepoService): RepoRepository =
-        RepoRepository(repoService)
+    fun providesRepoRepository(repoService: RepoService, fileService: FileService): RepoRepository =
+        RepoRepository(repoService, fileService)
 
     @Provides
     @Singleton

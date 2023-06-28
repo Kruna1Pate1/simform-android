@@ -28,7 +28,7 @@ class RepositoriesViewModel @Inject constructor(
 
     fun getRepositories() {
         viewModelScope.launch {
-            repoRepository.getAuthorizedUserRepos().collect { resource ->
+            repoRepository.getRepos("libre-tube").collect { resource ->
                 when (resource) {
                     is Resource.Loading -> {
                         _isLoading.emit(true)
