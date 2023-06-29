@@ -271,4 +271,6 @@
     <string name="asset_title">%1$s • %2$s</string>
     <string name="cant_create_file">Can\'t create file</string>
     <string name="add_image">Add Image</string>
+    <string name="location_permission">Location Permission</string>
+    <string name="permission_status">Permission status: %1$s</string>
 </resources>

@@ -6,6 +6,7 @@ import com.krunal.demo.githubclient.ui.activity.AuthorizationActivity
 import com.krunal.demo.githubclient.ui.activity.GitHubClientActivity
 import com.krunal.demo.mainnavigation.data.models.ComponentDetail
 import com.krunal.demo.navigation.ui.activities.TriviaGameActivity
+import com.krunal.demo.permissionmodel.PermissionActivity
 import com.krunal.demo.recyclerview.ChattingFragment
 import com.krunal.demo.recyclerview.YoutubeFragment
 import com.krunal.demo.searchwebview.ui.activities.SearchWebActivity
@@ -44,6 +45,9 @@ object ComponentDetailRepository {
 
     private val componentDetails: List<ComponentDetail> by lazy {
         listOf(
+            ComponentDetail.ActivityComponent(
+                "GitHub Authorization", GitHubClientActivity::class.java
+            ),
             ComponentDetail.FragmentComponent(
                 "Change Theme", ThemeFragment::class.java
             ), ComponentDetail.NavigatorComponent(
@@ -67,7 +71,7 @@ object ComponentDetailRepository {
             ), ComponentDetail.FragmentComponent(
                 "Register User", UserDetailFragment::class.java
             ), ComponentDetail.ActivityComponent(
-                "GitHub Authorization", GitHubClientActivity::class.java
+                "Permission Model", PermissionActivity::class.java
             )
         )
     }

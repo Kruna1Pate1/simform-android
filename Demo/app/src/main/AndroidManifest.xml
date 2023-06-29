@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -113,6 +115,10 @@
                     android:scheme="krunal" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.krunal.demo.permissionmodel.PermissionActivity"
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
