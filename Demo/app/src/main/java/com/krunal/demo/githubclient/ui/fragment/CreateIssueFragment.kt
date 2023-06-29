@@ -1,12 +1,10 @@
 package com.krunal.demo.githubclient.ui.fragment
 
-import android.net.Uri
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.net.toFile
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -18,11 +16,8 @@ import com.krunal.demo.databinding.FragmentCreateIssueBinding
 import com.krunal.demo.githubclient.ui.base.BaseFragment
 import com.krunal.demo.githubclient.ui.viewmodel.CreateIssueViewModel
 import com.krunal.demo.githubclient.ui.viewmodel.GitHubClientViewModel
-import com.krunal.demo.githubclient.util.getPathFromUri
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import java.io.File
 
 @AndroidEntryPoint
 class CreateIssueFragment : BaseFragment<FragmentCreateIssueBinding, CreateIssueViewModel>() {
@@ -60,9 +55,10 @@ class CreateIssueFragment : BaseFragment<FragmentCreateIssueBinding, CreateIssue
     private fun registerActivityResultLauncher(): ActivityResultLauncher<String> {
         return registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri?.let {
-                val bytes = requireContext().contentResolver.openInputStream(uri).use { inputStream ->
-                    inputStream?.readBytes()
-                }
+                val bytes =
+                    requireContext().contentResolver.openInputStream(uri).use { inputStream ->
+                        inputStream?.readBytes()
+                    }
                 bytes?.let { viewModel.addImage(bytes) }
             }
         }

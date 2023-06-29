@@ -3,6 +3,7 @@ package com.krunal.demo.githubclient.data.repository
 import com.krunal.demo.githubclient.data.local.DownloadState
 import com.krunal.demo.githubclient.data.remote.api.FileService
 import com.krunal.demo.githubclient.extentions.saveFile
+import com.krunal.demo.githubclient.extentions.toProgressRequestBody
 import com.krunal.demo.githubclient.ui.base.BaseRepository
 import com.krunal.demo.githubclient.util.GitHubUrls
 import com.krunal.demo.webservices.utils.Resource
@@ -21,8 +22,8 @@ class FileRepository(private val fileService: FileService) : BaseRepository() {
     suspend fun downloadFile(fileUrl: String, destination: File): Flow<DownloadState> =
         fileService.downloadFile(fileUrl).saveFile(destination)
 
-    suspend fun uploadImage(fileName: String, image: ByteArray) = flow<Resource<String>> {
-        val requestBody = image.toRequestBody("image/*".toMediaTypeOrNull())
+    suspend fun uploadImage(fileName: String, image: ByteArray, onProgress: (Int) -> Unit) = flow<Resource<String>> {
+        val requestBody = image.toProgressRequestBody("image/*".toMediaTypeOrNull(), 1024, onProgress)
         val image = MultipartBody.Part.createFormData("image", fileName, requestBody)
 
         fileService.uploadImageFile(GitHubUrls.IMAGE_URL, GitHubUrls.IMGBB_KEY, image)

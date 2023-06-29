@@ -99,8 +99,10 @@ class RetryCallAdapterFactory private constructor() : CallAdapter.Factory() {
     }
 
     companion object {
-        fun create(): RetryCallAdapterFactory = RetryCallAdapterFactory()
+
         private const val TAG = "RetryCallAdapterFactory"
+
+        fun create(): RetryCallAdapterFactory = RetryCallAdapterFactory()
     }
 }
 

@@ -28,4 +28,5 @@ object AppConstants {
     const val GITHUB_CLIENT_STATE = "aBcEwXyZ"
     const val GITHUB_SCOPE =
         "repo%20repo_deployment%20security_events%20admin:repo_hook%20write:repo_hook%20admin:public_key%20write:public_key%20read:public_key%20gist%20notifications%20user%20project%20delete_repo%20write:package%20read:package%20delete:package%20workflow"
+    const val ACTION_GITHUB_LOGOUT = "com.krunal.demo.ACTION_LOGOUT"
 }

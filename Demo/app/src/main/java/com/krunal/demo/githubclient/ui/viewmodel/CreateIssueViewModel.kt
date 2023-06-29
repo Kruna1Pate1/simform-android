@@ -16,8 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CreateIssueViewModel @Inject constructor(
-    private val issueRepository: IssueRepository,
-    private val fileRepository: FileRepository
+    private val issueRepository: IssueRepository, private val fileRepository: FileRepository
 ) : ViewModel() {
 
     private val _isLoading = MutableStateFlow(false)
@@ -28,6 +27,9 @@ class CreateIssueViewModel @Inject constructor(
 
     private val _issueModel = MutableStateFlow(IssueModel(""))
     val issueModel = _issueModel.asStateFlow()
+
+    private val _imageProgress = MutableStateFlow(0)
+    val imageProgress = _imageProgress.asStateFlow()
 
     var repoName: String = ""
 
@@ -43,7 +45,13 @@ class CreateIssueViewModel @Inject constructor(
 
     fun addImage(image: ByteArray) {
         viewModelScope.launch {
-            fileRepository.uploadImage("image.jpeg", image).collectLatest { resource ->
+            val response = fileRepository.uploadImage("image.jpeg", image) { progress ->
+                launch {
+                    _imageProgress.emit(progress)
+                }
+            }
+
+            response.collectLatest { resource ->
                 when (resource) {
                     is Resource.Loading -> {
                         _isLoading.emit(true)
@@ -53,7 +61,7 @@ class CreateIssueViewModel @Inject constructor(
                         _isLoading.emit(false)
                         resource.data?.let { url ->
                             val urlMarkdown = "[$url]($url)"
-                            _issueModel.value.apply { (body ?: "") + urlMarkdown }
+                            _issueModel.value.body = (_issueModel.value.body ?: "") + urlMarkdown
                         }
                     }
 

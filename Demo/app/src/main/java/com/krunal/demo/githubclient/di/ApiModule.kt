@@ -1,5 +1,6 @@
 package com.krunal.demo.githubclient.di
 
+import android.content.Context
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -23,6 +24,7 @@ import com.krunal.demo.helpers.PreferenceHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Authenticator
 import okhttp3.Interceptor
@@ -49,14 +51,13 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun providesGson(): Gson =
-        GsonBuilder()
-            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+    fun providesGson(): Gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
 
     @Provides
     @Singleton
-    fun providesInterceptor(): Interceptor = APIInterceptor()
+    fun providesInterceptor(@ApplicationContext context: Context): Interceptor =
+        APIInterceptor(context)
 
     @Provides
     @Singleton
@@ -83,8 +84,7 @@ object ApiModule {
     @Singleton
     @Named(COMMON_RETROFIT)
     fun providesCommonRetrofit(gson: Gson, client: OkHttpClient): Retrofit =
-        Retrofit.Builder().client(client)
-            .baseUrl(GitHubUrls.BASE_AUTH_URL)
+        Retrofit.Builder().client(client).baseUrl(GitHubUrls.BASE_AUTH_URL)
             .addConverterFactory(GsonConverterFactory.create(gson)).build()
 
     @Provides

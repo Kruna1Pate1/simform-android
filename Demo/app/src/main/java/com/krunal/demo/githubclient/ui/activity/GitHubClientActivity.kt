@@ -15,6 +15,7 @@ import com.krunal.demo.databinding.ActivityGithubClientBinding
 import com.krunal.demo.githubclient.ui.base.BaseActivity
 import com.krunal.demo.githubclient.ui.viewmodel.GitHubClientViewModel
 import com.krunal.demo.helpers.PreferenceHelper
+import com.krunal.demo.utils.AppConstants
 import com.krunal.demo.utils.PreferenceKeys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -90,5 +91,19 @@ class GitHubClientActivity : BaseActivity<ActivityGithubClientBinding, GitHubCli
                 viewModel.setToken(token)
             }
         }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (intent?.action == AppConstants.ACTION_GITHUB_LOGOUT) {
+            logout()
+        }
+    }
+
+    private fun logout() {
+        val intent = Intent(this, AuthorizationActivity::class.java)
+        PreferenceHelper.putString(PreferenceKeys.AUTHORIZATION_TOKEN, "")
+        startActivity(intent)
+        finish()
     }
 }

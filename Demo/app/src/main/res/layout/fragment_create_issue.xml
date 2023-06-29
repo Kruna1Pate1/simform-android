@@ -55,5 +55,16 @@
             android:text="@string/add_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:indeterminateOnly="false"
+            app:indicatorColor="?attr/colorAccent"
+            android:progress="@{ viewModel.imageProgress }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -94,6 +94,7 @@
 
         <activity
             android:name="com.krunal.demo.githubclient.ui.activity.GitHubClientActivity"
+            android:launchMode="singleTask"
             android:exported="false" />
 
         <activity
