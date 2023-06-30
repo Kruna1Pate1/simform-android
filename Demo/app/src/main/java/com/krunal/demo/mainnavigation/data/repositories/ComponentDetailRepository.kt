@@ -34,6 +34,7 @@ import com.krunal.demo.uicomponents.constraintLayouts.GuidelineBarrierFragment
 import com.krunal.demo.uicomponents.constraintLayouts.RelativeFragment
 import com.krunal.demo.uicomponents.picker.DatePickerFragment
 import com.krunal.demo.uicomponents.picker.TimePickerFragment
+import com.krunal.demo.webservices.withoutlibrary.ui.fragments.NewsListFragment
 
 object ComponentDetailRepository {
 
@@ -55,6 +56,8 @@ object ComponentDetailRepository {
                 "App Component", appComponents
             ), ComponentDetail.ActivityComponent(
                 "Search and Web view", SearchWebActivity::class.java
+            ), ComponentDetail.FragmentComponent(
+                "News List", NewsListFragment::class.java
             )
         )
     }

@@ -7,6 +7,7 @@ object IntentData {
      */
     const val MESSAGE = "message"
     const val AUTH_KEY = "auth_key"
+    const val WEB_URL = "web_url"
 
     /**
      * Actions
