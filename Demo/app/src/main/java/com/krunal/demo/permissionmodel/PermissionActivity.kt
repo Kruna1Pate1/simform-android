@@ -33,7 +33,10 @@ class PermissionActivity : AppCompatActivity() {
 
                 permissions.getOrDefault(
                     Manifest.permission.ACCESS_COARSE_LOCATION, false
-                ) -> "Coarse Location"
+                ) -> {
+                    validatePermission()
+                    "Coarse Location"
+                }
 
                 else -> "No permissions granted"
             }
@@ -47,20 +50,19 @@ class PermissionActivity : AppCompatActivity() {
     }
 
     private fun validatePermission() {
-        val permissions = buildList {
-            add(Manifest.permission.ACCESS_COARSE_LOCATION)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-            }
-        }
 
-        val granted =
-            permissions.all { checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED }
-        if (granted) {
-            binding.txtPermissionStatus.text =
-                getString(R.string.permission_status, "Permissions already granted")
+        if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                if (checkSelfPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+                    binding.txtPermissionStatus.text =
+                        getString(R.string.permission_status, "Permissions already granted")
+                } else {
+                    locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION))
+                }
+            }
         } else {
-            locationPermissionRequest.launch(permissions.toTypedArray())
+            locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION))
         }
     }
 }
