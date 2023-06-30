@@ -14,6 +14,8 @@ import androidx.core.graphics.ColorUtils
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.krunal.demo.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.net.HttpURLConnection
@@ -72,11 +74,17 @@ fun View.setGradientBackground(gradientStartColor: Int?, gradientEndColor: Int?,
 fun ImageView.bindImage(url: String?) {
     if (url == null) return
 
-    findViewTreeLifecycleOwner()?.lifecycleScope?.launch(Dispatchers.IO) {
-        runCatching {
-            val urlConnection = URL(url).openConnection() as HttpURLConnection
-            val bitmap = BitmapFactory.decodeStream(urlConnection.inputStream)
-            setImageBitmap(ThumbnailUtils.extractThumbnail(bitmap, 200, 200))
-        }
-    }
+    Glide.with(this)
+        .load(url)
+        .placeholder(R.drawable.android_dev)
+        .into(this)
+
+    // Image corrupts fragment view
+//    findViewTreeLifecycleOwner()?.lifecycleScope?.launch(Dispatchers.IO) {
+//        runCatching {
+//            val urlConnection = URL(url).openConnection() as HttpURLConnection
+//            val bitmap = BitmapFactory.decodeStream(urlConnection.inputStream)
+//            setImageBitmap(ThumbnailUtils.extractThumbnail(bitmap, 200, 200))
+//        }
+//    }
 }

@@ -314,4 +314,30 @@
 <!--        Divider style-->
         <item name="dividerStyle">@style/DividerStyle</item>
     </style>
+
+<!--    GitHub Client Theme-->
+    <style name="GitHubAbstractTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="android:colorBackground">@color/github_backgroundPrimary</item>
+        <item name="android:textColorPrimary">@color/github_textPrimary</item>
+        <item name="android:textColorSecondary">@color/github_textSecondary</item>
+        <item name="android:textColor">@color/github_textPrimary</item>
+        <item name="android:textColorLink">@color/github_colorAccent</item>
+        <item name="android:actionMenuTextColor">@color/github_colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="colorAccent">@color/github_colorAccent</item>
+        <item name="colorPrimary">@color/github_toolbarBackground</item>
+        <item name="colorPrimaryDark">@color/github_toolbarBackground</item>
+        <item name="searchViewStyle">@style/GitHubSearchView</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:statusBarColor">@color/github_toolbarBackground</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="GitHubTheme" parent="@style/GitHubAbstractTheme">
+        <item name="android:statusBarColor">@color/github_toolbarBackground</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 </resources>

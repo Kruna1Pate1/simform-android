@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="github_backgroundPrimary">#050505</color>
+    <color name="github_toolbarBackground">#17181c</color>
+    <color name="github_textPrimary">#ffffff</color>
+    <color name="github_textSecondary">#bfc1c9</color>
+    <color name="github_textTertiary">#a9abb6</color>
+    <color name="github_textInverted">#050505</color>
+    <color name="github_codeBackground">#242528</color>
+    <color name="github_textPlaceholder">#809194a1</color>
+    <color name="github_buttonInverted">#eff0f5</color>
+</resources>

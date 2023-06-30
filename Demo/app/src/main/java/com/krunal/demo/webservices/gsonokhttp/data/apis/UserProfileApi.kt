@@ -28,7 +28,7 @@ object UserProfileApi {
 
         try {
             val response = client.newCall(request).execute()
-            Resource.Success("")
+            Resource.Success("") // TODO: Remove this 
 
             if (!response.isSuccessful) {
                 emit(Resource.Error(response.message))

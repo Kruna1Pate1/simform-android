@@ -55,7 +55,7 @@ class UserRegisterViewModel : ViewModel() {
                     dob = details.dob,
                     favoriteMovies = movies ?: emptyList()
                 )
-                UserRepository.updateUser(userDetail)
+                UserRepository.registerUser(userDetail)
             }
         }
     }

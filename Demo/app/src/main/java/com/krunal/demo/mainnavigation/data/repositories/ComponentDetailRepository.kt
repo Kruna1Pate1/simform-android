@@ -2,6 +2,8 @@ package com.krunal.demo.mainnavigation.data.repositories
 
 import com.krunal.demo.appcomponents.ui.activities.FirstActivity
 import com.krunal.demo.appcomponents.ui.activities.ImagePickerActivity
+import com.krunal.demo.githubclient.ui.activity.AuthorizationActivity
+import com.krunal.demo.githubclient.ui.activity.GitHubClientActivity
 import com.krunal.demo.mainnavigation.data.models.ComponentDetail
 import com.krunal.demo.navigation.ui.activities.TriviaGameActivity
 import com.krunal.demo.recyclerview.ChattingFragment
@@ -64,6 +66,8 @@ object ComponentDetailRepository {
                 "User List", UserListFragment::class.java
             ), ComponentDetail.FragmentComponent(
                 "Register User", UserDetailFragment::class.java
+            ), ComponentDetail.ActivityComponent(
+                "GitHub Authorization", GitHubClientActivity::class.java
             )
         )
     }

@@ -16,5 +16,17 @@ object AppConstants {
     /**
      * User
      */
-    const val MOCKAPI_BASE_URL = "https://6482a62bf2e76ae1b95b5f48.mockapi.io/v1"
+    const val MOCKAPI_BASE_URL = "https://6492c8f3428c3d2035d0ad4e.mockapi.io/v1"
+
+    /**
+     * GitHub Client
+     */
+    const val GITHUB_CLIENT_TAG = "GitHubClient"
+    const val GITHUB_CODE = "code"
+    const val GITHUB_CLIENT_ID = "594aeb36eda718a9a767"
+    const val GITHUB_CLIENT_SECRET = "b14ba2086f4686f86099116158de88fffa223be3"
+    const val GITHUB_CLIENT_STATE = "aBcEwXyZ"
+    const val GITHUB_SCOPE =
+        "repo%20repo_deployment%20security_events%20admin:repo_hook%20write:repo_hook%20admin:public_key%20write:public_key%20read:public_key%20gist%20notifications%20user%20project%20delete_repo%20write:package%20read:package%20delete:package%20workflow"
+    const val ACTION_GITHUB_LOGOUT = "com.krunal.demo.ACTION_LOGOUT"
 }
